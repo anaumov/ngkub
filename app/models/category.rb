@@ -4,4 +4,7 @@ class Category < ActiveRecord::Base
   validates :title, :slug, :presence => true
   validates :title, :length => { :minimum => 3 } 
 
+  has_many :commrents, :as => :imageable
+  has_many :publications
+
 end
