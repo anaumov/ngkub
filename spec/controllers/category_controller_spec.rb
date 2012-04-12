@@ -2,20 +2,20 @@ require 'spec_helper'
 
 describe CategoryController do
 
-  it "should redirect to category list" do
+  it " redirects to category list" do
     post :new, :category => {:title => "sports", :slug => "sport", :intro => "all about sport" }
-    response.should redirect_to('/category/1')
+    response.should redirect_to(category_path(1))
   end
 
-  it "should render 'new' template" do
+  it " renders 'new' template" do
     post :new, :category => {:title => "", :slug => "sport", :intro => "all about sport" }
-    Category.should render_template("new")
+    response.should render_template("new")
   end
 
-   it "should render 'show' template" do
+  it " renders 'show' template" do
     post :new, :category => {:title => "sports", :slug => "sport", :intro => "all about sport" }
     get :show, :id => 1
-    Category.should render_template("show")
+    response.should render_template("show")
   end
   
 
