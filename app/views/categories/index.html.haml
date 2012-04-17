@@ -1,0 +1,10 @@
+.alert.alert-error
+  = flash[:notice]
+
+- @cats.each do |cat|
+  %p
+    = cat.title
+    = link_to 'редактировать', edit_category_path(cat)
+    
+%p  
+  = link_to 'Добавить категорию', new_category_path
