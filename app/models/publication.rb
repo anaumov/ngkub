@@ -1,6 +1,6 @@
 class Publication < ActiveRecord::Base
 
-  attr_accessible :title, :body, :slug, :intro
+  attr_accessible :title, :body, :slug, :intro, :category, :category_id
   
   validates :title, :body, :presence => true
   validates :title, :length => { :minimum => 3 } 

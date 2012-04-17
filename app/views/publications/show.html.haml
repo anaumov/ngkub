@@ -1,0 +1,7 @@
+%h1 
+  = link_to @pub.title, publications_path 
+
+%p= @pub.slug
+%p= @pub.category.title 
+%p= @pub.intro 
+%p= @pub.body
