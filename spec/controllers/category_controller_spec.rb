@@ -1,20 +1,25 @@
 require 'spec_helper'
 
 describe CategoryController do
-
   before(:each) do
     Category.create(:title => "sports", :slug => "sport", :intro => "all about sport")
   end
 
-  it "redirects to category page" do
-    post :new, :category => {:title => "sports", :slug => "sport", :intro => "all about sport" }
-    response.should redirect_to(category_path(2))
+
+  describe "create action" do
+  
+    it "redirects to category page" do
+      post :create, :category => {:title => "sports", :slug => "sport", :intro => "all about sport" }
+      response.should redirect_to(category_path(2))
+    end
+
+    it "renders 'new' template" do
+      post :create, :category => {:title => "", :slug => "sport", :intro => "all about sport" }
+      response.should render_template("new")
+    end
+
   end
 
-  it "renders 'new' template" do
-    post :new, :category => {:title => "", :slug => "sport", :intro => "all about sport" }
-    response.should render_template("new")
-  end
 
   it "renders 'show' template" do
     get :show, :id => 1
@@ -23,8 +28,8 @@ describe CategoryController do
   
   it "response 404 code" do
     get :show, :id => 'abc'
-    #response.should render_file("#{Rails.root}/public/404.html")
-    response.response_code.should == 404
+    response.should render_template("#{Rails.root}/public/404.html")
+    #response.response_code.should == 404
   end
 
   it "renders 'index' template" do

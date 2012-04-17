@@ -22,6 +22,9 @@ end
 
 gem 'execjs'
 gem 'therubyracer'
+gem 'less-rails-bootstrap'
+gem 'haml'
+gem "simple_form", "~> 2.0.1"
 
 #gem 'jquery-rails'
 
