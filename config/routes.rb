@@ -1,7 +1,9 @@
 Ngkub::Application.routes.draw do
   
   resources :categories
-  resources :publications
+  resources :publications do
+    resources :comments
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

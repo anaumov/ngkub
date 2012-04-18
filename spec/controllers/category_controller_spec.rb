@@ -1,10 +1,13 @@
 require 'spec_helper'
 
-describe CategoryController do
-  before(:each) do
-    Category.create(:title => "sports", :slug => "sport", :intro => "all about sport")
-  end
+describe CategoriesController do
 
+  it_should_render_404_if_the_resource_was_not_found [:show, :edit, :update, :destroy]
+
+
+  before(:each) do
+    Categories.create(:title => "sports", :slug => "sport", :intro => "all about sport")
+  end
 
   describe "create action" do
   
