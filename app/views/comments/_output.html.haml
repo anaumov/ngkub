@@ -1,13 +1,13 @@
 %h2 Каменты
 
 .comment
-  -@pub.comments.each do |comment|
+  -@parent.comments.each do |comment|
     %p= comment.body
     %br/
 
 %h2 Добавить камент
 
-= form_for([@pub, @pub.comments.build]) do |f|
+= form_for([@parent, @parent.comments.build]) do |f|
   = f.text_area :body
   %br/
   = f.submit

@@ -1,0 +1,10 @@
+.alert.alert-error
+  = flash[:notice]
+
+- @heroes.each do |hero|
+  %p
+    = hero.title
+    = link_to 'редактировать', edit_hero_path(hero)
+    
+%p  
+  = link_to 'Добавить героя', new_hero_path

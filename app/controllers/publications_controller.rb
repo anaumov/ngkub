@@ -20,7 +20,7 @@ class PublicationsController < ApplicationController
 
   def show
     @pub = Publication.where(:id => params[:id]).first
-
+    @parent = @pub
    
     unless @pub  
        render :file => "#{Rails.root}/public/404.html", :status => 404
@@ -37,7 +37,7 @@ class PublicationsController < ApplicationController
 
   def delete
     begin  
-      cat = Publication.where(:id => params[:id]).first
+      pub = Publication.where(:id => params[:id]).first
     rescue  
       flash[:notice] = "we haven't Publication with id=" + params[:id]
       render :file => "#{Rails.root}/public/404.html", :layout => true, :status => 404

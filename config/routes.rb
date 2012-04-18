@@ -1,7 +1,7 @@
 Ngkub::Application.routes.draw do
   
   resources :categories
-  resources :publications do
+  resources :publications, :heros do
     resources :comments
   end
 

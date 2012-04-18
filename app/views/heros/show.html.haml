@@ -1,0 +1,13 @@
+%h1 
+  = link_to @hero.title, heroes_path 
+
+%p= @hero.slug
+%p= @hero.intro 
+%p= @hero.body
+
+= render :partial => "comments/output"
+
+
+
+
+

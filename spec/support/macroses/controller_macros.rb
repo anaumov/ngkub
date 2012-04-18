@@ -9,7 +9,7 @@ module ControllerMacros
     def it_should_render_404_if_the_resource_was_not_found(actions)
       get_actions_hash(actions).each do |action, verb|
         it "#{action} action should render 404 if the resource was not found" do
-          login_account
+          #login_account
           begin
             process(action, {:id => 0} , nil, nil, verb.to_s.upcase)
           rescue BSON::InvalidObjectId 
