@@ -1,0 +1,13 @@
+%h1 
+  = link_to @interview.title, interviews_path 
+
+%p= @interview.slug
+%p= @interview.intro 
+%p= @interview.body
+
+= render :partial => "comments/output"
+
+
+
+
+

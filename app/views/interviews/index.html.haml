@@ -1,0 +1,10 @@
+.alert.alert-error
+  = flash[:notice]
+
+- @interviews.each do |interview|
+  %p
+    = interview.title
+    = link_to 'редактировать', edit_interview_path(interview)
+    
+%p  
+  = link_to 'Добавить интервью', new_interview_path
