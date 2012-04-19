@@ -1,0 +1,13 @@
+%h2 Вопросы читателей
+
+.comment
+  -@interview.question.each do |question|
+    %p= question.body
+    %br/
+
+%h2 Добавить вопрос
+
+= form_for([@interview, @interview.question.build]) do |f|
+  = f.text_area :body
+  %br/
+  = f.submit

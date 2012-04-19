@@ -1,10 +1,4 @@
 class CommentsController < ApplicationController
-  #def create
-   # @imageable ||= parent_class.find(params["#{parent}_id"])
-   # @comment = @imageable.comments.create(params[:comment])
-   # redirect_to @imageable
-  #end
-
 
   def create
     @parent = find_parent
