@@ -7,6 +7,7 @@ class Interview < ActiveRecord::Base
 
   has_many :question
   has_many :comments, :as => :imageable
+  belongs_to :user
   
 
 end
