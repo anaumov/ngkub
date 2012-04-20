@@ -129,11 +129,13 @@
 			<div class="block_hd">Online интервью</div>
 			<div class="block_content conf">
 				<ul>
+          <% @index_interviews.each do |interview| %>
 					<li>
-						<h2><a href="#">Андрей Чикотило</a></h2>
+						<h2><%=link_to interview.title, interview_path(interview) %></h2>
 						серийный маньяк<br />
 						<span class="grey">17 марта 2012</span>	<a class="ask" href="#"><img src="/assets/ask.png" /></a>
 					</li>
+          <% end %>
 					<li>
 						<h2><a href="#">Сурен Газарян</a></h2>
 						эколог<br />
