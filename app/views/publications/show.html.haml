@@ -6,7 +6,7 @@
 %p= @pub.intro 
 %p= @pub.body
 
-= render :partial => "comments/output"
+= render :partial => "comments/output", :locals => {:commentable => @pub}
 
 
 

@@ -1,15 +1,16 @@
 Ngkub::Application.routes.draw do
   
+  devise_for :users
+
   resources :categories
-  resources :publications, :heros, :interviews do
-    resources :comments
-  end
+
+  resources :publications, :heros, :interviews, :comments
 
   resources :interviews do
     resources :questions
   end
 
-  resources :users
+  root :to => "publications#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

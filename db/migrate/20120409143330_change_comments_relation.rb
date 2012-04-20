@@ -1,7 +1,7 @@
 class ChangeCommentsRelation < ActiveRecord::Migration
   def change
     change_table :comments do |t|
-      t.references :imageable, :polymorphic => true
+      t.references :commentable, :polymorphic => true
     end
   end
 end

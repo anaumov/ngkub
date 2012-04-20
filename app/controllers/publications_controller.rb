@@ -1,5 +1,7 @@
 class PublicationsController < ApplicationController
 
+  before_filter :authenticate_user!, :only => [:new, :create, :edit]
+
   def create
     @cat = Category.find(params[:publication][:category_id])
     
@@ -19,9 +21,8 @@ class PublicationsController < ApplicationController
   
 
   def show
-    @pub = Publication.where(:id => params[:id]).first
-    @parent = @pub
-   
+    @pub     = Publication.where(:id => params[:id]).first
+    @comment = Comment.new
     unless @pub  
        render :file => "#{Rails.root}/public/404.html", :status => 404
        return    

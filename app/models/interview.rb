@@ -6,7 +6,7 @@ class Interview < ActiveRecord::Base
   validates :body,  :length => { :minimum => 20 } 
 
   has_many :question
-  has_many :comments, :as => :imageable
+  has_many :comments, :as => :commentable
   belongs_to :user
   
 

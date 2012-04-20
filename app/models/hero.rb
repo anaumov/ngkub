@@ -5,6 +5,6 @@ class Hero < ActiveRecord::Base
   validates :title, :length => { :minimum => 3 } 
   validates :body,  :length => { :minimum => 20 } 
 
-  has_many :comments, :as => :imageable
+  has_many :comments, :as => :commentable
 
 end

@@ -1,13 +1,15 @@
 %h2 Каменты
 
 .comment
-  -@parent.comments.each do |comment|
+  -commentable.comments.each do |comment|
     %p= comment.body
     %br/
 
 %h2 Добавить камент
 
-= form_for([@parent, @parent.comments.build]) do |f|
+= form_for(@comment) do |f|
+  = f.hidden_field :commentable_id, {:value => commentable.id}  
+  = f.hidden_field :commentable_type, {:value => commentable.class} 
   = f.text_area :body
   %br/
   = f.submit
