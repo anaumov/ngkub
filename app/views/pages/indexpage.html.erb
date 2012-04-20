@@ -1,0 +1,153 @@
+	<div id="wrapper">
+		<div id="content">
+			
+			<div class="slider">
+				<div class="imgs">
+					<img src="/assets/big_pic.png" />
+					<div class="head_actual">
+						<h1>По улице ходила большая крокодила, в руках она держала наган и бутылку с зажигательной смесью</h1> 
+						&nbsp;
+						<span class="date">31 февраля 2012 15:15</span>
+					</div>
+				</div>
+				<div class="pic_navi">
+					<ul>
+						<li>1</li>
+						<li class="current">2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+					</ul>
+				</div>
+				<div class="clear"></div>
+			</div><!--end of "slider"-->
+			
+			<div class="page_block">
+				<div class="block_hd">Свежий номер</div>
+				<div class="block_content">
+					<div class="hot_news">
+						<img src="/assets/pic1.png" />
+						<div>
+							<h1><%= link_to @main_theme.title, @main_theme %></h1> 
+							&nbsp;
+							<span class="date"><%= @main_theme.created_at.strftime("%d %B %Y") %></span>
+						</div>
+						
+						<p><%= @main_theme.intro %></p>
+						
+					</div>
+					
+					<div class="last_news">
+						<% @index_publications.each do |pub| %>
+						<p>
+              <%= link_to pub.title, pub %>	
+              <span class="time"><%= pub.created_at.strftime("%I:%H")%></span>
+            </p>
+            <% end %>
+
+
+					</div><!--end of "last_news"-->
+				</div>
+			</div><!--end of "page_block"-->
+
+			<div class="page_block">
+				<div class="block_hd">Телевидение &laquo;Справедливая Кубань&raquo;</div>
+				<div class="block_content">
+					
+					<img src="/assets/manypics.png" />
+					
+				</div>
+			</div>	<!--end of "page_block"-->
+			
+			
+			
+		</div>
+	</div>
+	
+	<div id="navigation">
+	
+		<div class="page_block">
+			<div class="block_hd">Свежие комментарии</div>
+			<div class="block_content comment_block">
+			  <% @last_comments.each do |comment| %>
+				  <p class="short_comment">
+					  <%= comment.body %><br />
+					  <a class="u_pic" href="#">alex</a> | <%= link_to "статья", comment.commentable %>
+				  </p>
+				<% end %>
+      </div>
+		</div><!--end of "page_block"-->
+		
+		
+		<div class="page_block">
+			<div class="block_hd">Наш <img src="/assets/twitter.png" /></div>
+			<div class="block_content tweet_block">
+			
+				<div class="single_tweet">
+					<strong><a href="#">@varlamov</a></strong>: Следующей массовой акцией в Москве может стать карнавал - <a href="http://t.co/PdabLWQQ" data-expanded-url="http://bit.ly/HaT9ZU">bit.ly/HaT9ZU</a> В 2012 году в Москве может пройти первый городской карнавал.
+					<p class="tweet_time">about a centery ago</p>
+					
+				</div>
+				
+				<div class="single_tweet">
+					<strong><a href="#">@varlamov</a></strong>: Проект «Гражданин мэр» - лучшее, что есть в Омске. И не вашими грязными лапами про него писать и критиковать. Офигели совсем.
+					<p class="tweet_time">about a centery ago</p>
+					
+				</div>
+				
+				<div class="single_tweet">
+					<strong><a href="#">@varlamov</a></strong>: Я - гавно.
+					<p class="tweet_time">about a centery ago</p>
+					
+				</div>
+				
+				<a href="#"><img src="/assets/follow_us.png" /></a>
+				
+				
+			</div>
+		</div><!--end of "page_block"-->
+		
+	</div>
+	
+	<div id="extra">
+		<div class="page_block">
+			<div class="block_hd">Герой дня</div>
+			<div class="block_content hero">
+				<img src="/assets/bob.png" />
+				<div>
+					<h2><a href="#"><%= @day_hero.title %></a></h2>
+					<span class="grey">пиздобол</span>
+					<p>
+						<%= @day_hero.intro %>
+            <%= link_to raw("Узнать про героя &rarr;"), hero_path(@day_hero) %>
+					</p>
+				</div>
+			</div>
+		</div><!--end of "extra"-->
+		
+		<div class="page_block">
+			<div class="block_hd">Online интервью</div>
+			<div class="block_content conf">
+				<ul>
+					<li>
+						<h2><a href="#">Андрей Чикотило</a></h2>
+						серийный маньяк<br />
+						<span class="grey">17 марта 2012</span>	<a class="ask" href="#"><img src="/assets/ask.png" /></a>
+					</li>
+					<li>
+						<h2><a href="#">Сурен Газарян</a></h2>
+						эколог<br />
+						<span class="grey">6 марта 2012</span>
+					</li>
+					<li>
+						<h2><a href="#">Иван Сусанин</a></h2>
+						директор компании "Ланта Тур" по вьездному туризму<br />
+						<span class="grey">1 марта 2012</span>
+					</li>
+					<li style="margin-bottom: 0px;"><a href="#">Все интервью &rarr;</a></li>
+					
+				</ul>
+			</div>
+		</div>
+		
+	</div>

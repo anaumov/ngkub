@@ -3,12 +3,10 @@ class PublicationsController < ApplicationController
   before_filter :authenticate_user!, :only => [:new, :create, :edit]
 
   def create
-    @cat = Category.find(params[:publication][:category_id])
-    
-    @pub = Publication.new(params[:publication], :category => @cat )
+    @pub = Publication.new(params[:publication])
 
     if @pub.save
-      redirect_to publications_path
+      redirect_to publication_path
     else
       render :new
     end  
@@ -62,9 +60,9 @@ class PublicationsController < ApplicationController
 
   def update
     @pub = Publication.find(params[:id])
-    @cat = Category.find(params[:publication][:category_id])
+    @cats = Category.all
     
-    if @pub.update_attributes(params[:publication], :category => @cat )
+    if @pub.update_attributes(params[:publication])
       redirect_to @pub
     else
       render :edit

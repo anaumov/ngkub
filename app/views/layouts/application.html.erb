@@ -2,13 +2,58 @@
 <html>
 <head>
   <title>Ngkub</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag  "application", :media => "all" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-<%= yield %>
+<div id="container">
+
+	<div id="header">
+		<div class="snd_block">
+			<a class="logo" href="/"><img src="/assets/logo.png" /></a>
+			
+			<div class="right_top">
+				<ul class="top_menu">
+					<li class="rss"><a href="#">RSS</a></li>
+					<li ><a href="#">Рекламодателям</a></li>
+					<li ><a href="#">Напишите нам</a></li>
+				</ul>
+				
+				<a class="banner_top"><img src="/assets/banner.jpg" /></a>
+			</div>
+		</div>
+
+
+		<div class="clear" style="height:15px;"></div>
+
+		<div class="menu_wrap">
+			<ul class="main_menu menu">
+				<li>Газета</li>
+				<li class="current"><a href="#">Рубрики</a></li>
+				<li ><a href="#">Свободное мнение</a></li>
+				<li ><a href="#">Онлайн конференции</a></li>
+				<li ><a href="#">Редакция</a></li>
+				<li ><a href="#">Контакты</a></li>
+				<li ><input type="text" value="поиск по сайту" /></li>
+			</ul>
+			<div class="clear" style="height:32px;"></div>
+		</div>
+	</div>
+	
+  <%= yield %>
+
+	<div id="footer">
+		<ul class="foot_menu menu">
+				<li>&copy; &laquo;Новая Газета Кубани &rauqo;</li>
+				<li ><a href="#">Об использовании материалов</a></li>
+				<li ><a href="#">Карта сайта</a></li>
+			</ul>
+	</div>
+	
+</div>
+
 
 </body>
 </html>

@@ -4,7 +4,7 @@ class HerosController < ApplicationController
     @hero = Hero.new(params[:hero])
 
     if @hero.save
-      redirect_to heroes_path
+      redirect_to heros_path
     else
       render :new
     end  
@@ -17,7 +17,7 @@ class HerosController < ApplicationController
 
   def show
     @hero = Hero.where(:id => params[:id]).first
-    @parent = @hero
+    @comment = Comment.new
    unless @hero  
        render :file => "#{Rails.root}/public/404.html", :status => 404
        return    

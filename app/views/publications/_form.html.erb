@@ -1,8 +1,14 @@
-<%= simple_form_for @pub do |f| %>
+<%=# form_for @pub do |f|
+ %>
+
+<%= form_for @pub do |f| %>
   <%= f.text_field :title %><br />
   <%= f.select(:category_id, @cats.collect {|p| [ p.title, p.id ] }) %><br />
   <%= f.text_field :slug %><br />
   <%= f.text_area  :intro %><br />
   <%= f.text_area  :body %><br />
+  <%= f.file_field :newspic %>
   <%= f.submit  %>
 <% end %>
+
+

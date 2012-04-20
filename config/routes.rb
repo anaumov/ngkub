@@ -10,7 +10,7 @@ Ngkub::Application.routes.draw do
     resources :questions
   end
 
-  root :to => "publications#index"
+  root :to => "pages#indexpage"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

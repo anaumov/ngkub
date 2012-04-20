@@ -1,13 +1,16 @@
 class CommentsController < ApplicationController
 
   def create
-    @comment = Comment.new(params[:comment])
-    if @comment.save
+    @comment = Comment.create(params[:comment])
+    if @comment.errors.empty?
       flash[:notice] = "Successfully created comment."
-      redirect_to @comment.commentable
     else
-      render @comment.commentable
+      flash[:warning] = "Smth went wrong"
     end
+    redirect_to @comment.commentable
+    
+   
+
   end
 
 

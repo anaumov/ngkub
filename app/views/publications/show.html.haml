@@ -1,6 +1,7 @@
 %h1 
   = link_to @pub.title, publications_path 
 
+%p= image_tag @pub.newspic.url 
 %p= @pub.slug
 %p= @pub.category.title 
 %p= @pub.intro 
