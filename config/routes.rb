@@ -4,7 +4,7 @@ Ngkub::Application.routes.draw do
 
   resources :categories
 
-  resources :publications, :heros, :interviews, :comments
+  resources :publications, :heros, :interviews, :comments, :answers
 
   resources :interviews do
     resources :questions

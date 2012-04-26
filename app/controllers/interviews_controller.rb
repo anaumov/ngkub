@@ -18,6 +18,7 @@ def create
   def show
     @interview = Interview.where(:id => params[:id]).first
     @comment = Comment.new
+    @answer  = Answer.new
    unless @interview  
        render :file => "#{Rails.root}/public/404.html", :status => 404
        return    

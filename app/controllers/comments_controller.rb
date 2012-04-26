@@ -8,9 +8,6 @@ class CommentsController < ApplicationController
       flash[:warning] = "Smth went wrong"
     end
     redirect_to @comment.commentable
-    
-   
-
   end
 
 

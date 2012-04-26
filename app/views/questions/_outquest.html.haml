@@ -3,6 +3,7 @@
 .comment
   -@interview.question.each do |question|
     %p= question.body
+    = render :partial => "answers/output", :locals => {:question => question}
     %br/
 
 %h2 Добавить вопрос

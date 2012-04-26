@@ -1,0 +1,8 @@
+-if (question.answer)
+  %p= question.answer.body
+-else 
+  = simple_form_for(@answer) do |f|
+    = f.input :question_id, :input_html => {:value => question.id}, :as => :hidden  
+    = f.input :body, :as => :text
+    %br/
+    = f.submit
