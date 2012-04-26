@@ -115,8 +115,8 @@
 			<div class="block_content hero">
 				<img src="/assets/bob.png" />
 				<div>
-					<h2><a href="#"><%= @day_hero.title %></a></h2>
-					<span class="grey">пиздобол</span>
+					<h2><%= link_to @day_hero.title, hero_path(@day_hero) %></a></h2>
+					<span class="grey"><%= @day_hero.profession %></span>
 					<p>
 						<%= @day_hero.intro %>
             <%= link_to raw("Узнать про героя &rarr;"), hero_path(@day_hero) %>

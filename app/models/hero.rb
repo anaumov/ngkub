@@ -1,5 +1,5 @@
 class Hero < ActiveRecord::Base
-  attr_accessible :title, :body, :slug, :intro
+  attr_accessible :title, :body, :slug, :intro, :profession
   
   validates :title, :body, :presence => true
   validates :title, :length => { :minimum => 3 } 
