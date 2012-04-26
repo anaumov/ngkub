@@ -1,13 +1,13 @@
 %h1 
-  = link_to @pub.title, publications_path 
+  = link_to @publication.title, publications_path 
 
-%p= image_tag @pub.newspic.url 
-%p= @pub.slug
-%p= @pub.category.title 
-%p= @pub.intro 
-%p= @pub.body
+%p= image_tag @publication.newspic.url 
+%p= @publication.slug
+%p= @publication.category.title 
+%p= @publication.intro 
+%p= @publication.body
 
-= render :partial => "comments/output", :locals => {:commentable => @pub}
+= render :partial => "comments/output", :locals => {:commentable => @publication}
 
 
 

@@ -5,7 +5,7 @@
 %p= @hero.intro 
 %p= @hero.body
 
-= render :partial => "comments/output"
+= render :partial => "comments/output", :locals => {:commentable => @hero}
 
 
 

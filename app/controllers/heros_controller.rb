@@ -1,9 +1,8 @@
 class HerosController < ApplicationController
 
  def create
-    @hero = Hero.new(params[:hero])
-
-    if @hero.save
+    @hero = Hero.create(params[:hero])
+    if @hero.errors.empty?
       redirect_to heros_path
     else
       render :new

@@ -133,7 +133,8 @@
 					<li>
 						<h2><%=link_to interview.title, interview_path(interview) %></h2>
 						серийный маньяк<br />
-						<span class="grey">17 марта 2012</span>	<a class="ask" href="#"><img src="/assets/ask.png" /></a>
+						<span class="grey">17 марта 2012</span>	
+						<a class="ask" href="<%= interview_path(interview)%>"><img src="/assets/ask.png" /></a>
 					</li>
           <% end %>
 					<li>

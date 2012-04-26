@@ -3,9 +3,9 @@ class PublicationsController < ApplicationController
   before_filter :authenticate_user!, :only => [:new, :create, :edit]
 
   def create
-    @pub = Publication.new(params[:publication])
+    @publication = Publication.create(params[:publication])
 
-    if @pub.save
+    if @publication
       redirect_to publication_path
     else
       render :new
@@ -13,23 +13,23 @@ class PublicationsController < ApplicationController
   end
 
   def new
-    @pub = Publication.new
-    @cats = Category.all
+    @publication = Publication.new
+    @categories  = Category.all
   end
   
 
   def show
-    @pub     = Publication.where(:id => params[:id]).first
-    @comment = Comment.new
-    unless @pub  
+    @publication = Publication.where(:id => params[:id]).first
+    @comment     = Comment.new
+    unless @publication  
        render :file => "#{Rails.root}/public/404.html", :status => 404
        return    
     end 
   end
 
   def index
-    @pubs = Publication.all
-    unless @pubs
+    @publications = Publication.all
+    unless @publications
       flash[:notice] = "No publications found"
     end 
   end
@@ -50,20 +50,20 @@ class PublicationsController < ApplicationController
   end
 
   def edit
-     @cats = Category.all
+     @categories = Category.all
     begin  
-      @pub = Publication.find(params[:id])
+      @publication = Publication.find(params[:id])
     rescue  
       render :file => "#{Rails.root}/public/404.html", :layout => true, :status => 404
     end
   end
 
   def update
-    @pub = Publication.find(params[:id])
-    @cats = Category.all
+    @publication = Publication.find(params[:id])
+    @categories = Category.all
     
-    if @pub.update_attributes(params[:publication])
-      redirect_to @pub
+    if @publication.update_attributes(params[:publication])
+      redirect_to @publication
     else
       render :edit
     end
