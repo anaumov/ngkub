@@ -2,14 +2,21 @@
 
 .comment
   -commentable.comments.each do |comment|
-    %p= comment.body
-    %br/
+    %p
+      -if (comment.autor)
+        %b= comment.autor
+      -else
+        %b Анонимов А.А.      
+      %br/
+      = comment.body
+
 
 %h2 Добавить камент
 
 = simple_form_for(@comment) do |f|
   = f.input :commentable_id, :input_html => {:value => commentable.id}, :as => :hidden  
   = f.input :commentable_type, :input_html => {:value => commentable.class}, :as => :hidden 
+  = f.input :autor
   = f.input :body, :as => :text
   %br/
   = f.submit

@@ -72,7 +72,13 @@
 			  <% @last_comments.each do |comment| %>
 				  <p class="short_comment">
 					  <%= comment.body %><br />
-					  <a class="u_pic" href="#">alex</a> | <%= link_to "статья", comment.commentable %>
+					  <a class="u_pic" href="#">
+            <% if (comment.autor) %>
+              <%= comment.autor %>
+            <% else %>
+                 Анонимов А.А.      
+             <% end %></a> | 
+            <%= link_to "статья", comment.commentable %>
 				  </p>
 				<% end %>
       </div>
@@ -132,8 +138,8 @@
           <% @index_interviews.each do |interview| %>
 					<li>
 						<h2><%=link_to interview.title, interview_path(interview) %></h2>
-						серийный маньяк<br />
-						<span class="grey">17 марта 2012</span>	
+						<%= interview.intro %><br />
+						<span class="grey"><%= interview.created_at.strftime("%d %B %Y") %></span>	
 						<a class="ask" href="<%= interview_path(interview)%>"><img src="/assets/ask.png" /></a>
 					</li>
           <% end %>

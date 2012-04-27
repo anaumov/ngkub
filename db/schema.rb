@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120426155019) do
+ActiveRecord::Schema.define(:version => 20120427061312) do
 
   create_table "answers", :force => true do |t|
     t.text     "body"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20120426155019) do
     t.integer  "commentable_id"
     t.string   "commentable_type"
     t.integer  "category_id"
+    t.string   "autor"
   end
 
   create_table "heros", :force => true do |t|
