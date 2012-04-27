@@ -145,19 +145,12 @@
 						<h2><%=link_to interview.title, interview_path(interview) %></h2>
 						<%= interview.intro %><br />
 						<span class="grey"><%= interview.created_at.strftime("%d %B %Y") %></span>	
-						<a class="ask" href="<%= interview_path(interview)%>"><img src="/assets/ask.png" /></a>
+						  <% if (interview.openquest) %>
+                <a class="ask" href="<%= interview_path(interview)%>"><img src="/assets/ask.png" /></a>
+              <% end %>
 					</li>
           <% end %>
-					<li>
-						<h2><a href="#">Сурен Газарян</a></h2>
-						эколог<br />
-						<span class="grey">6 марта 2012</span>
-					</li>
-					<li>
-						<h2><a href="#">Иван Сусанин</a></h2>
-						директор компании "Ланта Тур" по вьездному туризму<br />
-						<span class="grey">1 марта 2012</span>
-					</li>
+					
 					<li style="margin-bottom: 0px;"><a href="#">Все интервью &rarr;</a></li>
 					
 				</ul>

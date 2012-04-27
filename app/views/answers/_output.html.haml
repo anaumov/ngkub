@@ -1,6 +1,6 @@
--if (question.answer)
+-if (question.answer)&&(question.interview.questpub)
   %p= question.answer.body
--else 
+-elsif (!question.answer)
   = simple_form_for(@answer) do |f|
     = f.input :question_id, :input_html => {:value => question.id}, :as => :hidden  
     = f.input :body, :as => :text

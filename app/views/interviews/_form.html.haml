@@ -1,0 +1,17 @@
+=simple_form_for (@interview) do |f|
+  = f.input :title 
+  %br
+  = f.input :slug
+  %br
+  = f.input :openquest
+  %br
+  = f.input :pubdate
+  %br
+  = f.input :questpub
+  %br
+  = f.input :intro
+  %br
+  = f.input :body, :as => :text
+  %br
+  = f.submit
+

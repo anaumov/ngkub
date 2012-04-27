@@ -5,9 +5,15 @@
 %p= @interview.intro 
 %p= @interview.body
 
+-if (!@interview.questpub)
+  %p
+    Ориентировочная дата публикации 
+    = @interview.pubdate
+
 = render :partial => "questions/outquest"
 
-= render :partial => "comments/output", :locals => {:commentable => @interview}
+-if (@interview.questpub)
+  = render :partial => "comments/output", :locals => {:commentable => @interview}
 
 
 
