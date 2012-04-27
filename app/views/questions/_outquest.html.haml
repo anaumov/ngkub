@@ -2,13 +2,17 @@
 
 .comment
   -@interview.question.each do |question|
-    %p= question.body
+    %p
+      %b= question.autor 
+      =question.body
     = render :partial => "answers/output", :locals => {:question => question}
     %br/
 
 %h2 Добавить вопрос
 
-= form_for([@interview, @interview.question.build]) do |f|
-  = f.text_area :body
+= simple_form_for(@question) do |f|
+  = f.input :interview_id, :input_html => {:value => @interview.id}, :as => :hidden
+  = f.input :autor  
+  = f.input :body, :as => :text
   %br/
   = f.submit

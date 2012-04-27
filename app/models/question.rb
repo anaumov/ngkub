@@ -1,7 +1,7 @@
 class Question < ActiveRecord::Base
-  attr_accessible :body
+  attr_accessible :body, :autor, :interview_id
   
-  validates :body, :presence => true
+  validates :body, :autor, :presence => true
   validates :body,  :length => { :minimum => 5 } 
   
   belongs_to :interview

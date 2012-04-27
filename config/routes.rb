@@ -4,11 +4,7 @@ Ngkub::Application.routes.draw do
 
   resources :categories, :adminka
 
-  resources :publications, :heros, :interviews, :comments, :answers
-
-  resources :interviews do
-    resources :questions
-  end
+  resources :publications, :heros, :interviews, :comments, :answers, :questions
 
   root :to => "pages#indexpage"
 

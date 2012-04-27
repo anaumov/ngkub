@@ -1,14 +1,15 @@
 class QuestionsController < ApplicationController
 
   def create
-    @interview = Interview.find(params[:interview_id])
-    @question  = @interview.question.build(params[:question])
+    #@interview = Interview.find(params[:interview_id])
+    #@question  = @interview.question.build(params[:question])
+    @question = Question.create(params[:question])
     
-   if @question.save
+   if @question
       flash[:notice] = "Successfully created question"
-      redirect_to @interview
+      redirect_to @question.interview
     else
-      render @interview
+      render @question.interview
     end
   end
 
