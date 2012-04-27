@@ -1,11 +1,12 @@
-%h1 
-  = link_to @hero.title, heros_path 
+%div.single_page
+  %h1 
+    = link_to @hero.title, heros_path 
 
-%p= @hero.profession
-%p= @hero.intro 
-%p= @hero.body
+  %p= @hero.profession
+  %p= @hero.intro 
+  %p= @hero.body
 
-= render :partial => "comments/output", :locals => {:commentable => @hero}
+  = render :partial => "comments/output", :locals => {:commentable => @hero}
 
 
 

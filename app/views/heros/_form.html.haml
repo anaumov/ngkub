@@ -1,0 +1,8 @@
+%div.single_page
+  =simple_form_for (@hero) do |f|
+    = f.input :title
+    = f.input :profession
+    = f.input :slug
+    = f.input :intro, :as => :text
+    = f.input :body, :as => :text
+    = f.submit

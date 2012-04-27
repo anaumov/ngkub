@@ -3,7 +3,7 @@ Ngkub::Application.routes.draw do
   devise_for :users
 
   resources :categories, :adminka, :teles, :publications, :heros, 
-            :interviews, :comments, :answers, :questions
+            :interviews, :comments, :answers, :questions, :pages
 
   root :to => "pages#indexpage"
 

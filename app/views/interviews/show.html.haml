@@ -1,19 +1,20 @@
-%h1 
-  = link_to @interview.title, interviews_path 
+%div.single_page
+  %h1 
+    = link_to @interview.title, interviews_path 
 
-%p= @interview.slug
-%p= @interview.intro 
-%p= @interview.body
+  %p= @interview.slug
+  %p= @interview.intro 
+  %p= @interview.body
 
--if (!@interview.questpub)
-  %p
-    Ориентировочная дата публикации 
-    = @interview.pubdate
+  -if (!@interview.questpub)
+    %p
+      Ориентировочная дата публикации 
+      = @interview.pubdate
 
-= render :partial => "questions/outquest"
+  = render :partial => "questions/outquest"
 
--if (@interview.questpub)
-  = render :partial => "comments/output", :locals => {:commentable => @interview}
+  -if (@interview.questpub)
+    = render :partial => "comments/output", :locals => {:commentable => @interview}
 
 
 

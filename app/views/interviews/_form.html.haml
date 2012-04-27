@@ -1,17 +1,11 @@
-=simple_form_for (@interview) do |f|
-  = f.input :title 
-  %br
-  = f.input :slug
-  %br
-  = f.input :openquest
-  %br
-  = f.input :pubdate
-  %br
-  = f.input :questpub
-  %br
-  = f.input :intro
-  %br
-  = f.input :body, :as => :text
-  %br
-  = f.submit
+%div.single_page
+  =simple_form_for (@interview) do |f|
+    = f.input :title 
+    = f.input :slug
+    = f.input :openquest
+    = f.input :pubdate
+    = f.input :questpub
+    = f.input :intro
+    = f.input :body, :as => :text
+    = f.submit
 

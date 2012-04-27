@@ -1,10 +1,8 @@
-.alert.alert-error
-  = flash[:notice]
-
-- @publications.each do |pub|
-  %p
-    = pub.title
-    = link_to 'редактировать', edit_publication_path(pub)
-    
-%p  
-  = link_to 'Добавить статью', new_publication_path
+%div.single_page
+  - @publications.each do |pub|
+    %p
+      = pub.title
+      = link_to 'редактировать', edit_publication_path(pub)
+      
+  %p  
+    = link_to 'Добавить статью', new_publication_path

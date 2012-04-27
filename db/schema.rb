@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120427085915) do
+ActiveRecord::Schema.define(:version => 20120427150744) do
 
   create_table "answers", :force => true do |t|
     t.text     "body"
@@ -65,6 +65,14 @@ ActiveRecord::Schema.define(:version => 20120427085915) do
     t.boolean  "openquest"
     t.boolean  "questpub"
     t.string   "pubdate"
+  end
+
+  create_table "pages", :force => true do |t|
+    t.string   "title"
+    t.string   "slug"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "publications", :force => true do |t|

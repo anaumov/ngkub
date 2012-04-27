@@ -44,7 +44,7 @@ class PublicationsController < ApplicationController
     
     unless pub
       flash[:notice] = "Publication " + pub.title + " deleted"
-      cat.destroy
+      pub.destroy
       render :index  
     end  
   end

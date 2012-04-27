@@ -357,9 +357,25 @@ span.time{
 	color:#B1B1B1;
 	font-size:12px;
 	}	
-	
-	
-	
+div.text_body{
+  margin:20px 0;
+  }
+div.comment{
+  margin:20px 0;  
+  }
+div.comment h2{
+  margin-bottom:20px;  
+  }	
+.comment > p.one_comment{
+  margin-bottom:10px;  
+  }
+.comment textarea.text{
+  width:350px
+  height: 50px !important;  
+  }
+div.single_page{
+  padding:0 20px;  
+  }
 	
 	
 	
