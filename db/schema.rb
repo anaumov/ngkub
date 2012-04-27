@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120427074047) do
+ActiveRecord::Schema.define(:version => 20120427083605) do
 
   create_table "answers", :force => true do |t|
     t.text     "body"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20120427074047) do
     t.string   "newspic_content_type"
     t.integer  "newspic_file_size"
     t.datetime "newspic_updated_at"
+    t.boolean  "onmain"
   end
 
   create_table "questions", :force => true do |t|

@@ -4,6 +4,11 @@
 			<div class="slider">
 				<div class="imgs">
 					<img src="/assets/big_pic.png" />
+          <% @slider_pubs.each do |pub| %>
+						<p>
+              <%= pub.title %>
+            </p>
+          <% end %>
 					<div class="head_actual">
 						<h1>По улице ходила большая крокодила, в руках она держала наган и бутылку с зажигательной смесью</h1> 
 						&nbsp;

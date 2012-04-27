@@ -1,8 +1,6 @@
-<%=# form_for @publication do |f|
- %>
-
 <%= form_for @publication do |f| %>
   <%= f.text_field :title %><br />
+  <%= f.text_field :onmain %><br />
   <%= f.select(:category_id, @categories.collect {|p| [ p.title, p.id ] }) %><br />
   <%= f.text_field :slug %><br />
   <%= f.text_area  :intro %><br />
