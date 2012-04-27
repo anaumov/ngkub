@@ -2,7 +2,7 @@ Ngkub::Application.routes.draw do
   
   devise_for :users
 
-  resources :categories
+  resources :categories, :adminka
 
   resources :publications, :heros, :interviews, :comments, :answers
 

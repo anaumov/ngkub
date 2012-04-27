@@ -1,0 +1,26 @@
+%h2
+  Последние каменты
+
+%div
+  - @comments.each do |comment|
+    %p
+      -if (comment.autor)
+        =comment.autor
+      -else
+        Анонимов А.А.      
+      %br
+      =comment.body
+      %span.parent 
+        =comment.commentable.title
+      %br    
+      = link_to "удалить", "/"
+
+%h2
+  Последние вопросы
+
+%div
+  - @questions.each do |question|
+    %p
+      =question.body
+      %br    
+      = link_to "удалить", "/"
