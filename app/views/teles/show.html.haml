@@ -1,0 +1,13 @@
+%h1 
+  = @tele.title 
+
+%p= @tele.slug
+%p= @tele.intro 
+%p= @tele.body
+
+= render :partial => "comments/output", :locals => {:commentable => @tele}
+
+
+
+
+

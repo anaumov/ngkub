@@ -1,0 +1,10 @@
+.alert.alert-error
+  = flash[:notice]
+
+- @teles.each do |tele|
+  %p
+    = tele.title
+    = link_to 'редактировать', edit_tele_path(tele)
+    
+%p  
+  = link_to 'Добавить программу', new_tele_path
