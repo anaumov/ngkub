@@ -1,0 +1,7 @@
+- @banners.each do |banner|
+  %p
+    = banner.title
+    = link_to 'редактировать', edit_banner_path(banner)
+    
+%p  
+  = link_to 'Создать баннер', new_banner_path
