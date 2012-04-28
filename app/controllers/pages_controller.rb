@@ -9,6 +9,10 @@ class PagesController < ApplicationController
     
     @index_interviews = Interview.find(:all, :order => "id desc", :limit => 3)
     @last_comments = Comment.find(:all, :order => "id desc", :limit => 5)
+
+    @teles = Tele.find(:all, :order => "id desc", :limit => 13)
+
+
   end
 
   def create

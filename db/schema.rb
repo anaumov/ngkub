@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120427150744) do
+ActiveRecord::Schema.define(:version => 20120428130430) do
 
   create_table "answers", :force => true do |t|
     t.text     "body"
@@ -50,9 +50,13 @@ ActiveRecord::Schema.define(:version => 20120427150744) do
     t.string   "slug"
     t.text     "body"
     t.text     "intro"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
     t.string   "profession"
+    t.string   "heropic_file_name"
+    t.string   "heropic_content_type"
+    t.integer  "heropic_file_size"
+    t.datetime "heropic_updated_at"
   end
 
   create_table "interviews", :force => true do |t|
@@ -60,11 +64,15 @@ ActiveRecord::Schema.define(:version => 20120427150744) do
     t.string   "slug"
     t.text     "body"
     t.text     "intro"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
     t.boolean  "openquest"
     t.boolean  "questpub"
     t.string   "pubdate"
+    t.string   "personpic_file_name"
+    t.string   "personpic_content_type"
+    t.integer  "personpic_file_size"
+    t.datetime "personpic_updated_at"
   end
 
   create_table "pages", :force => true do |t|
@@ -103,8 +111,12 @@ ActiveRecord::Schema.define(:version => 20120427150744) do
     t.string   "slug"
     t.text     "intro"
     t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+    t.string   "telepic_file_name"
+    t.string   "telepic_content_type"
+    t.integer  "telepic_file_size"
+    t.datetime "telepic_updated_at"
   end
 
   create_table "users", :force => true do |t|

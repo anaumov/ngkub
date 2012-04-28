@@ -1,5 +1,5 @@
 %div.single_page
-  %h1= link_to @publication.title, publications_path 
+  %h1= @publication.title 
   %p= image_tag @publication.newspic.url 
   %p.category= @publication.category.title 
   %div.text_body= @publication.body

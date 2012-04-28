@@ -31,7 +31,7 @@
 				<div class="block_hd">Свежий номер</div>
 				<div class="block_content">
 					<div class="hot_news">
-						<img src="/assets/pic1.png" />
+						<%= image_tag @main_theme.newspic.url(:thumb) %>
 						<div>
 							<h1><%= link_to @main_theme.title, @main_theme %></h1> 
 							&nbsp;
@@ -58,8 +58,42 @@
 			<div class="page_block">
 				<div class="block_hd">Телевидение &laquo;Справедливая Кубань&raquo;</div>
 				<div class="block_content">
+					<table class="teledom">
+            <tr>
+              <% @teles.each_with_index do |tele,i| %>
+                <% case i %>
+                    <% when 0 %>
+                      <td class="one">
+                    <% when 1 %>
+                      <td class="two">
+                    <% when 5 %>
+                      <td class="three">
+                 <% end %>
+
+                 <div>
+                    <% case i %>
+                      <% when 0 %>
+                        <a href="<%= tele_path(tele) %>">
+                          <%=image_tag tele.telepic.url(:one) %>
+                        </a>
+                      <% when 1..4 %>
+                        <a href="<%= tele_path(tele) %>">
+                          <%=image_tag tele.telepic.url(:two) %>
+                        </a>
+                      <% when 5..12 %>
+                        <a href="<%= tele_path(tele) %>">
+                          <%=image_tag tele.telepic.url(:three) %>
+                        </a>
+                    <% end %>
+                 </div>
+                <% if (i==0)||(i==4)||(i==12) %>
+                   </td>
+                <% end %>
+
+              <% end %>       
+            </tr>
+          </table>
 					
-					<img src="/assets/manypics.png" />
 					
 				</div>
 			</div>	<!--end of "page_block"-->
@@ -124,7 +158,7 @@
 		<div class="page_block">
 			<div class="block_hd">Герой дня</div>
 			<div class="block_content hero">
-				<img src="/assets/bob.png" />
+				<%= image_tag @day_hero.heropic.url(:thumb) %>
 				<div>
 					<h2><%= link_to @day_hero.title, hero_path(@day_hero) %></a></h2>
 					<span class="grey"><%= @day_hero.profession %></span>

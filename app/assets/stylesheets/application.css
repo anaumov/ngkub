@@ -376,6 +376,16 @@ div.comment h2{
 div.single_page{
   padding:0 20px;  
   }
+.single_page h1{
+  margin-bottom:10px;  
+  }
+.teledom td{
+  width: 200px;  
+  height: 200px;
+  }
+.teledom td > div{
+  float:left;  
+  }
 	
 	
 	

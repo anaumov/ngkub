@@ -3,7 +3,7 @@ class TelesController < ApplicationController
     @tele = Tele.create(params[:tele])
 
     if @tele
-      redirect_to tele_path
+      redirect_to teles_path
     else
       render :new
     end  

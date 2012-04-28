@@ -4,9 +4,9 @@ class PublicationsController < ApplicationController
 
   def create
     @publication = Publication.create(params[:publication])
-
+    p @publication.errors
     if @publication
-      redirect_to publication_path
+      redirect_to publications_path
     else
       render :new
     end  

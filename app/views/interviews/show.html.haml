@@ -2,8 +2,8 @@
   %h1 
     = link_to @interview.title, interviews_path 
 
-  %p= @interview.slug
-  %p= @interview.intro 
+  %p= image_tag @interview.personpic.url
+
   %p= @interview.body
 
   -if (!@interview.questpub)
