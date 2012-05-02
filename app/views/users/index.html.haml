@@ -1,0 +1,6 @@
+%div.single_page
+  - @users.each do |user|
+    %p
+      = user.email
+      = user.approved
+      = link_to 'редактировать', edit_user_path(user)

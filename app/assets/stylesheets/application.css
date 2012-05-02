@@ -359,6 +359,8 @@ span.time{
 	}	
 div.text_body{
   margin:20px 0;
+  font-size: 0.95em;
+  line-height: 1.3em;
   }
 div.comment{
   margin:20px 0;  
@@ -374,10 +376,14 @@ div.comment h2{
   height: 50px !important;  
   }
 div.single_page{
-  padding:0 20px;  
+  padding:20px;
+  margin:0 30px;
+  background: none repeat scroll 0 0 #F3F3F3;  
   }
 .single_page h1{
-  margin-bottom:10px;  
+  margin-bottom:10px; 
+  font-size:16pt;
+  font-weight: 700; 
   }
 .teledom td{
   width: 200px;  

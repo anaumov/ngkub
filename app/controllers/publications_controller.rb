@@ -1,6 +1,6 @@
 class PublicationsController < ApplicationController
 
-  before_filter :authenticate_user!, :only => [:new, :create, :edit]
+  before_filter :authenticate_user!, :only => [:new, :create, :edit, :update]
 
   def create
     @publication = Publication.create(params[:publication])
