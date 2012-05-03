@@ -3,6 +3,12 @@
 <head>
   <title>Ngkub</title>
   <%= stylesheet_link_tag  "application", :media => "all" %>
+  <%= javascript_include_tag  "application" %>
+  <%
+    MarkItUp.default_buttons
+    MarkItUp.skin = "simple"
+  %>
+  <%= mark_it_up '#miu_test' %>
   <%= csrf_meta_tags %>
 </head>
 <body>

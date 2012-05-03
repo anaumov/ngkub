@@ -28,8 +28,9 @@ gem "simple_form", "~> 2.0.1"
 gem 'devise'
 gem "paperclip", "~> 3.0"
 gem "twitter"
+gem 'mark_it_up', :git => 'git://github.com/cingel/mark_it_up.git'
 
-#gem 'jquery-rails'
+gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
