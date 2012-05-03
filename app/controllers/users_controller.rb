@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(params[:user])
     if @user.errors.empty?
-      redirect_to heros_path
+      redirect_to users_path
     else
       render :new
     end  
@@ -31,15 +31,15 @@ class UsersController < ApplicationController
 
   def delete
     begin  
-      hero = User.where(:id => params[:id]).first
+      user = User.where(:id => params[:id]).first
     rescue  
       flash[:notice] = "we haven't hero with id=" + params[:id]
       render :file => "#{Rails.root}/public/404.html", :layout => true, :status => 404
     end 
     
-    unless hero
-      flash[:notice] = "hero " + hero.title + " deleted"
-      cat.destroy
+    unless user
+      flash[:notice] = "user " + user.email + " deleted"
+       user.destroy
       render :index  
     end  
   end
@@ -56,7 +56,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     
     if @user.update_attributes(params[:user] )
-      redirect_to @user
+      redirect_to users_path
     else
       render :edit
     end
