@@ -1,5 +1,23 @@
 module ControllerMacros
-  
+
+  def render_403
+     respond_to do |format|
+       format.html { render :file => "#{Rails.root}/public/403.html",
+:status => 403, :layout => false }
+       format.json { render :json => { :type => "error", :message =>
+"Error 403, you don't have permissions for this operation." } }
+     end
+   end
+
+   def render_404
+     respond_to do |format|
+       format.html { render :file => "#{Rails.root}/public/404.html",
+:status => 404, :layout => false }
+       format.json { render :json => { :type => "error", :message =>
+"Error 404, resource was not found." } }
+     end
+   end
+
   def self.included(base)
     base.extend(ClassMethods)
   end
@@ -12,7 +30,7 @@ module ControllerMacros
           #login_account
           begin
             process(action, {:id => 0} , nil, nil, verb.to_s.upcase)
-          rescue BSON::InvalidObjectId 
+          rescue #BSON::InvalidObjectId 
             record_not_found = true
           end
           response.should render_404 unless record_not_found

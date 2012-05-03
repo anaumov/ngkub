@@ -1,9 +1,9 @@
 class CategoriesController < ApplicationController
 
   def create
-    @category = Category.new(params[:category])
+    @category = Category.create(params[:category])
 
-    if @category.save
+    if @category
       redirect_to categories_path
     else
       render :new
@@ -19,7 +19,7 @@ class CategoriesController < ApplicationController
     @category = Category.where(:id => params[:id]).first
     
     unless @category  
-       render :file => "#{Rails.root}/public/404.html", :status => 404
+       render_404
        return    
     end 
   end
@@ -31,15 +31,17 @@ class CategoriesController < ApplicationController
     end 
   end
 
-  def delete
+  def destroy
     begin  
       cat = Category.where(:id => params[:id]).first
+
     rescue  
       flash[:notice] = "we haven't category with id=" + params[:id]
-      render :file => "#{Rails.root}/public/404.html", :layout => true, :status => 404
+      render_404
+      return
     end 
     
-    unless cat
+    if cat
       flash[:notice] = "category " + cat.title + " deleted"
       cat.destroy
       render :index  
@@ -50,7 +52,7 @@ class CategoriesController < ApplicationController
     begin  
       @category = Category.find(params[:id])
     rescue  
-      render :file => "#{Rails.root}/public/404.html", :layout => true, :status => 404
+      render_404
     end
   end
 

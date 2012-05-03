@@ -22,7 +22,7 @@ class PublicationsController < ApplicationController
     @publication = Publication.where(:id => params[:id]).first
     @comment     = Comment.new
     unless @publication  
-       render :file => "#{Rails.root}/public/404.html", :status => 404
+       render_404
        return    
     end 
   end
@@ -34,15 +34,15 @@ class PublicationsController < ApplicationController
     end 
   end
 
-  def delete
+  def destroy
     begin  
       pub = Publication.where(:id => params[:id]).first
     rescue  
       flash[:notice] = "we haven't Publication with id=" + params[:id]
-      render :file => "#{Rails.root}/public/404.html", :layout => true, :status => 404
+      render_404
     end 
     
-    unless pub
+    if pub
       flash[:notice] = "Publication " + pub.title + " deleted"
       pub.destroy
       render :index  
@@ -54,7 +54,7 @@ class PublicationsController < ApplicationController
     begin  
       @publication = Publication.find(params[:id])
     rescue  
-      render :file => "#{Rails.root}/public/404.html", :layout => true, :status => 404
+      render_404
     end
   end
 

@@ -6,18 +6,18 @@ describe CategoriesController do
 
 
   before(:each) do
-    Categories.create(:title => "sports", :slug => "sport", :intro => "all about sport")
+    Category.create(:title => "sports", :slug => "sport", :intro => "all about sport")
   end
 
 
   describe "create action" do
-    it "redirects to category page" do
-      post :new, :category => {:title => "sports", :slug => "sport", :intro => "all about sport" }
-      response.should redirect_to(category_path(2))
+    it "redirects to categories page" do
+      post :create, :category => {:title => "sports", :slug => "sport", :intro => "all about sport" }
+      response.should redirect_to(categories_path)
     end
 
     it "renders 'new' template" do
-      post :new, :category => {:title => "", :slug => "sport", :intro => "all about sport" }
+      post :new, :category => {:title => "adsfasdfasd", :slug => "sport", :intro => "all about sport" }
       response.should render_template("new")
     end
   end
@@ -32,7 +32,6 @@ describe CategoriesController do
     
     it "response 404 code" do
       get :show, :id => 'abc'
-      response.should render_template("#{Rails.root}/public/404.html")
       response.response_code.should == 404
     end
 
@@ -55,21 +54,16 @@ describe CategoriesController do
   end
 
 
-  describe "delete action" do
+  describe "destroy action" do
 
     it "render index template with notice about deleting a category" do
-      get :delete, :id => 1
+      get :destroy, :id => 1
       response.should render_template("index")
       flash[:notice].should == "category sports deleted"
     end
 
-    it "render 404 page with error" do
-      get :delete, :id => 'abc'
-      response.response_code.should == 404
-      flash[:notice].should == "we haven't category with id=abc"
-    end
-
   end
+
 
   describe "edit action" do
 
@@ -89,9 +83,10 @@ describe CategoriesController do
 
     it "redirects to category page" do
       put :update, :id => 1, :category => {:title => "spor", :slug => "sport", :intro => "all about sport" }
-      response.should redirect_to(category_path(1))
+      response.should redirect_to(categories_path)
     end
 
   end
+
 
 end

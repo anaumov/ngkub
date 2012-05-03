@@ -27,6 +27,7 @@ gem 'haml'
 gem "simple_form", "~> 2.0.1"
 gem 'devise'
 gem "paperclip", "~> 3.0"
+gem "twitter"
 
 #gem 'jquery-rails'
 

@@ -127,25 +127,17 @@
 		<div class="page_block">
 			<div class="block_hd">Наш <img src="/assets/twitter.png" /></div>
 			<div class="block_content tweet_block">
-			
+			  <% @tweets.each do |tweet| %>
 				<div class="single_tweet">
-					<strong><a href="#">@varlamov</a></strong>: Следующей массовой акцией в Москве может стать карнавал - <a href="http://t.co/PdabLWQQ" data-expanded-url="http://bit.ly/HaT9ZU">bit.ly/HaT9ZU</a> В 2012 году в Москве может пройти первый городской карнавал.
-					<p class="tweet_time">about a centery ago</p>
+					<strong><a href="<%= tweet.user.url %>">@<%= tweet.user.name %></a></strong>: 
+          <%= tweet.text %>
+					<p class="tweet_time">
+            <%=distance_of_time_in_words_to_now(tweet.created_at)%> ago
+          </p>
 					
 				</div>
-				
-				<div class="single_tweet">
-					<strong><a href="#">@varlamov</a></strong>: Проект «Гражданин мэр» - лучшее, что есть в Омске. И не вашими грязными лапами про него писать и критиковать. Офигели совсем.
-					<p class="tweet_time">about a centery ago</p>
-					
-				</div>
-				
-				<div class="single_tweet">
-					<strong><a href="#">@varlamov</a></strong>: Я - гавно.
-					<p class="tweet_time">about a centery ago</p>
-					
-				</div>
-				
+        <% end %>				
+
 				<a href="#"><img src="/assets/follow_us.png" /></a>
 				
 				

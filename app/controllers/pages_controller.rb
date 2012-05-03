@@ -12,6 +12,8 @@ class PagesController < ApplicationController
 
     @teles = Tele.find(:all, :order => "id desc", :limit => 13)
 
+    @tweets = Twitter.user_timeline("varlamov", :count =>5)
+
 
   end
 
