@@ -31,7 +31,7 @@ class PublicationsController < ApplicationController
     @publications = Publication.all
     unless @publications
       flash[:notice] = "No publications found"
-    end 
+    end
   end
 
   def destroy
@@ -67,6 +67,12 @@ class PublicationsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def rss
+    @publication = Publication.find(:all, :order => "id DESC", :limit => 20)
+    render :layout => false
+    response.headers["Content-Type"] = "application/xml; charset=utf-8"
   end
 
 end
