@@ -17,5 +17,6 @@
 !/public/images
 /public/images/**/*
 /public/system/**/*
+/public/ckeditor_assets/**/*
 
 /config/database.yml
