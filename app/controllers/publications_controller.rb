@@ -4,8 +4,8 @@ class PublicationsController < ApplicationController
 
   def create
     @publication = Publication.create(params[:publication])
-    p @publication.errors
-    if @publication
+
+    if @publication.errors.empty?
       redirect_to publications_path
     else
       render :new
@@ -35,32 +35,27 @@ class PublicationsController < ApplicationController
   end
 
   def destroy
-    begin  
-      pub = Publication.where(:id => params[:id]).first
-    rescue  
+    @publication = Publication.where(:id => params[:id]).first
+
+    if @publication 
+      flash[:notice] = "Publication " + @publication.title + " deleted"
+      @publication.destroy
+      render :index  
+    else
       flash[:notice] = "we haven't Publication with id=" + params[:id]
       render_404
-    end 
-    
-    if pub
-      flash[:notice] = "Publication " + pub.title + " deleted"
-      pub.destroy
-      render :index  
     end  
   end
 
   def edit
      @categories = Category.all
-    begin  
-      @publication = Publication.find(params[:id])
-    rescue  
-      render_404
-    end
+     unless @publication = Publication.where(:id => params[:id]).first
+        render_404
+     end
   end
 
   def update
     @publication = Publication.find(params[:id])
-    @categories = Category.all
     
     if @publication.update_attributes(params[:publication])
       redirect_to @publication

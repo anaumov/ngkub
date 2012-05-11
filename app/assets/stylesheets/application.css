@@ -287,6 +287,9 @@ p.tweet_time{
 /* блок центральный */
 div.slider{
 	padding-bottom: 35px;
+  width:500px;
+  float: left;
+  height: 345px;
 	}
 div.imgs{
 	float:left;
@@ -295,8 +298,9 @@ div.imgs{
 .imgs img{
 	display: block;
 	}
-div.pic_navi{
-	float:left;
+.pic_navi{
+  display: block;	
+  float:left;
 	width: 50px;
 	
 	}
@@ -307,6 +311,10 @@ div.pic_navi{
 	font-size: 16px;
 	padding: 16px 20px;
 	font-weight:700;
+	}
+.pic_navi li > a{
+  text-decoration: none;
+  color: #000;
 	}
 .pic_navi li.current{
 	background:url("/assets/slider_current.png") left bottom transparent repeat-y;
@@ -327,6 +335,7 @@ span.date{
 	padding: 2px 5px;
 	color:#fff;
 	font-size:12px;
+  white-space:nowrap;
 	}
 .hot_news{
 	padding-bottom:20px;
@@ -392,6 +401,18 @@ div.single_page{
 .teledom td > div{
   float:left;  
   }
+
+
+
+.slides_container {
+	width:470px;
+	display:none;
+	}
+
+.pagination .current a {
+	color:red;
+  }
+
 	
 	
 	

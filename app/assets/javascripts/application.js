@@ -13,3 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+		$(function(){
+			$('#slides').slides({
+				preload: true,
+        container: 'slider',
+        paginationClass: 'pic_navi',
+        play: 5000,
+			});
+		});
+

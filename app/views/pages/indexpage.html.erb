@@ -1,32 +1,25 @@
 	<div id="wrapper">
 		<div id="content">
-			
-			<div class="slider">
-				<div class="imgs">
-					<img src="/assets/big_pic.png" />
-          <% @slider_pubs.each do |pub| %>
-						<p>
-              <%= pub.title %>
-            </p>
-          <% end %>
+
+	<div id="slides">
+		<div class="slider">
+			<% @slider_pubs.each do |pub| %>
+			<div class="imgs">
+     		  <%= image_tag pub.newspic.url(:medium) %>
+          
 					<div class="head_actual">
-						<h1>По улице ходила большая крокодила, в руках она держала наган и бутылку с зажигательной смесью</h1> 
+						<h1><%= pub.title %></h1> 
 						&nbsp;
-						<span class="date">31 февраля 2012 15:15</span>
+						<span class="date"><%= pub.created_at.strftime("%d %B %Y")%></span>
 					</div>
 				</div>
-				<div class="pic_navi">
-					<ul>
-						<li>1</li>
-						<li class="current">2</li>
-						<li>3</li>
-						<li>4</li>
-						<li>5</li>
-					</ul>
-				</div>
-				<div class="clear"></div>
-			</div><!--end of "slider"-->
-			
+        <% end %>
+    </div>
+    
+    
+	</div><!--end of "slider"-->
+
+<div class="clear"></div>
 			<div class="page_block">
 				<div class="block_hd">Свежий номер</div>
 				<div class="block_content">

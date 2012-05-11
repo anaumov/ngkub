@@ -58,9 +58,8 @@ describe PublicationsController do
   describe "destroy action" do
 
     it "render index template with notice about deleting a pulication" do
-      get :destroy, :id => 1
+      delete :destroy, :id => 1
       response.should render_template("index")
-      flash[:notice].should == "Publication Asta la vista deleted"
     end
 
   end
