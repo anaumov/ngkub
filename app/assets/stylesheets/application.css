@@ -43,7 +43,13 @@ div#extra{
 div#footer{
 	clear:left;
 	width:100%;
+  height:30px;
+  padding:70px 25px 25px 25px;
 	}
+.foot_menu li{
+	margin-right:25px;
+  font-size:0.9em;
+  }
 div#header{
 	padding: 0 25px;
 	}
@@ -412,8 +418,9 @@ div.single_page{
 .pagination .current a {
 	color:red;
   }
-
-	
+div.banner{
+  padding:15px 0 15px 8px;  
+  }
 	
 	
 	

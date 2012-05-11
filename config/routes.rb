@@ -1,5 +1,7 @@
 Ngkub::Application.routes.draw do
   
+  mount Ckeditor::Engine => '/ckeditor'
+
   match "mark_it_up/preview" => "mark_it_up#preview"
 
   devise_for :users

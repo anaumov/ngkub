@@ -136,6 +136,12 @@
 				
 			</div>
 		</div><!--end of "page_block"-->
+
+    <% if @right_banner %> 
+      <div class="banner">
+		     <%= raw @right_banner.body %>
+      </div>    
+    <% end %>
 		
 	</div>
 	
@@ -154,6 +160,12 @@
 				</div>
 			</div>
 		</div><!--end of "extra"-->
+
+    <% if @left_banner %> 
+      <div class="banner">
+		     <%= raw @left_banner.body %>
+      </div>    
+    <% end %>
 		
 		<div class="page_block">
 			<div class="block_hd">Online интервью</div>

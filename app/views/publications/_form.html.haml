@@ -4,7 +4,7 @@
   =f.select(:category_id, @categories.collect {|p| [ p.title, p.id ] }) 
   =f.input :slug 
   =f.input :intro 
-  =f.input :body, :input_html => { :id => 'miu_test' }
+  =f.input :body
   =f.file_field :newspic
   =f.submit
 

@@ -28,7 +28,7 @@ gem "simple_form", "~> 2.0.1"
 gem 'devise'
 gem "paperclip", "~> 3.0"
 gem "twitter"
-gem 'mark_it_up', :git => 'git://github.com/cingel/mark_it_up.git'
+gem "ckeditor", "3.7.0.rc3"
 
 gem 'jquery-rails'
 

@@ -1,4 +1,6 @@
 = simple_form_for @banner do |f|
   = f.input :title
-  = f.input :body, :as => :text
+  = f.input :publish
+  = f.input :place
+  = f.cktext_area :body, :toolbar => 'Full', :width => 400, :height => 200
   = f.submit 
