@@ -1,17 +1,14 @@
 xml.instruct! :xml, :version => "1.0" 
 xml.rss :version => "2.0" do
   xml.channel do
-    xml.title "Your Blog Title"
-    xml.description "A blog about software and chocolate"
-    xml.link publications_url
-
-    for post in @publications
+    xml.title "Новая газета кубани"
+    xml.description "все новости"
+    
+    for publication in @publications
       xml.item do
-        xml.title post.title
-        xml.description post.body
-        xml.pubDate post.posted_at.to_s(:rfc822)
-        xml.link publication_url(post)
-        xml.guid publication_url(post)
+        xml.title publication.title
+        xml.description publication.body
+        xml.pubDate publication.created_at.to_s(:rfc822)
       end
     end
   end
