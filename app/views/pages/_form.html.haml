@@ -1,8 +1,8 @@
-%div.single_page
-  = simple_form_for (@page) do |f|
-    = f.input :title
-    = f.input :slug
-    = f.input :body
-    = f.submit
+= simple_form_for (@page) do |f|
+  = f.input :title, :label => 'Заголовок' 
+  = f.input :slug, :label => 'ссылка' 
+  %label Полный текст  
+  =f.cktext_area :body, :toolbar => 'Full', :width => 600, :height => 400
+  = f.submit :class => 'btn btn-primary', :value => "Опубликовать"
 
 

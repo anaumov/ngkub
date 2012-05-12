@@ -1,10 +1,13 @@
 =simple_form_for (@publication) do |f|
-  =f.input :title 
-  =f.input :onmain 
-  =f.select(:category_id, @categories.collect {|p| [ p.title, p.id ] }) 
-  =f.input :slug 
-  =f.input :intro 
-  =f.input :body
+  =f.input :title, :label => 'Заголовок' 
+  =f.input :onmain, :label => 'Разместить на главной?'
+  %label Рубрика
+  =f.select(:category_id, @categories.collect {|p| [ p.title, p.id ] })
+  =f.input :slug, :label => 'Ссылка'   
+  =f.input :intro, :label => 'Превью'   
+  %label Полный текст  
+  =f.cktext_area :body, :toolbar => 'Full', :width => 600, :height => 400
+  %label Изображение
   =f.file_field :newspic
-  =f.submit
+  =f.submit :class => 'btn btn-primary', :value => "Опубликовать"
 

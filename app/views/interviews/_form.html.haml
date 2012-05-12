@@ -1,12 +1,13 @@
-%div.single_page
-  =simple_form_for (@interview) do |f|
-    = f.input :title 
-    = f.input :slug
-    = f.input :openquest
-    = f.input :pubdate
-    = f.input :questpub
-    = f.input :intro
-    = f.input :body, :as => :text
-    = f.file_field :personpic
-    = f.submit
+=simple_form_for (@interview) do |f|
+  = f.input :title, :label => 'Заголовок (имя фамилия)' 
+  = f.input :slug, :label => 'Ссылка' 
+  = f.input :openquest, :label => 'Разрешить задавать вопросы?' 
+  = f.input :pubdate, :label => 'Дата публикации ответов' 
+  = f.input :questpub, :label => 'Опубликовать ответы?' 
+  = f.input :intro, :label => 'Превью'
+  %label Полный текст  
+  = f.cktext_area :body, :toolbar => 'Full', :width => 600, :height => 400 
+  %label Фото
+  = f.file_field :personpic
+  = f.submit :class => 'btn btn-primary', :value => "Опубликовать"
 

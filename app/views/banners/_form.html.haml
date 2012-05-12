@@ -1,6 +1,7 @@
 = simple_form_for @banner do |f|
-  = f.input :title
-  = f.input :publish
-  = f.input :place
-  = f.cktext_area :body, :toolbar => 'Full', :width => 400, :height => 200
-  = f.submit 
+  = f.input :title, :label => 'Заголовок'
+  = f.input :publish, :label => 'Опубликовать?'
+  = f.input :place, :label => 'Место размещения (top,left, right)'
+  %label Баннер
+  = f.cktext_area :body, :toolbar => 'Full', :width => 600, :height => 200
+  = f.submit :class => 'btn btn-primary', :value => "Опубликовать"

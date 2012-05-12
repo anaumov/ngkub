@@ -1,9 +1,10 @@
-%div.single_page
-  =simple_form_for (@hero) do |f|
-    = f.input :title
-    = f.input :profession
-    = f.input :slug
-    = f.input :intro, :as => :text
-    = f.input :body, :as => :text
-    = f.file_field :heropic
-    = f.submit
+=simple_form_for (@hero) do |f|
+  = f.input :title, :label => 'Имя героя' 
+  = f.input :profession, :label => 'Профессия (должность)' 
+  = f.input :slug, :label => 'Ссылка' 
+  = f.input :intro, :as => :text, :label => 'Превью' 
+  %label Полный текст  
+  =f.cktext_area :body, :toolbar => 'Full', :width => 600, :height => 400
+  %label Фото героя    
+  = f.file_field :heropic
+  = f.submit :class => 'btn btn-primary', :value => "Опубликовать"

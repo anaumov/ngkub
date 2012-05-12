@@ -10,7 +10,8 @@
  *
  *= require_self
  *= require_tree .
-*/
+ *= require bootstrap_and_overrides
+ */
 
 /* основные блоки */
 html,body{margin:0;padding:0}
@@ -19,8 +20,8 @@ html,body{margin:0;padding:0}
 	padding:0;
 	}
 body{
-	font: 16px arial, sans-chef;
-	padding:0 10px;
+	font: 16px arial, sans-chef !important;
+	padding:0 10px !important;
 	}
 div#wrapper{
 	float:left;
@@ -45,10 +46,15 @@ div#footer{
 	width:100%;
   height:30px;
   padding:70px 25px 25px 25px;
+  background:url("/assets/footer_gradient.png") left bottom transparent repeat-x;
 	}
 .foot_menu li{
 	margin-right:25px;
   font-size:0.9em;
+  color: #fff;
+  }
+.foot_menu li > a{
+	color: #fff;
   }
 div#header{
 	padding: 0 25px;
@@ -68,6 +74,7 @@ input, textarea{
 
 a:link, a:visited, a:active{
 	color:#0072BB;
+  text-decoration: underline;
 	}
 
 .clear{
@@ -124,6 +131,12 @@ p.news_head{
 	display:block;
 	float:left;
 	}
+.main_menu li > input{
+  padding: 0px;  
+  }
+.main_menu {
+  margin: 0px;  
+  }
 .main_menu li{
 	margin:0;
 	padding:9px 27px 5px 27px;
@@ -407,9 +420,6 @@ div.single_page{
 .teledom td > div{
   float:left;  
   }
-
-
-
 .slides_container {
 	width:470px;
 	display:none;
@@ -421,9 +431,29 @@ div.single_page{
 div.banner{
   padding:15px 0 15px 8px;  
   }
-	
-	
-	
+
+
+.simple_form div{
+  margin-bottom: 10px;  
+  }
+label.boolean{
+  display:inline;
+  margin-left:10px;  
+  }
+#publication_intro,
+#interview_intro,
+#hero_intro,
+#tele_intro{
+  height: 200px;
+  width: 600px;
+  }
+input.btn-primary{
+  display:block;
+  }
+span.cke_skin_kama{
+  margin-bottom: 20px;  
+  }	
+
 	
 	
 	
