@@ -386,9 +386,21 @@ span.date{
 	font-size:12px;
   white-space:nowrap;
 	}
+span.category{
+  font-size:1.4em;
+  }
 .hot_news{
 	padding-bottom:20px;
 	}
+.one_pub > h3{
+  display:inline;
+  }
+.one_pub > p.news_img{
+  margin-top: 25px;
+  }
+.one_pub{
+  margin-bottom:30px;  
+  }
 .hot_news img{
 	float:left;
 	margin: 0 20px 15px 0;

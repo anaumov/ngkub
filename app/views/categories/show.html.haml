@@ -1,6 +1,13 @@
 %div.single_page
-  %h1 
-    = link_to @category.title, categories_path 
-
-  %p= @category.slug 
+  %h1= @category.title
   %p= @category.intro 
+  
+  %div.news_cat
+    -@publications.each do |publication|
+      %div.one_pub
+        %h3= link_to publication.title, publication 
+        %span.date= publication.created_at.strftime("%d %B %Y") 
+        %p.news_img= image_tag publication.newspic.url(:medium) 
+        %div.text_body
+          = publication.intro
+          = link_to "читайте полную версию >>", publication

@@ -17,7 +17,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.where(:id => params[:id]).first
-    
+    @publications = @category.publications
     unless @category  
        render_404
        return    
@@ -34,7 +34,6 @@ class CategoriesController < ApplicationController
   def destroy
     begin  
       cat = Category.where(:id => params[:id]).first
-
     rescue  
       flash[:notice] = "we haven't category with id=" + params[:id]
       render_404

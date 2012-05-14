@@ -2,8 +2,9 @@
   %div.page_head
     %h1= @publication.title 
     %span.date= @publication.created_at.strftime("%d %B %Y") 
-    &rarr;
-    %span.category= link_to(@publication.category.title, @publication.category)
+    %span.category
+      &rarr;       
+      =link_to(@publication.category.title, @publication.category)
 
   %p.news_img= image_tag @publication.newspic.url(:medium) 
   %div.text_body= @publication.body
