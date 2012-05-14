@@ -1,22 +1,25 @@
-%h2 Каменты
+%h2 Оставьте комментарий:
+
+= simple_form_for(@comment) do |f|
+  = f.input :commentable_id, :input_html => {:value => commentable.id}, :as => :hidden  
+  = f.input :commentable_type, :input_html => {:value => commentable.class}, :as => :hidden 
+  = f.input :autor, :label => 'Ваше имя' 
+  = f.input :body, :as => :text, :label => 'Комментарий' 
+  %br/
+  = f.submit :class => 'btn btn-primary', :value => "Оставить комментарий"
+
+%h2 Комментарии читателей:
 
 .comment
   -commentable.comments.each do |comment|
-    %p.one_comment
-      -if (comment.autor)
-        %b= comment.autor
-      -else
-        %b Анонимов А.А.      
-      %br/
-      = comment.body
+    %div.lone_comment
+      %p.comment_autor
+        -if (comment.autor)
+          = comment.autor
+        -else
+          Анонимов А.А.  
+      %p.comment_date= comment.created_at.strftime("%d %B %Y в %I:%H")     
+      %p.comment_body= comment.body
 
 
-  %h2 Добавить камент
 
-  = simple_form_for(@comment) do |f|
-    = f.input :commentable_id, :input_html => {:value => commentable.id}, :as => :hidden  
-    = f.input :commentable_type, :input_html => {:value => commentable.class}, :as => :hidden 
-    = f.input :autor
-    = f.input :body, :as => :text
-    %br/
-    = f.submit

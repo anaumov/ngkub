@@ -22,6 +22,7 @@ html,body{margin:0;padding:0}
 body{
 	font: 16px arial, sans-chef !important;
 	padding:0 10px !important;
+  max-width:  1250px;
 	}
 div#wrapper{
 	float:left;
@@ -115,7 +116,9 @@ a.logo{
 	color:#333333;
 	background:#F2F2F2;
 	}
-	
+.page_block{
+  margin-bottom: 32px;  
+  }	
 /* шрифты */	
 p.news_head{
 	margin:20px 0 15px 0;
@@ -131,8 +134,9 @@ p.news_head{
 	display:block;
 	float:left;
 	}
-.main_menu li > input{
-  padding: 0px;  
+.menu_wrap {
+  background:url("/assets/topmenu.png") left top transparent repeat-x;  
+  margin: 0px;  
   }
 .main_menu {
   margin: 0px;  
@@ -141,13 +145,20 @@ p.news_head{
 	margin:0;
 	padding:9px 27px 5px 27px;
 	height:24px;
-	background:url("/assets/topmenu.png") left bottom transparent repeat-x;
 	border-right:1px solid #8EB5D6;
 	color:#fff;
 	}
 .main_menu li.current{
 	background:url("/assets/current_menu.png") left bottom transparent repeat-x;
 	}
+.main_menu li.search{
+  float:right;
+  border-right: none;    
+  }
+.main_menu li.search > input{
+  padding: 0px 0px 0px 5px;  
+  }
+
 .main_menu li > a{
 	color:#fff;
 	text-decoration:none;
@@ -221,15 +232,17 @@ a.go_galo{
 	}
 .conf ul{
 	padding-left:0px;
+  margin-left:0px;
 	margin-top: 0;
 	}
 .conf li{
 	display:block;
-	margin-bottom: 19px;
+	margin-bottom: 22px;
 	}
 .conf h2{
 	font-size:14px;
 	margin: 0px;
+  line-height: 20px;
 	}
 span.grey{
 	color: #7F7F7F;
@@ -279,7 +292,7 @@ a.write_op{
 	
 /* блок "последине каменты" */
 div.comment_block{
-	padding-top: 1px;
+	padding:22px 10px 10px 22px; 
 	}
 p.short_comment{
 	font-size: 13px;
@@ -292,7 +305,7 @@ a.u_pic{
 	
 /* блок "наш шиттер" */
 .tweet_block{
-	font-size: 13px;
+	padding-bottom: 31px;
 	}
 .single_tweet{
 	margin-bottom: 20px;
@@ -304,9 +317,19 @@ p.tweet_time{
 	
 	
 /* блок центральный */
+#slides{
+  position: relative;
+  background: #cccccc;
+  height: 344px; 
+  width: 550px;  
+  }
+.slides_container {
+	width:470px;
+	display:none;
+	}
 div.slider{
 	padding-bottom: 35px;
-  width:500px;
+  width:550px;
   float: left;
   height: 345px;
 	}
@@ -321,7 +344,10 @@ div.imgs{
   display: block;	
   float:left;
 	width: 50px;
-	
+  margin-left: 0px;
+	position: absolute;
+  top: 0;
+  right: 0;
 	}
 .pic_navi li{
 	display:block;
@@ -341,13 +367,17 @@ div.imgs{
 div.head_actual{
 	background:url("/assets/slider_text.png") left bottom transparent;
 	padding: 10px 10px 20px 18px;
+  width: 521px;
+  height: 54px;
 	}
-.head_actual h1{
+.head_actual h1,
+.head_actual h1 > a{
 	color: #FFFFFF;
-    display: inline;
-    font-size: 19px;
-    font-weight: 700;
-    line-height: 27px;
+  display: inline;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 27px;
+  text-decoration: none;
 	}
 span.date{
 	background: #338DC9;
@@ -390,28 +420,23 @@ div.text_body{
   font-size: 0.95em;
   line-height: 1.3em;
   }
-div.comment{
-  margin:20px 0;  
-  }
-div.comment h2{
-  margin-bottom:20px;  
-  }	
-.comment > p.one_comment{
-  margin-bottom:10px;  
-  }
-.comment textarea.text{
-  width:350px
-  height: 50px !important;  
-  }
+
 div.single_page{
   padding:20px;
   margin:0 30px;
   background: none repeat scroll 0 0 #F3F3F3;  
+  width: 830px;
+  }
+.single_page div.page_head{
+  margin-bottom: 25px;  
   }
 .single_page h1{
-  margin-bottom:10px; 
+  display:inline;
   font-size:16pt;
   font-weight: 700; 
+  }
+p.news_img{
+  margin-bottom: 25px;  
   }
 .teledom td{
   width: 200px;  
@@ -420,18 +445,18 @@ div.single_page{
 .teledom td > div{
   float:left;  
   }
-.slides_container {
-	width:470px;
-	display:none;
-	}
+
 
 .pagination .current a {
 	color:red;
   }
 div.banner{
-  padding:15px 0 15px 8px;  
+  padding:0px 0 0px 8px;
+  margin-bottom:32px;  
   }
-
+div.banner > p{
+  margin: 0px;  
+  }
 
 .simple_form div{
   margin-bottom: 10px;  
@@ -454,9 +479,35 @@ span.cke_skin_kama{
   margin-bottom: 20px;  
   }	
 
-	
-	
-	
+
+/* каменты */
+div.comment{
+  margin:20px 0;  
+  }
+div.comment h2{
+  margin-bottom:20px;  
+  }
+div.lone_comment > p{
+  margin-bottom:0px;  
+  }
+div.lone_comment{
+  margin-bottom:25px;  
+  }
+#comment_body{
+  width:600px;
+  height: 200px;  
+  }
+p.comment_date{
+  color: #C4C4C4;
+  font-size: 0.7em;
+  }	
+p.comment_autor{
+  font-weight: 700;
+  font-size:1.0em;
+  }
+#new_comment{
+  margin-bottom: 35px;  
+  }
 	
 	
 	

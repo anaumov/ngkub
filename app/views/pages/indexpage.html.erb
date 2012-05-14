@@ -5,10 +5,11 @@
 		<div class="slider">
 			<% @slider_pubs.each do |pub| %>
 			<div class="imgs">
-     		  <%= image_tag pub.newspic.url(:medium) %>
-          
+          <a href="<%= publication_path(pub) %>">
+     		    <%= image_tag pub.newspic.url(:medium) %>
+          </a>
 					<div class="head_actual">
-						<h1><%= pub.title %></h1> 
+						<h1><%= link_to pub.title, pub %></h1> 
 						&nbsp;
 						<span class="date"><%= pub.created_at.strftime("%d %B %Y")%></span>
 					</div>
@@ -161,13 +162,7 @@
 			</div>
 		</div><!--end of "extra"-->
 
-    <% if @left_banner %> 
-      <div class="banner">
-		     <%= raw @left_banner.body %>
-      </div>    
-    <% end %>
-		
-		<div class="page_block">
+    <div class="page_block">
 			<div class="block_hd">Online интервью</div>
 			<div class="block_content conf">
 				<ul>
@@ -187,5 +182,11 @@
 				</ul>
 			</div>
 		</div>
+
+    <% if @left_banner %> 
+      <div class="banner">
+		     <%= raw @left_banner.body %>
+      </div>    
+    <% end %>
 		
 	</div>
