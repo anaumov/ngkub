@@ -156,7 +156,8 @@ p.news_head{
   border-right: none;    
   }
 .main_menu li.search > input{
-  padding: 0px 0px 0px 5px;  
+  padding: 0px 0px 0px 5px;
+  width: 155px;
   }
 
 .main_menu li > a{
