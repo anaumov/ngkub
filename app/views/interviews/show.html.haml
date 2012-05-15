@@ -1,7 +1,7 @@
 %div.single_page
   %h1= @interview.title
   -if user_signed_in? and current_user.admin?
-    %p.edit= link_to 'Редактировать', edit_hero_path(@hero) 
+    %p.edit= link_to 'Редактировать', edit_interview_path(@interview) 
 
   %p= image_tag @interview.personpic.url
   %p= @interview.body

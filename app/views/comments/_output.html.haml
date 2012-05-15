@@ -8,18 +8,18 @@
   %br/
   = f.submit :class => 'btn btn-primary', :value => "Оставить комментарий"
 
-%h2 Комментарии читателей:
-
-.comment
-  -commentable.comments.each do |comment|
-    %div.lone_comment
-      %p.comment_autor
-        -if (comment.autor)
-          = comment.autor
-        -else
-          Анонимов А.А.  
-      %p.comment_date= comment.created_at.strftime("%d %B %Y в %I:%H")     
-      %p.comment_body= comment.body
+-if commentable.comments.nil?
+  %h2 Комментарии читателей:
+  .comment
+    -commentable.comments.each do |comment|
+      %div.lone_comment
+        %p.comment_autor
+          -if (comment.autor)
+            = comment.autor
+          -else
+            Анонимов А.А.  
+        %p.comment_date= comment.created_at.strftime("%d %B %Y в %I:%H")     
+        %p.comment_body= comment.body
 
 
 

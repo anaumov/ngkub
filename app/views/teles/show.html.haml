@@ -1,12 +1,12 @@
-%h1= @tele.title 
--if user_signed_in? and current_user.admin?
-    %p.edit= link_to 'Редактировать', edit_hero_path(@hero)
+.single_page
+  %h1= @tele.title 
+  -if user_signed_in? and current_user.admin?
+    %p.edit= link_to 'Редактировать', edit_tele_path(@tele)
 
-%p= image_tag @tele.telepic.url
-%p= @tele.intro 
-%p= @tele.body
+  %p.news_img= image_tag @tele.telepic.url
+  %div.text_body= @tele.body
 
-= render :partial => "comments/output", :locals => {:commentable => @tele}
+  = render :partial => "comments/output", :locals => {:commentable => @tele}
 
 
 

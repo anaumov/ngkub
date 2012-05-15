@@ -6,7 +6,7 @@
       &rarr;       
       =link_to(@publication.category.title, @publication.category)
     -if user_signed_in? and current_user.admin?
-      %p.edit= link_to 'Редактировать', edit_hero_path(@hero)
+      %p.edit= link_to 'Редактировать', edit_publication_path(@publication)
   
   %p.news_img= image_tag @publication.newspic.url(:medium) 
   %div.text_body= @publication.body
