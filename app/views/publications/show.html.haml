@@ -11,7 +11,14 @@
 
   = render :partial => "comments/output", :locals => {:commentable => @publication}
 
-
-
-
+.right_side
+  %div.page_block
+    %div.block_hd Рекомендуем:
+    %div.block_content.recomend
+      -@related_pubs.each do |pub|
+        %div.one_post
+          = image_tag pub.newspic.url(:thumb), :width => "150" 
+          %br
+          %h4= link_to pub.title, pub
+          %span.date_grey= pub.created_at.strftime("%d %B %Y, %I:%H")
 

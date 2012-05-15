@@ -19,8 +19,11 @@ class PublicationsController < ApplicationController
   
 
   def show
-    @publication = Publication.where(:id => params[:id]).first
-    @comment     = Comment.new
+    @publication  = Publication.where(:id => params[:id]).first
+
+    @related_pubs = @publication.category.publications    
+    @comment      = Comment.new
+    
     unless @publication  
        render_404
        return    

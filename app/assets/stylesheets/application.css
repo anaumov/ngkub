@@ -432,12 +432,18 @@ div.text_body{
   font-size: 0.95em;
   line-height: 1.3em;
   }
-
+div.right_side{
+  float: right;
+  margin-right: 25px;
+  width: 290px; 
+  padding-top: 0px;
+  }
 div.single_page{
   padding:20px;
   margin:0 30px;
   background: none repeat scroll 0 0 #F3F3F3;  
   width: 830px;
+  float: left;
   }
 .single_page div.page_head{
   margin-bottom: 25px;  
@@ -520,6 +526,19 @@ p.comment_autor{
 #new_comment{
   margin-bottom: 35px;  
   }
+
+.one_post{
+	margin-bottom:30px;	
+	}	
+.one_post > h4{
+	font-weight: 300;
+	display: inline;
+	}
+span.date_grey{
+	color:#9E9E9E;
+	font-size:11px;
+	white-space: nowrap;
+	}
 	
 	
 	
