@@ -1,26 +1,34 @@
-%h2
-  Последние каменты
+.admin_page
+  .admin_comments
+    %h2 Последние каменты
+    - @comments.each do |comment|
+      .one_comment_edit
+        -if (comment.autor)
+          %b= comment.autor 
+        -else
+          %b Анонимов А.А.
+        = link_to "удалить", comment, method: :delete
+        %br     
+        =comment.body
+        %p.parent 
+          =link_to comment.commentable.title, comment.commentable
+  
+  .admin_quests      
+    %h2 Последние вопросы
+    - @questions.each do |question|
+      %p
+        =question.body
+        %br    
+        = link_to "удалить", question, method: :delete
 
-%div
-  - @comments.each do |comment|
-    %p
-      -if (comment.autor)
-        =comment.autor
-      -else
-        Анонимов А.А.      
-      %br
-      =comment.body
-      %span.parent 
-        =comment.commentable.title
-      %br    
-      = link_to "удалить", comment, method: :delete
+  .admin_users      
+    %h2 Пользователи
+    - @users.each do |user|
+      %p
+        = user.email
+        = user.approved
+        = user.admin
+        = link_to 'редактировать', edit_user_path(user)
 
-%h2
-  Последние вопросы
 
-%div
-  - @questions.each do |question|
-    %p
-      =question.body
-      %br    
-      = link_to "удалить", "/"
+  .clear

@@ -1,6 +1,8 @@
 %div.single_page
-  %h1 
-    = link_to @hero.title, heros_path 
+  %h1= @hero.title
+
+  -if user_signed_in? and current_user.admin?
+    %p.edit= link_to 'Редактировать', edit_hero_path(@hero)
 
   %p= image_tag @hero.heropic.url
   %p= @hero.profession

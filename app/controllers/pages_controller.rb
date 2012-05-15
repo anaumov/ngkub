@@ -12,7 +12,7 @@ class PagesController < ApplicationController
 
     @teles = Tele.find(:all, :order => "id desc", :limit => 13)
 
-    @tweets = Twitter.user_timeline("varlamov", :count =>5)
+    #@tweets = Twitter.user_timeline("varlamov", :count =>5)
 
     @top_banner   = Banner.where(:publish => true, :place => "top").first
     @left_banner  = Banner.where(:publish => true, :place => "left").first

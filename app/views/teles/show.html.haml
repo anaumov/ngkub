@@ -1,5 +1,6 @@
-%h1 
-  = @tele.title 
+%h1= @tele.title 
+-if user_signed_in? and current_user.admin?
+    %p.edit= link_to 'Редактировать', edit_hero_path(@hero)
 
 %p= image_tag @tele.telepic.url
 %p= @tele.intro 

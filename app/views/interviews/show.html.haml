@@ -1,9 +1,9 @@
 %div.single_page
-  %h1 
-    = link_to @interview.title, interviews_path 
+  %h1= @interview.title
+  -if user_signed_in? and current_user.admin?
+    %p.edit= link_to 'Редактировать', edit_hero_path(@hero) 
 
   %p= image_tag @interview.personpic.url
-
   %p= @interview.body
 
   -if (!@interview.questpub)

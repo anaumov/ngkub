@@ -541,7 +541,25 @@ span.date_grey{
 	white-space: nowrap;
 	}
 	
-	
+/* админка */
+div.admin_page{  
+  padding:20px;
+  margin:0 30px;
+  background: none repeat scroll 0 0 #F3F3F3;  
+  }
+div.one_comment_edit{
+  font-size:13px;
+  margin-bottom: 10px;
+  width: 490px;
+  }
+div.admin_comments,
+div.admin_quests,
+div.admin_users {
+  float: left;
+  margin-bottom: 30px;
+  padding-right: 25px;
+  width: 490px;
+  }
 	
 	
 	
