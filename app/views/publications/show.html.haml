@@ -3,7 +3,7 @@
     %h1= @publication.title 
     %span.date= @publication.created_at.strftime("%d %B %Y") 
     %span.category
-      &rarr;       
+      %span &rarr;       
       =link_to(@publication.category.title, @publication.category)
     -if user_signed_in? and current_user.admin?
       %p.edit= link_to 'Редактировать', edit_publication_path(@publication)

@@ -190,6 +190,7 @@ li.rss{
 	height: 41px;
 	padding: 8px 0 0 28px;
 	font-size: 18px;
+  font-weight: 700;
 	}
 .block_content{
 	background: none repeat scroll 0 0 #F3F3F3;
@@ -322,7 +323,7 @@ p.tweet_time{
   position: relative;
   background: #cccccc;
   height: 344px; 
-  width: 550px;  
+  width: 587px;  
   }
 .slides_container {
 	width:470px;
@@ -330,13 +331,13 @@ p.tweet_time{
 	}
 div.slider{
 	padding-bottom: 35px;
-  width:550px;
+  width:587px;
   float: left;
   height: 345px;
 	}
 div.imgs{
 	float:left;
-	width: 499px;
+	width: 537px;
 	}
 .imgs img{
 	display: block;
@@ -366,9 +367,9 @@ div.imgs{
 	background:url("/assets/slider_current.png") left bottom transparent repeat-y;
 	}
 div.head_actual{
-	background:url("/assets/slider_text.png") left bottom transparent;
+	background:url("/assets/bg_slider.jpg") left bottom transparent;
 	padding: 10px 10px 20px 18px;
-  width: 521px;
+  width: 559px;
   height: 54px;
 	}
 .head_actual h1,
@@ -390,6 +391,9 @@ span.date{
 span.category{
   font-size:1.4em;
   }
+span.category > span{
+  font-size: 13px;
+  }
 .hot_news{
 	padding-bottom:20px;
 	}
@@ -404,15 +408,16 @@ span.category{
   }
 .hot_news img{
 	float:left;
-	margin: 0 20px 15px 0;
+	margin: 7px 20px 15px 0;
 	}
 .hot_news h1{
 	display: inline;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 29px;
 	}
 .hot_news h1 > a{
-	font-size: 23px;
-    font-weight: 700;
-    line-height: 29px;
+	
 	text-decoration:none;
 	border-bottom: 1px solid #0072BB;
 	}
@@ -441,7 +446,7 @@ div.right_side{
   }
 div.single_page{
   padding:20px;
-  margin:0 30px;
+  margin:0 30px 0 24px;
   background: none repeat scroll 0 0 #F3F3F3;  
   width: 830px;
   float: left;
