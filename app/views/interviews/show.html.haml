@@ -1,3 +1,6 @@
+- title "Онлайн интервью: #{@interview.title}"
+- meta_description "#{@interview.intro}"
+
 %div.single_page
   %h1= @interview.title
   -if user_signed_in? and current_user.admin?

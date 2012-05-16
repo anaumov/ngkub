@@ -1,3 +1,6 @@
+- title "Справедливая кубань: #{@tele.title}"
+- meta_description "#{@tele.intro}"
+
 .single_page
   %h1= @tele.title 
   -if user_signed_in? and current_user.admin?
