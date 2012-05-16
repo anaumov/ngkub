@@ -2,12 +2,10 @@ Ngkub::Application.routes.draw do
   
   mount Ckeditor::Engine => '/ckeditor'
 
-  match "mark_it_up/preview" => "mark_it_up#preview"
-
   devise_for :users
-  resources  :users
-
-  resources :categories, :adminka, :teles, :publications, :heros, 
+  
+  resources :publications, :path => "news"
+  resources :users, :categories, :adminka, :teles, :heros, 
             :interviews, :comments, :answers, :questions, :pages, 
             :banners
 
