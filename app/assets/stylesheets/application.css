@@ -460,11 +460,14 @@ p.news_img{
 .teledom td{
   width: 200px;  
   height: 200px;
+  float:left;
   }
 .teledom td > div{
-  float:left;  
+  float:left; 
   }
-
+.teledom td.three{
+  width: 100px;
+  }
 
 .pagination .current a {
 	color:red;
