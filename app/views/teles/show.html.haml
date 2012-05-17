@@ -7,7 +7,7 @@
     %p.edit= link_to 'Редактировать', edit_tele_path(@tele)
 
   %p.news_img= image_tag @tele.telepic.url
-  %div.text_body= @tele.body
+  %div.text_body= raw @tele.body
 
   = render :partial => "comments/output", :locals => {:commentable => @tele}
 

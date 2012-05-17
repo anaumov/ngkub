@@ -9,4 +9,14 @@ class Publication < ActiveRecord::Base
 
   has_many :comments, :as => :commentable
   belongs_to :category
+
+  define_index do
+    # fields
+    indexes title
+    indexes body
+    
+    # attributes
+    has created_at
+  end
+
 end

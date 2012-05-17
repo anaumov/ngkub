@@ -68,15 +68,15 @@
                     <% case i %>
                       <% when 0 %>
                         <a href="<%= tele_path(tele) %>">
-                          <%=image_tag tele.telepic.url(:one) %>
+                          <%=image_tag tele.telepic.url(:one), :title => tele.title %>
                         </a>
                       <% when 1..4 %>
                         <a href="<%= tele_path(tele) %>">
-                          <%=image_tag tele.telepic.url(:two) %>
+                          <%=image_tag tele.telepic.url(:two), :title => tele.title %>
                         </a>
                       <% when 5..12 %>
                         <a href="<%= tele_path(tele) %>">
-                          <%=image_tag tele.telepic.url(:three) %>
+                          <%=image_tag tele.telepic.url(:three), :title => tele.title %>
                         </a>
                     <% end %>
                  </div>

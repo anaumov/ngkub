@@ -1,11 +1,16 @@
+=debug params
+
 %div.single_page
-  -@publications.each do |publication|
+  %div.page_head
+    %h1 Нашлось по запросу
+
+
+  -@results.each do |publication|
     %div.one_pub
       %h3= link_to publication.title, publication 
       %span.date= publication.created_at.strftime("%d %B %Y") 
       %p.news_img= image_tag publication.newspic.url(:medium) 
       %div.text_body
-        = publication.intro
+        = raw publication.intro
         = link_to "читайте полную версию >>", news_path(publication)
-  %p  
-    = link_to 'Добавить статью', new_publication_path
+

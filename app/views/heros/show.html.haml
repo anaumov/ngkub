@@ -10,7 +10,7 @@
   %p= image_tag @hero.heropic.url
   %p= @hero.profession
   %p= @hero.intro 
-  %p= @hero.body
+  %p= raw @hero.body
 
   = render :partial => "comments/output", :locals => {:commentable => @hero}
 

@@ -7,7 +7,7 @@
     %p.edit= link_to 'Редактировать', edit_interview_path(@interview) 
 
   %p= image_tag @interview.personpic.url
-  %p= @interview.body
+  %p= raw @interview.body
 
   -if (!@interview.questpub)
     %p

@@ -1,8 +1,8 @@
 %div.single_page
-  - @interviews.each do |interview|
-    %p
-      = interview.title
-      = link_to 'редактировать', edit_interview_path(interview)
-      
-  %p  
-    = link_to 'Добавить интервью', new_interview_path
+  -@interviews.each do |interview|
+    %div.one_pub
+      %h3= link_to interview.title, interview 
+      %p.news_img= image_tag interview.personpic.url(:medium) 
+      %div.text_body
+        = interview.intro
+        = link_to "смотрите скорее >>", interview

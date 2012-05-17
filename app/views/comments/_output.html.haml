@@ -8,7 +8,7 @@
   %br/
   = f.submit :class => 'btn btn-primary', :value => "Оставить комментарий"
 
--if commentable.comments.nil?
+-unless commentable.comments.empty?
   %h2 Комментарии читателей:
   .comment
     -commentable.comments.each do |comment|

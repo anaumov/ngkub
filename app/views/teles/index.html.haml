@@ -1,10 +1,10 @@
-.alert.alert-error
-  = flash[:notice]
+%div.single_page
+  -@teles.each do |tele|
+    %div.one_pub
+      %h3= link_to tele.title, tele 
+      %span.date= tele.created_at.strftime("%d %B %Y") 
+      %p.news_img= image_tag tele.telepic.url(:medium) 
+      %div.text_body
+        = tele.intro
+        = link_to "смотрите скорее >>", tele
 
-- @teles.each do |tele|
-  %p
-    = tele.title
-    = link_to 'редактировать', edit_tele_path(tele)
-    
-%p  
-  = link_to 'Добавить программу', new_tele_path

@@ -17,7 +17,6 @@ class PublicationsController < ApplicationController
     @categories  = Category.all
   end
   
-
   def show
     @publication  = Publication.where(:id => params[:id]).first
 

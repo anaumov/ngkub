@@ -155,7 +155,7 @@ p.news_head{
   float:right;
   border-right: none;    
   }
-.main_menu li.search > input{
+.main_menu li.search input{
   padding: 0px 0px 0px 5px;
   width: 155px;
   }
@@ -438,6 +438,10 @@ div.text_body{
   font-size: 0.95em;
   line-height: 1.3em;
   }
+div.text_body > p{
+  font-size: 0.95em;
+  line-height: 1.3em;  
+  }
 div.right_side{
   float: right;
   margin-right: 25px;
@@ -520,9 +524,17 @@ div.lone_comment > p{
 div.lone_comment{
   margin-bottom:25px;  
   }
-#comment_body{
+#comment_body,
+#question_body{
   width:600px;
   height: 200px;  
+  }
+p.answer{
+  background: none repeat scroll 0 0 #FFFFFF;
+  display: inline-block;
+  font-size: 14px;
+  margin:10px 0 0 20px;
+  padding: 10px;  
   }
 p.comment_date{
   color: #C4C4C4;

@@ -12,7 +12,7 @@
       %p.edit= link_to 'Редактировать', edit_publication_path(@publication)
   
   %p.news_img= image_tag @publication.newspic.url(:medium) 
-  %div.text_body= @publication.body
+  %div.text_body= raw @publication.body
 
   = render :partial => "comments/output", :locals => {:commentable => @publication}
 

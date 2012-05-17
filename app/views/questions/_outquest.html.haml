@@ -1,19 +1,18 @@
-%h2 Вопросы читателей
-
-.comment
-  -@interview.question.each do |question|
-    %p
-      %b= question.autor 
-      %br
-      =question.body
-      = render :partial => "answers/output", :locals => {:question => question}
-
+-unless @interview.question.empty?
+  %h2 Вопросы читателей:
+  .comment
+    -@interview.question.each do |question|
+      .lone_comment
+        %p.comment_autor= question.autor 
+        %p.comment_date= question.created_at.strftime("%d %B %Y в %I:%H")
+        %p.comment_body= question.body
+        = render :partial => "answers/output", :locals => {:question => question}
 
 -if (@interview.openquest)
-  %h2 Добавить вопрос
+  %h2 Задайте свой вопрос:
   = simple_form_for(@question) do |f|
     = f.input :interview_id, :input_html => {:value => @interview.id}, :as => :hidden
-    = f.input :autor  
-    = f.input :body, :as => :text
+    = f.input :autor, :label => 'Ваше имя'   
+    = f.input :body, :as => :text, :label => 'Ваш вопрос' 
     %br/
-    = f.submit
+    = f.submit :class => 'btn btn-primary', :value => "Задать вопрос"
