@@ -87,6 +87,7 @@ a:link, a:visited, a:active{
 #container{
   position:relative;
   height:100%;
+  padding:0 10px;
   }
 .main_div{
 	padding:20px 10px 20px 20px;
@@ -453,16 +454,19 @@ div.right_side{
   padding-top: 0px;
   }
 div.single_page{
-  padding:20px;
   margin:0 30px 0 24px;
-  background: none repeat scroll 0 0 #F3F3F3;  
   width: 830px;
   float: left;
   }
-.single_page div.page_head{
+div.post_area{
+  background: none repeat scroll 0 0 #F3F3F3;  
+  padding:20px;
+  margin-bottom: 30px;
+  }
+.post_area div.page_head{
   margin-bottom: 25px;  
   }
-.single_page h1{
+.post_area h1{
   display:inline;
   font-size:16pt;
   font-weight: 700; 
@@ -531,10 +535,32 @@ div.lone_comment > p{
 div.lone_comment{
   margin-bottom:25px;  
   }
+img.user_pic{
+  float: left;
+  margin: 0 12px 10px 0;
+  }
+p.comment_body{
+  clear: both;  
+  }
+input.go_button{
+  border:1px solid #356AA0;
+  border-radius: 4px;
+  font: bold 13px/16px Arial;
+  padding: 8px;
+  color:#fff;
+  background:#356AA0;
+  }
 #comment_body,
 #question_body{
-  width:600px;
+  width: 600px;
   height: 200px;  
+  }
+#answer_body{
+  width: 450px;
+  height: 200px;  
+  }
+#new_answer{
+  margin: 15px 0 0 50px;  
   }
 p.answer{
   background: none repeat scroll 0 0 #FFFFFF;
@@ -597,10 +623,11 @@ div.admin_users {
 div.top_nav{
   background:#000;
   color:#fff;
-  padding:5px 25px;  
+  padding:5px 35px;  
   }
 div.top_nav a{
-  color: #fff;  
+  color: #fff;
+  font-size:13px; 
   }
 .admin_page .button_to{
   clear:both;  

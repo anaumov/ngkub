@@ -1,18 +1,19 @@
 - title "#{@publication.title}"
 - meta_description "#{@publication.intro}"
 
-%div.single_page
-  %div.page_head
-    %h1= @publication.title 
-    %span.date= @publication.created_at.strftime("%d %B %Y") 
-    %span.category
-      %span &rarr;       
-      =link_to(@publication.category.title, @publication.category)
-    -if user_signed_in? and current_user.admin?
-      %p.edit= link_to 'Редактировать', edit_publication_path(@publication)
-  
-  %p.news_img= image_tag @publication.newspic.url(:medium) 
-  %div.text_body= raw @publication.body
+.single_page
+  .post_area  
+    %div.page_head
+      %h1= @publication.title 
+      %span.date= @publication.created_at.strftime("%d %B %Y") 
+      %span.category
+        %span &rarr;       
+        =link_to(@publication.category.title, @publication.category)
+      -if user_signed_in? and current_user.admin?
+        %p.edit= link_to 'Редактировать', edit_publication_path(@publication)
+    
+    %p.news_img= image_tag @publication.newspic.url(:medium) 
+    %div.text_body= raw @publication.body
 
   = render :partial => "comments/output", :locals => {:commentable => @publication}
 

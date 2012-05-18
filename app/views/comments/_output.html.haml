@@ -6,13 +6,14 @@
   = f.input :autor, :label => 'Ваше имя' 
   = f.input :body, :as => :text, :label => 'Комментарий' 
   %br/
-  = f.submit :class => 'btn btn-primary', :value => "Оставить комментарий"
+  = f.submit :class => 'go_button', :value => "Оставить комментарий"
 
 -unless commentable.comments.empty?
   %h2 Комментарии читателей:
   .comment
     -commentable.comments.each do |comment|
       %div.lone_comment
+        =image_tag "/assets/userpic.jpg", :class => "user_pic"        
         %p.comment_autor
           -if (comment.autor)
             = comment.autor
