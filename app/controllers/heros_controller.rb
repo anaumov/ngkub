@@ -31,19 +31,17 @@ class HerosController < ApplicationController
     end 
   end
 
-  def delete
-    begin  
-      hero = Hero.where(:id => params[:id]).first
-    rescue  
+  def destroy
+    hero = Hero.where(:id => params[:id]).first
+    if hero
+      flash[:notice] = "hero " + hero.title + " deleted"
+      cat.destroy
+      redirect_to heros_path
+    else  
       flash[:notice] = "we haven't hero with id=" + params[:id]
       render :file => "#{Rails.root}/public/404.html", :layout => true, :status => 404
     end 
     
-    unless hero
-      flash[:notice] = "hero " + hero.title + " deleted"
-      cat.destroy
-      render :index  
-    end  
   end
 
   def edit

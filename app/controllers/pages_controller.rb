@@ -17,8 +17,6 @@ class PagesController < ApplicationController
     @top_banner   = Banner.where(:publish => true, :place => "top").first
     @left_banner  = Banner.where(:publish => true, :place => "left").first
     @right_banner = Banner.where(:publish => true, :place => "right").first
-
-
   end
 
   def create
@@ -50,26 +48,19 @@ class PagesController < ApplicationController
     end 
   end
 
-  def delete
-    begin  
-      page = Page.where(:id => params[:id]).first
-    rescue  
+  def destroy
+    page = Page.where(:id => params[:id]).first
+    if page
+      flash[:notice] = "Page " + page.title + " deleted"
+      redirect_to pages_path
+    else
       flash[:notice] = "we haven't Page with id=" + params[:id]
       render :file => "#{Rails.root}/public/404.html", :layout => true, :status => 404
     end 
-    
-    unless page
-      flash[:notice] = "Page " + page.title + " deleted"
-      render :index  
-    end  
   end
 
   def edit
-    begin  
-      @page = Page.find(params[:id])
-    rescue  
-      render :file => "#{Rails.root}/public/404.html", :layout => true, :status => 404
-    end
+    @page = Page.find(params[:id])
   end
 
   def update

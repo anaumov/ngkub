@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   
 
   def show
-    @user = User.where(:id => params[:id]).first
+   @user = User.where(:id => params[:id]).first
    unless @user  
        render :file => "#{Rails.root}/public/404.html", :status => 404
        return    
@@ -32,24 +32,19 @@ class UsersController < ApplicationController
   def delete
     begin  
       user = User.where(:id => params[:id]).first
-    rescue  
+    if user
+      flash[:notice] = "user " + user.email + " deleted"
+      user.destroy
+      redirect_to "/adminka"
+    else    
       flash[:notice] = "we haven't hero with id=" + params[:id]
       render :file => "#{Rails.root}/public/404.html", :layout => true, :status => 404
+      return
     end 
-    
-    unless user
-      flash[:notice] = "user " + user.email + " deleted"
-       user.destroy
-      render :index  
-    end  
   end
 
   def edit
-    begin  
-      @user = User.find(params[:id])
-    rescue  
-      render :file => "#{Rails.root}/public/404.html", :layout => true, :status => 404
-    end
+    @user = User.find(params[:id])
   end
 
   def update

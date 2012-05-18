@@ -7,19 +7,18 @@
           %b= comment.autor 
         -else
           %b Анонимов А.А.
-        = link_to "удалить", comment, method: :delete
         %br     
         =comment.body
+        = button_to "удалить", comment, :method => :delete, :confirm => ""
         %p.parent 
           =link_to comment.commentable.title, comment.commentable
   
   .admin_quests      
     %h2 Последние вопросы
     - @questions.each do |question|
-      %p
-        =question.body
-        %br    
-        = link_to "удалить", question, method: :delete
+      .one_quest_adm
+        = question.body
+        = button_to "удалить", question, :method => :delete
 
   .admin_users      
     %h2 Пользователи

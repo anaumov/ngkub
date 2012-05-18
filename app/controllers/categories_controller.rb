@@ -32,19 +32,16 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    begin  
-      cat = Category.where(:id => params[:id]).first
-    rescue  
+    cat = Category.where(:id => params[:id]).first
+    if cat
+      flash[:notice] = "category " + cat.title + " deleted"
+      cat.destroy
+      redirect_to "/adminka" 
+    else  
       flash[:notice] = "we haven't category with id=" + params[:id]
       render_404
       return
     end 
-    
-    if cat
-      flash[:notice] = "category " + cat.title + " deleted"
-      cat.destroy
-      render :index  
-    end  
   end
 
   def edit

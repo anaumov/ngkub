@@ -31,19 +31,16 @@ class BannersController < ApplicationController
     end 
   end
 
-  def delete
-    begin  
-      banner = Banner.where(:id => params[:id]).first
-    rescue  
+  def destroy
+    banner = Banner.where(:id => params[:id]).first
+    if banner
+      flash[:notice] = "category " + banner.title + " deleted"
+      banner.destroy
+      banners_path 
+    else  
       flash[:notice] = "we haven't category with id=" + params[:id]
       render :file => "#{Rails.root}/public/404.html", :layout => true, :status => 404
     end 
-    
-    unless banner
-      flash[:notice] = "category " + banner.title + " deleted"
-      banner.destroy
-      render :index  
-    end  
   end
 
   def edit

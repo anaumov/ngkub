@@ -3,7 +3,8 @@ class Category < ActiveRecord::Base
   
   validates :title, :slug, :presence => true
   validates :title, :length => { :minimum => 3 } 
-
+  validates_uniqueness_of :slug, :message => "has already been taken"
+  
   has_many :commrents, :as => :imageable
   has_many :publications
 

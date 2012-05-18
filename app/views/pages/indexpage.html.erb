@@ -1,5 +1,5 @@
-	<div id="wrapper">
-		<div id="content">
+<div id="wrapper">
+	<div id="content">
 
 	<div id="slides">
 		<div class="slider">
@@ -16,11 +16,10 @@
 				</div>
         <% end %>
     </div>
-    
-    
 	</div><!--end of "slider"-->
 
 <div class="clear"></div>
+
 			<div class="page_block">
 				<div class="block_hd">Свежий номер</div>
 				<div class="block_content">
@@ -43,13 +42,16 @@
               <span class="time"><%= pub.created_at.strftime("%I:%H")%></span>
             </p>
             <% end %>
+            <p>
+              <%= link_to "Все новости &rarr;".html_safe, publications_path %> 	
+            </p>
 
 
 					</div><!--end of "last_news"-->
 				</div>
 			</div><!--end of "page_block"-->
 
-			<div class="page_block">
+			<div class="page_block tele_block">
 				<div class="block_hd">Телевидение &laquo;Справедливая Кубань&raquo;</div>
 				<div class="block_content">
 					<table class="teledom">
@@ -104,7 +106,7 @@
 			<div class="block_content comment_block">
 			  <% @last_comments.each do |comment| %>
 				  <p class="short_comment">
-					  <%= comment.body %><br />
+					  <%= truncate(comment.body, :length => 120) %><br />
 					  <a class="u_pic" href="#">
             <% if (comment.autor) %>
               <%= comment.autor %>
@@ -179,7 +181,9 @@
 					</li>
           <% end %>
 					
-					<li style="margin-bottom: 0px;"><a href="#">Все интервью &rarr;</a></li>
+					<li style="margin-bottom: 0px;">
+            <%= link_to "Все интервью &rarr;".html_safe, interviews_path %>          
+          </li>
 					
 				</ul>
 			</div>

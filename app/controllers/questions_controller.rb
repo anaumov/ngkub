@@ -13,12 +13,12 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def delete
-    question = Question.where(:id => params[:id]).first
-    unless question
+  def destroy
+    question = Question.find(params[:id])
+    if question
       flash[:notice] = "Question " + question.body + " deleted"
       question.destroy
-      render "adminka#index"  
+      redirect_to "/adminka" 
     end  
   end
 

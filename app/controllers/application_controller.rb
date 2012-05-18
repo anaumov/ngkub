@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  before_filter :prepare_menu, :except => [ :create, :update, :destroy]
+  
 
   def render_403
      respond_to do |format|
@@ -18,5 +20,15 @@ class ApplicationController < ActionController::Base
 "Error 404, resource was not found." } }
      end
    end
+
+private
+  def prepare_menu
+    mmmenu do |top|
+      top.add "RSS", "/publications.rss", :class => "RSS"
+      top.add "Reclamodateliam", "/reklama"
+      top.add "Napishite nam", "/email_us"
+    end 
+  end
+    
 
 end

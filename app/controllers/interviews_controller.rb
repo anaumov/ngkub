@@ -21,9 +21,9 @@ def create
     @comment  = Comment.new
     @answer   = Answer.new
     @question = Question.new
-   unless @interview  
-       render :file => "#{Rails.root}/public/404.html", :status => 404
-       return    
+    unless @interview  
+      render :file => "#{Rails.root}/public/404.html", :status => 404
+      return    
     end 
   end
 
@@ -35,19 +35,18 @@ def create
     end 
   end
 
-  def delete
-    begin  
-      interview = Interview.where(:id => params[:id]).first
-    rescue  
+  def destroy
+    interview = Interview.where(:id => params[:id]).first
+
+    if interview
+      flash[:notice] = "Interview " + interview.title + " deleted"
+      cat.destroy
+      redirect_to interviews_path 
+    else
       flash[:notice] = "we haven't Interview with id=" + params[:id]
       render :file => "#{Rails.root}/public/404.html", :layout => true, :status => 404
     end 
     
-    unless interview
-      flash[:notice] = "Interview " + interview.title + " deleted"
-      cat.destroy
-      render :index  
-    end  
   end
 
   def edit

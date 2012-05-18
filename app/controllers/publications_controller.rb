@@ -43,7 +43,7 @@ class PublicationsController < ApplicationController
     if @publication 
       flash[:notice] = "Publication " + @publication.title + " deleted"
       @publication.destroy
-      render :index  
+      redirect_to publications_path  
     else
       flash[:notice] = "we haven't Publication with id=" + params[:id]
       render_404

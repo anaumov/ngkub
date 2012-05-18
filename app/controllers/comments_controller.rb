@@ -10,12 +10,12 @@ class CommentsController < ApplicationController
     redirect_to @comment.commentable
   end
 
-  def delete
-    comment = Comment.where(:id => params[:id]).first
-    unless comment
+  def destroy
+    comment = Comment.find(params[:id])
+    if comment
       flash[:notice] = "Comment " + comment.body + " deleted"
       comment.destroy
-      render "adminka#index"  
+      redirect_to "/adminka"  
     end  
   end
 

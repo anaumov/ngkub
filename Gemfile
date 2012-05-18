@@ -33,6 +33,7 @@ gem "ckeditor", "3.7.0.rc3"
 
 gem 'jquery-rails'
 gem "twitter-bootstrap-rails"
+gem "mmmenu"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

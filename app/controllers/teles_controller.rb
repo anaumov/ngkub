@@ -30,27 +30,21 @@ class TelesController < ApplicationController
     end 
   end
 
-  def delete
-    begin  
-      tele = Tele.where(:id => params[:id]).first
-    rescue  
+  def destroy
+    tele = Tele.where(:id => params[:id]).first
+    if tele
+      flash[:notice] = "Programm " + tele.title + " deleted"
+      tele.destroy
+      redirect_to teles_path 
+    else
       flash[:notice] = "we haven't progremms with id=" + params[:id]
       render :file => "#{Rails.root}/public/404.html", :layout => true, :status => 404
     end 
     
-    unless tele
-      flash[:notice] = "Programm " + tele.title + " deleted"
-      tele.destroy
-      render :index  
-    end  
   end
 
   def edit
-    begin  
-      @tele = Tele.find(params[:id])
-    rescue  
-      render :file => "#{Rails.root}/public/404.html", :layout => true, :status => 404
-    end
+    @tele = Tele.find(params[:id])
   end
 
   def update
