@@ -3,14 +3,11 @@ class AdminkaController < ApplicationController
 
   def index
     unless current_user.admin?
-      redirect_to "/"
+      redirect_to root_path
     end
     @comments  = Comment.all
     @questions = Question.all
     @users     = User.all
   end
-
-
-
 
 end

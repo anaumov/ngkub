@@ -1,5 +1,3 @@
-=debug params
-
 %div.single_page
   %div.page_head
     %h1 Нашлось по запросу
@@ -9,8 +7,6 @@
     %div.one_pub
       %h3= link_to publication.title, publication 
       %span.date= publication.created_at.strftime("%d %B %Y") 
-      %p.news_img= image_tag publication.newspic.url(:medium) 
       %div.text_body
         = raw publication.intro
-        = link_to "читайте полную версию >>", news_path(publication)
-
+      

@@ -19,4 +19,8 @@ class Publication < ActiveRecord::Base
     has created_at
   end
 
+  def to_param
+   slug
+  end
+ 
 end

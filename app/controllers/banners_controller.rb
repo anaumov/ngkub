@@ -27,7 +27,7 @@ class BannersController < ApplicationController
   def index
     @banners = Banner.all
     unless @banners
-      flash[:notice] = "No categories found"
+      flash[:notice] = "No banners found"
     end 
   end
 

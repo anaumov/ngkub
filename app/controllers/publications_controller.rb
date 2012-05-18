@@ -18,8 +18,8 @@ class PublicationsController < ApplicationController
   end
   
   def show
-    @publication  = Publication.where(:id => params[:id]).first
-
+    @publication  = Publication.find_by_slug(params[:id])
+    
     @related_pubs = @publication.category.publications    
     @comment      = Comment.new
     
@@ -31,6 +31,7 @@ class PublicationsController < ApplicationController
 
   def index
     @publications = Publication.all
+
     unless @publications
       flash[:notice] = "No publications found"
     end
