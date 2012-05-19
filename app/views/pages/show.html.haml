@@ -3,8 +3,8 @@
 %div.single_page
   %h1= @page.title
   -if user_signed_in? and current_user.admin?
-      %p.edit= link_to 'Редактировать', edit_page_path(@page)
-  %div.text_body= @page.body
+    %p.edit= link_to 'Редактировать', edit_page_path(@page)
+  %div.text_body= @page.body.html_safe
 
 
 

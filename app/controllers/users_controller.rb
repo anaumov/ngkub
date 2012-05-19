@@ -30,7 +30,6 @@ class UsersController < ApplicationController
   end
 
   def delete
-    begin  
       user = User.where(:id => params[:id]).first
     if user
       flash[:notice] = "user " + user.email + " deleted"
