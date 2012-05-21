@@ -2,7 +2,7 @@ class TelesController < ApplicationController
   def create
     @tele = Tele.create(params[:tele])
 
-    if @tele
+    if @tele.errors.empty?
       redirect_to teles_path
     else
       render :new
@@ -15,7 +15,7 @@ class TelesController < ApplicationController
   
 
   def show
-    @tele    = Tele.where(:id => params[:id]).first
+    @tele    = Tele.find_by_slug(params[:id])
     @comment = Comment.new
     unless @tele  
        render :file => "#{Rails.root}/public/404.html", :status => 404
@@ -24,14 +24,14 @@ class TelesController < ApplicationController
   end
 
   def index
-    @teles = Tele.all
+    @teles = Tele.paginate(:page => params[:page])
     unless @teles
       flash[:notice] = "No programms found"
     end 
   end
 
   def destroy
-    tele = Tele.where(:id => params[:id]).first
+    tele = Tele.find_by_slug(params[:id])
     if tele
       flash[:notice] = "Programm " + tele.title + " deleted"
       tele.destroy
@@ -44,11 +44,11 @@ class TelesController < ApplicationController
   end
 
   def edit
-    @tele = Tele.find(params[:id])
+    @tele = Tele.find_by_slug(params[:id])
   end
 
   def update
-    @tele = Tele.find(params[:id])
+    @tele = Tele.find_by_slug(params[:id])
     
     if @tele.update_attributes(params[:tele])
       redirect_to @tele

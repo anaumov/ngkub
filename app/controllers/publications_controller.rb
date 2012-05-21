@@ -30,7 +30,7 @@ class PublicationsController < ApplicationController
   end
 
   def index
-    @publications = Publication.all
+    @publications = Publication.paginate(:page => params[:page])
 
     unless @publications
       flash[:notice] = "No publications found"
@@ -38,7 +38,7 @@ class PublicationsController < ApplicationController
   end
 
   def destroy
-    @publication = Publication.where(:id => params[:id]).first
+    @publication = Publication.find_by_slug(params[:id])
 
     if @publication 
       flash[:notice] = "Publication " + @publication.title + " deleted"
@@ -52,13 +52,13 @@ class PublicationsController < ApplicationController
 
   def edit
      @categories = Category.all
-     unless @publication = Publication.where(:id => params[:id]).first
+     unless @publication = Publication.find_by_slug(params[:id])
         render_404
      end
   end
 
   def update
-    @publication = Publication.find(params[:id])
+    @publication = Publication.find_by_slug(params[:id])
     
     if @publication.update_attributes(params[:publication])
       redirect_to @publication

@@ -1,0 +1,8 @@
+- @banner = Banner.where(:publish => true, :place => place).first
+
+-if @banner
+  -if (place=="left" or place=="right")
+    .banner
+      =@banner.body.html_safe
+  -else
+    =@banner.body.html_safe

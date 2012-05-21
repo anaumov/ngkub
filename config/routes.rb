@@ -5,8 +5,10 @@ Ngkub::Application.routes.draw do
   devise_for :users
   
   resources :publications, :path => "news"
+  resources :pages, :path => "info"
+
   resources :users, :categories, :adminka, :teles, :heros, 
-            :interviews, :comments, :answers, :questions, :pages, 
+            :interviews, :comments, :answers, :questions, 
             :banners
 
   root :to => "pages#indexpage"

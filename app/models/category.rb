@@ -1,11 +1,15 @@
 class Category < ActiveRecord::Base
   attr_accessible :title, :slug, :intro
   
-  validates :title, :slug, :presence => true
+  validates :title, :presence => true
+  validates :slug, :presence => true, :uniqueness => { :case_sensitive => false }
   validates :title, :length => { :minimum => 3 } 
-  validates_uniqueness_of :slug, :message => "has already been taken"
-  
+
   has_many :commrents, :as => :imageable
   has_many :publications
+
+  def to_param
+   slug
+  end
 
 end

@@ -7,4 +7,5 @@
       %div.text_body
         = tele.intro
         = link_to "смотрите скорее >>", tele
+    = will_paginate @teles, :previous_label => "&larr;", :next_label => "&rarr;", :class => "page_nav"
 

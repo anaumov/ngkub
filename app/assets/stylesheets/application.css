@@ -635,5 +635,10 @@ div.top_nav a{
 .admin_page .button_to > div{
   float:right;  
   }
+span.error{
+  color: #C52F24;
+  display: block;
+  font-size: 12px;  
+  }
 	
 	

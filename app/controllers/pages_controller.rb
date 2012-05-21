@@ -13,16 +13,12 @@ class PagesController < ApplicationController
     @teles = Tele.find(:all, :order => "id desc", :limit => 13)
 
     @tweets = Twitter.user_timeline("varlamov", :count =>5)
-
-    @top_banner   = Banner.where(:publish => true, :place => "top").first
-    @left_banner  = Banner.where(:publish => true, :place => "left").first
-    @right_banner = Banner.where(:publish => true, :place => "right").first
   end
 
   def create
     @page = Page.create(params[:page])
 
-    if @page
+    if @page.errors.empty?
       redirect_to pages_path
     else
       render :new
@@ -34,7 +30,7 @@ class PagesController < ApplicationController
   end
   
   def show
-    @page = Page.where(:id => params[:id]).first
+    @page = Page.find_by_slug(params[:id])
     unless @page  
        render :file => "#{Rails.root}/public/404.html", :status => 404
        return    

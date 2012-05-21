@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.create(params[:category])
 
-    if @category
+    if @category.errors.empty?
       redirect_to categories_path
     else
       render :new
@@ -16,8 +16,8 @@ class CategoriesController < ApplicationController
   
 
   def show
-    @category = Category.where(:id => params[:id]).first
-    @publications = @category.publications
+    @category = Category.find_by_slug(params[:id])
+    @publications = @category.publications.paginate(:page => params[:page])
     unless @category  
        render_404
        return    
@@ -32,28 +32,26 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    cat = Category.where(:id => params[:id]).first
+    cat = Category.find_by_slug(params[:id])
     if cat
       flash[:notice] = "category " + cat.title + " deleted"
       cat.destroy
       redirect_to "/adminka" 
     else  
-      flash[:notice] = "we haven't category with id=" + params[:id]
       render_404
       return
     end 
   end
 
   def edit
-    begin  
-      @category = Category.find(params[:id])
-    rescue  
+    @category = Category.find_by_slug(params[:id])
+    unless @category  
       render_404
     end
   end
 
   def update
-    @category = Category.find(params[:id])
+    @category = Category.find_by_slug(params[:id])
     
     if @category.update_attributes(params[:category])
       redirect_to categories_path

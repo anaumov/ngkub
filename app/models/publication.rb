@@ -4,6 +4,7 @@ class Publication < ActiveRecord::Base
   has_attached_file :newspic, :styles => { :medium => "537x260#", :thumb => "185x125"}
   
   validates :title, :body, :presence => true
+  validates :slug, :presence => true, :uniqueness => { :case_sensitive => false }
   validates :title, :length => { :minimum => 3 } 
   validates :body,  :length => { :minimum => 20 } 
 

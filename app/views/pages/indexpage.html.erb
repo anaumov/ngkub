@@ -11,7 +11,7 @@
 					<div class="head_actual">
 						<h1><%= link_to pub.title, pub %></h1> 
 						&nbsp;
-						<span class="date"><%= pub.created_at.strftime("%d %B %Y")%></span>
+						<span class="date"><%= l pub.created_at.strftime("%d %B %Y").to_date%></span>
 					</div>
 				</div>
         <% end %>
@@ -142,11 +142,7 @@
 			</div>
 		</div><!--end of "page_block"-->
 
-    <% if @right_banner %> 
-      <div class="banner">
-		     <%= raw @right_banner.body %>
-      </div>    
-    <% end %>
+    <%= render :partial => "banners/outbanner", :locals => {:place => "right"} %>
 		
 	</div>
 	
@@ -189,10 +185,6 @@
 			</div>
 		</div>
 
-    <% if @left_banner %> 
-      <div class="banner">
-		     <%= raw @left_banner.body %>
-      </div>    
-    <% end %>
-		
+	  <%= render :partial => "banners/outbanner", :locals => {:place => "left"} %>
+    
 	</div>

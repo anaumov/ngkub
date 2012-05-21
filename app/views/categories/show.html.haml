@@ -10,4 +10,4 @@
         %p.news_img= image_tag publication.newspic.url(:medium) 
         %div.text_body
           = publication.intro
-          = link_to "читайте полную версию >>", news_path(publication)
+          = link_to "Полная версия &rarr;".html_safe, news_path(publication)

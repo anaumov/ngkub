@@ -1,3 +1,5 @@
+= link_to 'Добавить статью', new_publication_path
+
 %div.single_page
   -@publications.each do |publication|
     %div.one_pub
@@ -6,6 +8,6 @@
       %p.news_img= image_tag publication.newspic.url(:medium) 
       %div.text_body
         = publication.intro
-        = link_to "читайте полную версию >>", news_path(publication)
-  %p  
-    = link_to 'Добавить статью', new_publication_path
+        = link_to "Полная версия &rarr;".html_safe, news_path(publication)
+  = will_paginate @publications, :previous_label => "&larr;", :next_label => "&rarr;", :class => "page_nav"
+  

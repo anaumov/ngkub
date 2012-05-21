@@ -20,13 +20,12 @@ class ApplicationController < ActionController::Base
 "Error 404, resource was not found." } }
      end
    end
-
+ 
 private
   def prepare_menu
     mmmenu do |top|
-      top.add "RSS", "/publications.rss", :class => "RSS"
-      top.add "Reclamodateliam", "/reklama"
-      top.add "Napishite nam", "/email_us"
+      top.add :reklama, "/reklama"
+      top.add :contact_us, "/email_us"
     end 
   end
     

@@ -1,9 +1,9 @@
 class InterviewsController < ApplicationController
 
 def create
-    @interview = Interview.new(params[:interview])
+    @interview = Interview.create(params[:interview])
 
-    if @interview.save
+    if @interview.errors.empty?
       redirect_to interviews_path
     else
       render :new
@@ -16,7 +16,7 @@ def create
   
 
   def show
-    @interview = Interview.where(:id => params[:id]).first
+    @interview = Interview.find_by_slug(params[:id])
     
     @comment  = Comment.new
     @answer   = Answer.new
@@ -28,7 +28,7 @@ def create
   end
 
   def index
-    @interviews = Interview.all
+    @interviews = Interview.paginate(:page => params[:page])
     
     unless @interviews
       flash[:notice] = "No interviews found"
@@ -36,29 +36,28 @@ def create
   end
 
   def destroy
-    interview = Interview.where(:id => params[:id]).first
+    interview = Interview.find_by_slug(params[:id])
 
     if interview
       flash[:notice] = "Interview " + interview.title + " deleted"
       cat.destroy
       redirect_to interviews_path 
     else
-      flash[:notice] = "we haven't Interview with id=" + params[:id]
-      render :file => "#{Rails.root}/public/404.html", :layout => true, :status => 404
+      render_404
     end 
     
   end
 
   def edit
     begin  
-      @interview = Interview.find(params[:id])
+      @interview = Interview.find_by_slug(params[:id])
     rescue  
-      render :file => "#{Rails.root}/public/404.html", :layout => true, :status => 404
+      render_404
     end
   end
 
   def update
-    @interview = Interview.find(params[:id])
+    @interview = Interview.find_by_slug(params[:id])
     
     if @interview.update_attributes(params[:interview] )
       redirect_to @interview

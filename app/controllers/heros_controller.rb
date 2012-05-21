@@ -15,7 +15,7 @@ class HerosController < ApplicationController
   
 
   def show
-    @hero = Hero.where(:id => params[:id]).first
+    @hero = Hero.find_by_slug(params[:id])
     @comment = Comment.new
    unless @hero  
        render :file => "#{Rails.root}/public/404.html", :status => 404
@@ -24,36 +24,33 @@ class HerosController < ApplicationController
   end
 
   def index
-    @heroes = Hero.all
-    
+    @heroes = Hero.paginate(:page => params[:page])
     unless @heroes
       flash[:notice] = "No heroes found"
     end 
   end
 
   def destroy
-    hero = Hero.where(:id => params[:id]).first
+    hero = Hero.find_by_slug(params[:id])
     if hero
       flash[:notice] = "hero " + hero.title + " deleted"
       cat.destroy
       redirect_to heros_path
     else  
-      flash[:notice] = "we haven't hero with id=" + params[:id]
-      render :file => "#{Rails.root}/public/404.html", :layout => true, :status => 404
+      render_404
     end 
     
   end
 
   def edit
-    begin  
-      @hero = Hero.find(params[:id])
-    rescue  
-      render :file => "#{Rails.root}/public/404.html", :layout => true, :status => 404
+    @hero = Hero.find_by_slug(params[:id])
+    unless @hero  
+      render_404
     end
   end
 
   def update
-    @hero = Hero.find(params[:id])
+    @hero = Hero.find_by_slug(params[:id])
     
     if @hero.update_attributes(params[:hero] )
       redirect_to @hero
