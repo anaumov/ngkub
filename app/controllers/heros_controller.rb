@@ -1,5 +1,5 @@
 class HerosController < ApplicationController
-
+ before_filter :check_user, :only => [:new, :create, :edit, :update]
  def create
     @hero = Hero.create(params[:hero])
     if @hero.errors.empty?

@@ -1,6 +1,6 @@
 class InterviewsController < ApplicationController
-
-def create
+  before_filter :check_user, :only => [:new, :create, :edit, :update]
+  def create
     @interview = Interview.create(params[:interview])
 
     if @interview.errors.empty?

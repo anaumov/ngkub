@@ -20,6 +20,12 @@ class ApplicationController < ActionController::Base
 "Error 404, resource was not found." } }
      end
    end
+    
+   def check_user
+     unless current_user and current_user.admin?
+      render_404
+    end
+   end
  
 private
   def prepare_menu

@@ -1,6 +1,7 @@
 class PublicationsController < ApplicationController
 
-  before_filter :authenticate_user!, :only => [:new, :create, :edit, :update]
+  before_filter :check_user, :only => [:new, :create, :edit, :update]
+  require 'csv'
 
   def create
     @publication = Publication.create(params[:publication])
@@ -16,11 +17,36 @@ class PublicationsController < ApplicationController
     @publication = Publication.new
     @categories  = Category.all
   end
+
+  def import
+    if params[:file]
+      csv_text = params[:file].read
+      csv = CSV.parse(csv_text, :col_sep => "----", :quote_char => "'")
+      csv.each do |row|
+
+        title = row[3].force_encoding('utf-8')
+        intro = row[4].force_encoding('utf-8')
+        body  = row[5].force_encoding('utf-8')
+        date  = row[7]
+        slug  = "old_news_" + row[0]
+        Publication.create(
+          title: title,
+          slug: slug,
+          intro: intro,
+          body: body,
+          created_at: date
+          )
+      end
+    end
+  end
   
   def show
     @publication  = Publication.find_by_slug(params[:id])
     
-    @related_pubs = @publication.category.publications    
+    if @publication.category
+      @related_pubs = @publication.category.publications    
+    end
+
     @comment      = Comment.new
     
     unless @publication  

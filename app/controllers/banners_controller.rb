@@ -1,5 +1,5 @@
 class BannersController < ApplicationController
-
+  before_filter :check_user, :only => [:new, :create, :edit, :update]
   def create
     @banner = Banner.create(params[:banner])
 

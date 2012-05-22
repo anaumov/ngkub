@@ -1,8 +1,6 @@
 %div.single_page
   %div.page_head
     %h1 Нашлось по запросу
-
-
   -@results.each do |publication|
     %div.one_pub
       %h3= link_to publication.title, publication 

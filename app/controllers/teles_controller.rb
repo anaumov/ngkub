@@ -1,4 +1,5 @@
 class TelesController < ApplicationController
+  before_filter :check_user, :only => [:new, :create, :edit, :update]
   def create
     @tele = Tele.create(params[:tele])
 

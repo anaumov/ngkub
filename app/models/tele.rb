@@ -7,4 +7,8 @@ class Tele < ActiveRecord::Base
   validates :title, :length => { :minimum => 3 } 
 
   has_many :comments, :as => :commentable
+
+  def to_param
+   slug
+  end
 end

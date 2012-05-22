@@ -13,6 +13,7 @@ Ngkub::Application.routes.draw do
 
   root :to => "pages#indexpage"
   match '/search/' => 'search#index'
+  match '/import' => 'publications#import'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

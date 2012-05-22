@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-
+  before_filter :check_user, :only => [:new, :create, :edit, :update]
   def create
     @category = Category.create(params[:category])
 

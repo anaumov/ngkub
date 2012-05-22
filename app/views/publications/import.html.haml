@@ -1,0 +1,7 @@
+.single_page
+  =debug @row
+
+  =form_tag({:action => :import}, :multipart => true) do
+    = file_field_tag 'file'
+    %br;
+    = submit_tag 'Submit'

@@ -1,6 +1,6 @@
 class Publication < ActiveRecord::Base
 
-  attr_accessible :title, :body, :slug, :intro, :category, :category_id, :newspic, :onmain
+  attr_accessible :title, :body, :slug, :intro, :category, :category_id, :newspic, :onmain, :created_at
   has_attached_file :newspic, :styles => { :medium => "537x260#", :thumb => "185x125"}
   
   validates :title, :body, :presence => true

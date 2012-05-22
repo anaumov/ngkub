@@ -9,6 +9,11 @@
   <%= javascript_include_tag  "slides.min.jquery.js" %>
   <%= javascript_include_tag "ckeditor/init" %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript" src="http://userapi.com/js/api/openapi.js?49"></script>
+  <script type="text/javascript">
+    VK.init({apiId: 2962753, onlyWidgets: true});
+  </script>
+
 </head>
 <body>
 
@@ -34,8 +39,9 @@
 			<div class="right_top">
 				<ul class="top_menu">
 					<li class="rss"><a href="/publications.rss">RSS</a></li>
-					<li><a href="#">Рекламодателям</a></li>
-					<li><a href="#">Напишите нам</a></li>
+					<li><a href="/info/ad">Рекламодателям</a></li>
+					<li><a href="/info/feedback">Напишите нам</a></li>
+          <li><a href="/info/editors">Редакция</a></li>
 				</ul>
 				<%= render :partial => "banners/outbanner", :locals => {:place => "top"} %>
       </div>
@@ -64,7 +70,7 @@
 	<div id="footer">
 		<ul class="foot_menu menu">
 				<li>&copy; &laquo;Новая Газета Кубани&raquo;</li>
-				<li ><a href="#">Об использовании материалов</a></li>
+				<li ><a href="copyright">Об использовании материалов</a></li>
 				<li ><a href="#">Карта сайта</a></li>
 			</ul>
 	</div>
