@@ -1,5 +1,5 @@
 class Interview < ActiveRecord::Base
-  attr_accessible :title, :body, :slug, :intro, :openquest, :pubdate, :questpub, :personpic
+  attr_accessible :title, :body, :slug, :intro, :openquest, :pubdate, :questpub, :personpic, :publish
   has_attached_file :personpic, :styles => { :medium => "610x400", :thumb => "88x88#" }
   
   validates :title, :body, :presence => true

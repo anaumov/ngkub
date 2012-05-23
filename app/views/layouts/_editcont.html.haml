@@ -1,0 +1,3 @@
+-if user_signed_in? and current_user.admin?
+  %p.edit
+    =link_to 'Редактировать', :action => :edit, :id => content.slug  

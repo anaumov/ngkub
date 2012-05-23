@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120518114758) do
+ActiveRecord::Schema.define(:version => 20120522130948) do
 
   create_table "answers", :force => true do |t|
     t.text     "body"
@@ -66,13 +66,14 @@ ActiveRecord::Schema.define(:version => 20120518114758) do
     t.string   "slug"
     t.text     "body"
     t.text     "intro"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
     t.string   "profession"
     t.string   "heropic_file_name"
     t.string   "heropic_content_type"
     t.integer  "heropic_file_size"
     t.datetime "heropic_updated_at"
+    t.boolean  "publish",              :default => false
   end
 
   create_table "interviews", :force => true do |t|
@@ -80,8 +81,8 @@ ActiveRecord::Schema.define(:version => 20120518114758) do
     t.string   "slug"
     t.text     "body"
     t.text     "intro"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.boolean  "openquest"
     t.boolean  "questpub"
     t.string   "pubdate"
@@ -89,14 +90,16 @@ ActiveRecord::Schema.define(:version => 20120518114758) do
     t.string   "personpic_content_type"
     t.integer  "personpic_file_size"
     t.datetime "personpic_updated_at"
+    t.boolean  "publish",                :default => false
   end
 
   create_table "pages", :force => true do |t|
     t.string   "title"
     t.string   "slug"
     t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "publish",    :default => false
   end
 
   create_table "publications", :force => true do |t|
@@ -104,14 +107,15 @@ ActiveRecord::Schema.define(:version => 20120518114758) do
     t.string   "slug"
     t.text     "body"
     t.text     "intro"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
     t.integer  "category_id"
     t.string   "newspic_file_name"
     t.string   "newspic_content_type"
     t.integer  "newspic_file_size"
     t.datetime "newspic_updated_at"
     t.boolean  "onmain"
+    t.boolean  "publish",              :default => false
   end
 
   create_table "questions", :force => true do |t|
@@ -127,12 +131,13 @@ ActiveRecord::Schema.define(:version => 20120518114758) do
     t.string   "slug"
     t.text     "intro"
     t.text     "body"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
     t.string   "telepic_file_name"
     t.string   "telepic_content_type"
     t.integer  "telepic_file_size"
     t.datetime "telepic_updated_at"
+    t.boolean  "publish",              :default => false
   end
 
   create_table "users", :force => true do |t|

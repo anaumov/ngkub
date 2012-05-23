@@ -1,5 +1,5 @@
 class Hero < ActiveRecord::Base
-  attr_accessible :title, :body, :slug, :intro, :profession, :heropic
+  attr_accessible :title, :body, :slug, :intro, :profession, :heropic, :publish
   has_attached_file :heropic, :styles => { :medium => "610x400", :thumb => "88x88#" }
 
   validates :title, :body, :presence => true

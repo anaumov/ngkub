@@ -1,5 +1,8 @@
+-if @hero.title
+  =button_to "удалить", @hero, :method => :delete, :class => "del", :confirm => "Точно?"
 =simple_form_for (@hero) do |f|
   = f.input :title, :label => 'Имя героя' 
+  = f.input :publish, :label => 'Опубликовать?'
   = f.input :profession, :label => 'Профессия (должность)' 
   = f.input :slug, :label => 'Ссылка' 
   = f.input :intro, :as => :text, :label => 'Превью' 

@@ -3,11 +3,11 @@
 
 .single_page
   %h1= @tele.title 
-  -if user_signed_in? and current_user.admin?
-    %p.edit= link_to 'Редактировать', edit_tele_path(@tele)
-
+  = render :partial => "layouts/editcont", :locals => {:content => @tele}
+  
   %div.text_body= raw @tele.body
-  = render :partial => "comments/output", :locals => {:commentable => @tele}
+  = render :partial => "layouts/social"
+= render :partial => "comments/output", :locals => {:commentable => @tele}
 
 
 

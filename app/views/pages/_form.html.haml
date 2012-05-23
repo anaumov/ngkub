@@ -1,5 +1,8 @@
+-if @page.title
+  =button_to "удалить", @page, :method => :delete, :class => "del", :confirm => "Точно?"
 = simple_form_for (@page) do |f|
-  = f.input :title, :label => 'Заголовок' 
+  = f.input :title, :label => 'Заголовок'
+  = f.input :publish, :label => 'Опубликовать?'
   = f.input :slug, :label => 'ссылка' 
   %label Полный текст  
   =f.cktext_area :body, :toolbar => 'Full', :width => 600, :height => 400

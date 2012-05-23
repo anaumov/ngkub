@@ -1,23 +1,27 @@
 - title "Онлайн интервью: #{@interview.title}"
 - meta_description "#{@interview.intro}"
 
-%div.single_page
-  %h1= @interview.title
-  -if user_signed_in? and current_user.admin?
-    %p.edit= link_to 'Редактировать', edit_interview_path(@interview) 
+.single_page
+  .post_area  
+    %h1= @interview.title
+    = render :partial => "layouts/editcont", :locals => {:content => @interview}
 
-  %p= image_tag @interview.personpic.url
-  %p= raw @interview.body
-
-  -if (!@interview.questpub)
-    %p
-      Ориентировочная дата публикации 
-      = @interview.pubdate
+    %p= image_tag @interview.personpic.url
+    %p= raw @interview.body
+    -if (@interview.questpub)
+      = render :partial => "layouts/social"
+    -if (!@interview.questpub)
+      %p
+        Ориентировочная дата публикации 
+        = @interview.pubdate
 
   = render :partial => "questions/outquest"
 
+
+  .clear
   -if (@interview.questpub)
     = render :partial => "comments/output", :locals => {:commentable => @interview}
+
 
 
 

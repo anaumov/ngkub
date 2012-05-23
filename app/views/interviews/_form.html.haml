@@ -1,5 +1,8 @@
+-if @interview.title
+  =button_to "удалить", @interview, :method => :delete, :class => "del", :confirm => "Точно?"
 =simple_form_for (@interview) do |f|
-  = f.input :title, :label => 'Заголовок (имя фамилия)' 
+  = f.input :title, :label => 'Заголовок (имя фамилия)'
+  = f.input :publish, :label => 'Опубликовать?'
   = f.input :slug, :label => 'Ссылка' 
   = f.input :openquest, :label => 'Разрешить задавать вопросы?' 
   = f.input :pubdate, :label => 'Дата публикации ответов' 

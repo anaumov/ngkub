@@ -1,5 +1,9 @@
+-if @tele.title
+  =button_to "удалить", @tele, :method => :delete, :class => "del", :confirm => "Точно?"
+
 = simple_form_for (@tele) do |f|
-  = f.input :title, :label => 'Заголовок' 
+  = f.input :title, :label => 'Заголовок'
+  = f.input :publish, :label => 'Опубликовать?' 
   = f.input :slug, :label => 'Ссылка' 
   = f.input :intro, :as => :text, :label => 'Превью' 
   %label Полный текст  

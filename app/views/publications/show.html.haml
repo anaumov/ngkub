@@ -10,13 +10,13 @@
         %span &rarr;
         -if @publication.category       
           =link_to(@publication.category.title, @publication.category)
-      -if user_signed_in? and current_user.admin?
-        %p.edit= link_to 'Редактировать', edit_publication_path(@publication)
+      
+    = render :partial => "layouts/editcont", :locals => {:content => @publication}
     
     %p.news_img= image_tag @publication.newspic.url(:medium) 
     %div.text_body= raw @publication.body
     = render :partial => "layouts/social"
-
+    
   = render :partial => "comments/output", :locals => {:commentable => @publication}
 
 -if @related_pubs

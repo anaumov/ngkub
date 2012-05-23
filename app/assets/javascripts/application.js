@@ -15,11 +15,16 @@
 //= require twitter/bootstrap
 //= require_tree .
 
-		$(function(){
-			$('#slides').slides({
-				preload: true,
-        container: 'slider',
-        paginationClass: 'pic_navi',
-        play: 5000,
-			});
-		});
+	$(function(){
+		$('#slides').slides({
+			preload: true,
+      container: 'slider',
+      paginationClass: 'pic_navi',
+      play: 5000,
+	  });
+	});
+
+  $("#ans_now").click(function () {
+    $("div.answer").show("slow");
+  });
+

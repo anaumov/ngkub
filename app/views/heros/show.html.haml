@@ -1,17 +1,17 @@
 - title "Герой дня - #{@hero.title}"
 - meta_description "#{@hero.intro}"
 
-%div.single_page
-  %h1= @hero.title
+.single_page
+  .post_area
+    %h1= @hero.title
 
-  -if user_signed_in? and current_user.admin?
-    %p.edit= link_to 'Редактировать', edit_hero_path(@hero)
-
-  %p= image_tag @hero.heropic.url
-  %p= @hero.profession
-  %p= @hero.intro 
-  %p= raw @hero.body
-
+    = render :partial => "layouts/editcont", :locals => {:content => @hero}
+    
+    %p= image_tag @hero.heropic.url
+    %p= @hero.profession
+    %p= @hero.intro 
+    %p= @hero.body.html_safe
+    = render :partial => "layouts/social"
   = render :partial => "comments/output", :locals => {:commentable => @hero}
 
 

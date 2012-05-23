@@ -562,12 +562,16 @@ input.go_button{
 #new_answer{
   margin: 15px 0 0 50px;  
   }
-p.answer{
-  background: none repeat scroll 0 0 #FFFFFF;
-  display: inline-block;
+div.answer{
+  background: #F3F3F3;
+  display: block;
   font-size: 14px;
-  margin:10px 0 0 20px;
-  padding: 10px;  
+  margin:20px 0 0 0px;
+  padding: 15px;  
+  }
+div.answer > strong{
+  display:inline-block;
+  margin-bottom:15px;  
   }
 p.comment_date{
   color: #C4C4C4;
@@ -645,5 +649,16 @@ div.social_btns > div.one_btn{
   margin-right:20px; 
   max-width: 140px; 
   }
-	
+input.del{
+  background: none repeat scroll 0 0 transparent;
+  border: medium none;
+  color: #0072BB;
+  text-decoration: underline;
+  box-shadow: none;
+  }
+a.ans_link{
+  text-decoration: underline;
+  font-size: 12px;
+  cursor: pointer;
+  }	
 	

@@ -1,8 +1,16 @@
 -if (question.answer)&&(question.interview.questpub)
-  %p.answer= question.answer.body
+  %div.answer 
+    %strong= question.interview.title    
+    =question.answer.body
 -elsif (!question.answer)
-  = simple_form_for(@answer) do |f|
-    = f.input :question_id, :input_html => {:value => question.id}, :as => :hidden  
-    = f.input :body, :as => :text, :label => 'Ваш ответ'
-    %br/
-    = f.submit :class => 'go_button', :value => "Ответить"
+  %a(class="ans_link" id="ans_now#{question.id}") Ответить
+  %div(id="answer#{question.id}" style="display:none;")
+    = simple_form_for(@answer) do |f|
+      = f.input :question_id, :input_html => {:value => question.id}, :as => :hidden  
+      = f.input :body, :as => :text, :label => 'Ваш ответ'
+      %br/
+      = f.submit :class => 'go_button', :value => "Ответить"
+  :javascript
+    $("a#ans_now#{question.id}").click(function () {
+      $("div#answer#{question.id}").toggle();
+    });
