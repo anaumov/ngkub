@@ -1,5 +1,6 @@
 - @categories.each do |category|
   %p
+    = category.id
     = category.title
     = link_to 'редактировать', edit_category_path(category)
     

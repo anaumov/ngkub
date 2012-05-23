@@ -6,7 +6,7 @@
     -@publications.each do |publication|
       %div.one_pub
         %h3= link_to publication.title, publication 
-        %span.date= publication.created_at.strftime("%d %B %Y") 
+        %span.date= l publication.created_at, :format => :ngkub
         %p.news_img= image_tag publication.newspic.url(:medium) 
         %div.text_body
           = publication.intro

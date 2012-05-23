@@ -22,8 +22,10 @@ class PublicationsController < ApplicationController
     if params[:file]
       csv_text = params[:file].read
       csv = CSV.parse(csv_text, :col_sep => "----", :quote_char => "'")
+            
       csv.each do |row|
-
+        @row = row
+        if false
         title = row[3].force_encoding('utf-8')
         intro = row[4].force_encoding('utf-8')
         body  = row[5].force_encoding('utf-8')
@@ -36,17 +38,17 @@ class PublicationsController < ApplicationController
           body: body,
           created_at: date
           )
+        end
       end
     end
   end
   
   def show
     @publication  = Publication.find_by_slug(params[:id])
-    
+    #[ "category_id = ?", @publication.category.id]
     if @publication.category
-      @related_pubs = @publication.category.publications    
+      @related_pubs = Publication.find(:all, :conditions => [ "category_id = ? AND id != ?", @publication.category.id, @publication.id.to_i ],:limit => 5)    
     end
-
     @comment      = Comment.new
     
     unless @publication  

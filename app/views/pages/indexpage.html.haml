@@ -9,7 +9,7 @@
             .head_actual
               %h1= link_to pub.title, pub
               \ 
-              %span.date= l pub.created_at.strftime("%d %B %Y").to_date
+              %span.date= l pub.created_at, :format => :ngkub
     / end of "slider"
     .clear
     .page_block
@@ -20,7 +20,7 @@
           %div
             %h1= link_to @main_theme.title, @main_theme
             \ 
-            %span.date= @main_theme.created_at.strftime("%d %B %Y")
+            %span.date= l @main_theme.created_at, :format => :ngkub
           %p= @main_theme.intro
         .last_news
           - @index_publications.each do |pub|
@@ -72,7 +72,7 @@
             \#{tweet.text}
             %p.tweet_time
               = distance_of_time_in_words_to_now(tweet.created_at)
-              ago
+              назад
       %a{:href => "#"}
         %img{:src => "/assets/follow_us.png"}/
   / end of "page_block"
@@ -99,7 +99,7 @@
             %h2= link_to interview.title, interview_path(interview)
             = interview.intro
             %br/
-            %span.grey= interview.created_at.strftime("%d %B %Y")
+            %span.grey= l interview.created_at, :format => :ngkub
             - if (interview.openquest)
               %a.ask{:href => interview_path(interview)}
                 %img{:src => "/assets/ask.png"}/

@@ -2,12 +2,13 @@
 - meta_description "#{@tele.intro}"
 
 .single_page
-  %h1= @tele.title 
-  = render :partial => "layouts/editcont", :locals => {:content => @tele}
-  
-  %div.text_body= raw @tele.body
-  = render :partial => "layouts/social"
-= render :partial => "comments/output", :locals => {:commentable => @tele}
+  .post_area
+    %h1= @tele.title 
+    = render :partial => "layouts/editcont", :locals => {:content => @tele}
+    
+    %div.text_body= raw @tele.body
+    = render :partial => "layouts/social"
+  = render :partial => "comments/output", :locals => {:commentable => @tele}
 
 
 

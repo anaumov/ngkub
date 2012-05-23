@@ -7,7 +7,7 @@
     = render :partial => "layouts/editcont", :locals => {:content => @interview}
 
     %p= image_tag @interview.personpic.url
-    %p= raw @interview.body
+    %p= @interview.body.html_safe
     -if (@interview.questpub)
       = render :partial => "layouts/social"
     -if (!@interview.questpub)

@@ -5,7 +5,7 @@
   .post_area  
     %div.page_head
       %h1= @publication.title 
-      %span.date= @publication.created_at.strftime("%d %B %Y") 
+      %span.date= l @publication.created_at, :format => :ngkub
       %span.category
         %span &rarr;
         -if @publication.category       
@@ -26,8 +26,9 @@
       %div.block_content.recomend
         -@related_pubs.each do |pub|
           %div.one_post
-            = image_tag pub.newspic.url(:thumb), :width => "150" 
+            -unless pub.newspic.url == '/newspics/original/missing.png'
+              = image_tag pub.newspic.url(:thumb), :width => "150" 
             %br
             %h4= link_to pub.title, pub
-            %span.date_grey= pub.created_at.strftime("%d %B %Y, %I:%H")
+            %span.date_grey=l pub.created_at, :format => :ngkub_full
 

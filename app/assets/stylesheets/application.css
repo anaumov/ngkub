@@ -210,13 +210,13 @@ li.rss{
 	float: left;
 	margin-right:10px;
 	}
-.hero  span{
+.hero span{
 	color:#818181;
 	font-size:0.95em;
 	}
-.hero  h2 > a{
+.hero h2 > a{
 	} 
-.hero  h2{
+.hero h2{
 	margin:0;
 	font-size:14px;
 	line-height:14px;
@@ -224,7 +224,19 @@ li.rss{
 .hero p{
 	clear: left;
 	padding-top: 12px;
-	} 
+	}
+.hero_pro{
+  bottom: 7px;
+  color: #7F7F7F;
+  position: relative;  
+  }
+.hero_intro{
+  font-weight:700;  
+  margin: 20px 0;   
+  }
+.social_btns{
+  margin-top: 25px;  
+  }
 .galo ul{
 	padding-left:0px;
 	margin-top: 0;
@@ -567,10 +579,11 @@ div.answer{
   display: block;
   font-size: 14px;
   margin:20px 0 0 0px;
-  padding: 15px;  
+  padding: 15px 25px 25px 25px;  
+  line-height: 23px;
   }
 div.answer > strong{
-  display:inline-block;
+  display:block;
   margin-bottom:15px;  
   }
 p.comment_date{
