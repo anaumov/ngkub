@@ -107,15 +107,15 @@ ActiveRecord::Schema.define(:version => 20120522130948) do
     t.string   "slug"
     t.text     "body"
     t.text     "intro"
-    t.datetime "created_at",                              :null => false
-    t.datetime "updated_at",                              :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.integer  "category_id"
     t.string   "newspic_file_name"
     t.string   "newspic_content_type"
     t.integer  "newspic_file_size"
     t.datetime "newspic_updated_at"
     t.boolean  "onmain"
-    t.boolean  "publish",              :default => false
+    t.boolean  "publish",              :default => true
   end
 
   create_table "questions", :force => true do |t|

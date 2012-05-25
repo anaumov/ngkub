@@ -24,9 +24,17 @@ class ApplicationController < ActionController::Base
    def check_user
      unless current_user and current_user.admin?
       render_404
+      return
     end
    end
- 
+
+   def check_publish(pub)
+    unless pub.publish? || !check_user  
+      render_404
+      return
+    end
+   end
+
 private
   def prepare_menu
     mmmenu do |top|

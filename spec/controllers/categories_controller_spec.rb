@@ -6,20 +6,32 @@ describe CategoriesController do
 
 
   before(:each) do
+    @user  = User.create(:email => "allah@akbar.ru", :approved => true, :admin => false, :password => "000000")
+    @admin = User.create(:email => "malik@akbar.ru", :approved => true, :admin => true, :password => "120000")
+    sign_in @admin
     Category.create(:title => "sports", :slug => "sport", :intro => "all about sport")
   end
 
 
   describe "create action" do
-    it "redirects to categories page" do
-      post :create, :category => {:title => "sports", :slug => "sport", :intro => "all about sport" }
+
+    it "renders 'new' template" do
+      post :create, :category => {:title => "", :slug => "sport", :intro => "all about sport" }
+      response.should render_template("new")
+    end
+
+
+    it "render 404 if user isn't sing_in" do
+      sign_out @admin
+      post :create, :category => {:title => "adsfasdfasd", :slug => "sport", :intro => "all about sport" }
+      response.response_code.should == 404
+    end
+
+    it "redirects to categories page if user is admin" do
+      post :create, :category => {:title => "adsfasdfasd", :slug => "sport", :intro => "all about sport" }
       response.should redirect_to(categories_path)
     end
 
-    it "renders 'new' template" do
-      post :new, :category => {:title => "adsfasdfasd", :slug => "sport", :intro => "all about sport" }
-      response.should render_template("new")
-    end
   end
 
 
@@ -28,11 +40,6 @@ describe CategoriesController do
     it "renders 'show' template" do
       get :show, :id => 1
       response.should render_template("show")
-    end
-    
-    it "response 404 code" do
-      get :show, :id => 'abc'
-      response.response_code.should == 404
     end
 
   end

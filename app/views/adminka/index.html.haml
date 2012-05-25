@@ -1,5 +1,9 @@
 .admin_page
   .admin_comments
+
+  = link_to 'Добавить статью', new_publication_path
+  = link_to 'Добавить страницу', new_page_path
+
     %h2 Последние каменты
     - @comments.each do |comment|
       .one_comment_edit

@@ -17,7 +17,7 @@ class InterviewsController < ApplicationController
 
   def show
     @interview = Interview.find_by_slug(params[:id])
-    
+    check_publish(@interview)
     @comment  = Comment.new
     @answer   = Answer.new
     @question = Question.new

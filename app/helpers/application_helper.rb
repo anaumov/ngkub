@@ -7,4 +7,10 @@ module ApplicationHelper
     content_for(:meta_descr) { meta_descr }
   end
 
-end
+  def check_show(pub)
+    unless (current_user and current_user.admin?) || pub.publish?  
+      return false
+    end
+    return true
+   end
+ end

@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  before_filter :check_user, :only => [:new, :create, :edit, :update]
 
   def indexpage
     @day_hero = Hero.last
@@ -31,6 +32,7 @@ class PagesController < ApplicationController
   
   def show
     @page = Page.find_by_slug(params[:id])
+    check_publish(@page)
     unless @page  
        render :file => "#{Rails.root}/public/404.html", :status => 404
        return    

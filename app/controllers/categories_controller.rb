@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_filter :check_user, :only => [:new, :create, :edit, :update]
+
   def create
     @category = Category.create(params[:category])
 
@@ -14,10 +15,12 @@ class CategoriesController < ApplicationController
     @category = Category.new
   end
   
-
   def show
     @category = Category.find_by_slug(params[:id])
-    @publications = @category.publications.paginate(:page => params[:page])
+    if @category.publications
+      @publications = @category.publications.paginate(:page => params[:page])
+    end
+
     unless @category  
        render_404
        return    

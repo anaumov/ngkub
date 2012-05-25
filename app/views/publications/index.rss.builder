@@ -5,10 +5,12 @@ xml.rss :version => "2.0" do
     xml.description "все новости"
     
     for publication in @publications
-      xml.item do
-        xml.title publication.title
-        xml.description publication.body
-        xml.pubDate publication.created_at.to_s(:rfc822)
+      if check_show(publication)
+        xml.item do
+          xml.title publication.title
+          xml.description publication.body
+          xml.pubDate publication.created_at.to_s(:rfc822)
+        end
       end
     end
   end

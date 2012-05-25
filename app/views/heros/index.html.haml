@@ -1,10 +1,12 @@
+- title "Герои дня"
 %div.single_page
   -@heroes.each do |hero|
-    %div.one_pub
-      %h3= link_to hero.title, hero 
-      %p.news_img= image_tag hero.heropic.url(:medium) 
-      %div.text_body
-        = hero.intro
-        = link_to "смотрите скорее >>", hero
+    -if check_show(hero)
+      %div.one_pub
+        %h3= link_to hero.title, hero 
+        %p.news_img= image_tag hero.heropic.url(:medium) 
+        %div.text_body
+          = hero.intro
+          = link_to "смотрите скорее >>", hero
   = will_paginate @heroes, :previous_label => "&larr;", :next_label => "&rarr;", :class => "page_nav"
 

@@ -1,10 +1,13 @@
+- title "Онлайн интервью"
+
 %div.single_page
   -@interviews.each do |interview|
-    %div.one_pub
-      %h3= link_to interview.title, interview 
-      %p.news_img= image_tag interview.personpic.url(:medium) 
-      %div.text_body
-        = interview.intro
-        = link_to "смотрите скорее >>", interview
+    -if check_show(interview)
+      %div.one_pub
+        %h3= link_to interview.title, interview 
+        %p.news_img= image_tag interview.personpic.url(:medium) 
+        %div.text_body
+          = interview.intro
+          = link_to "смотрите скорее >>", interview
   = will_paginate @interviews, :previous_label => "&larr;", :next_label => "&rarr;", :class => "page_nav"
 

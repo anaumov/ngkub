@@ -16,6 +16,7 @@ class HerosController < ApplicationController
 
   def show
     @hero = Hero.find_by_slug(params[:id])
+    check_publish(@hero)
     @comment = Comment.new
    unless @hero  
        render :file => "#{Rails.root}/public/404.html", :status => 404

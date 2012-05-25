@@ -17,6 +17,7 @@ class TelesController < ApplicationController
 
   def show
     @tele    = Tele.find_by_slug(params[:id])
+    check_publish(@tele)
     @comment = Comment.new
     unless @tele  
        render :file => "#{Rails.root}/public/404.html", :status => 404

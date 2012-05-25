@@ -1,5 +1,5 @@
 class BannersController < ApplicationController
-  before_filter :check_user, :only => [:new, :create, :edit, :update]
+  before_filter :check_user, :only => [:new, :create, :edit, :update, :index,:show]
   def create
     @banner = Banner.create(params[:banner])
 
@@ -17,7 +17,6 @@ class BannersController < ApplicationController
 
   def show
     @banner = Banner.where(:id => params[:id]).first
-    
     unless @banner  
        render :file => "#{Rails.root}/public/404.html", :status => 404
        return    

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :check_user, :only => [:new, :create, :edit, :update]
+  before_filter :check_user, :only => [:new, :create, :edit, :update, :index]
   def create
     @user = User.create(params[:user])
     if @user.errors.empty?
