@@ -8,7 +8,7 @@ class Tele < ActiveRecord::Base
 
   has_many :comments, :as => :commentable
 
-  #def to_param
-  # slug
-  #end
+  def to_param
+   slug
+  end
 end
