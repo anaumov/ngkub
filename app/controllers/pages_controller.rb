@@ -40,6 +40,10 @@ class PagesController < ApplicationController
   end
 
   def index
+    unless current_user and current_user.admin?
+      redirect_to('/')
+      return
+    end
     @pages = Page.all
     unless @pages
       flash[:notice] = "No Pages found"
