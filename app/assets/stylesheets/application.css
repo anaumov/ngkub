@@ -526,6 +526,10 @@ label.boolean{
   height: 200px;
   width: 600px;
   }
+#tele_youtube{
+  height:75px;
+  width:400px;  
+  }
 input.btn-primary{
   display:block;
   }

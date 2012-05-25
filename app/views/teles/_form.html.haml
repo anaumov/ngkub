@@ -8,6 +8,7 @@
   = f.input :intro, :as => :text, :label => 'Превью' 
   %label Полный текст  
   =f.cktext_area :body, :toolbar => 'Full', :width => 600, :height => 400
+  = f.input :youtube, :as => :text, :label => 'Вставка видео кода'
   %label Изображение  
   = f.file_field :telepic
   = f.submit :class => 'btn btn-primary', :value => "Опубликовать"

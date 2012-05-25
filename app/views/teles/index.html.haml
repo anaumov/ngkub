@@ -3,8 +3,9 @@
   -@teles.each do |tele|
     -if check_show(tele)
       %div.one_pub
-        %h3= link_to tele.title, tele 
+        %h3= link_to tele.title, tele
         %span.date= tele.created_at.strftime("%d %B %Y") 
+        = render :partial => "layouts/editcont", :locals => {:content => tele}        
         %p.news_img= image_tag tele.telepic.url(:medium) 
         %div.text_body
           = tele.intro

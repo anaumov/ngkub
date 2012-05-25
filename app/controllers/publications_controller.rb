@@ -100,7 +100,7 @@ class PublicationsController < ApplicationController
   end
 
   def index
-    @publications = Publication.paginate(:page => params[:page])
+    @publications = Publication.paginate(:page => params[:page], :order => "created_at")
 
     unless @publications
       flash[:notice] = "No publications found"

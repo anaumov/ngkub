@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120522130948) do
+ActiveRecord::Schema.define(:version => 20120525105432) do
 
   create_table "answers", :force => true do |t|
     t.text     "body"
@@ -138,6 +138,7 @@ ActiveRecord::Schema.define(:version => 20120522130948) do
     t.integer  "telepic_file_size"
     t.datetime "telepic_updated_at"
     t.boolean  "publish",              :default => false
+    t.text     "youtube"
   end
 
   create_table "users", :force => true do |t|

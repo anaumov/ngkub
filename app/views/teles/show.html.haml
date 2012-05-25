@@ -5,8 +5,9 @@
   .post_area
     %h1= @tele.title 
     = render :partial => "layouts/editcont", :locals => {:content => @tele}
-    
-    %div.text_body= raw @tele.body
+    -if @tele.youtube    
+      %div= @tele.youtube.html_safe
+    %div.text_body= @tele.body.html_safe
     = render :partial => "layouts/social"
   = render :partial => "comments/output", :locals => {:commentable => @tele}
 

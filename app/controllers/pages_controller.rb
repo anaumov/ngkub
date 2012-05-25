@@ -4,15 +4,12 @@ class PagesController < ApplicationController
   def indexpage
     @day_hero = Hero.last
 
-    @main_theme = Publication.last
-    @slider_pubs = Publication.where(:onmain => true)
-    @index_publications = Publication.find(:all, :order => "id desc", :offset => 1, :limit => 10)
-    
-    @index_interviews = Interview.find(:all, :order => "id desc", :limit => 3)
+    @main_theme = Publication.where(:publish => true).last
+    @slider_pubs = Publication.where(:onmain => true, :publish => true)
+    @index_publications = Publication.find(:all, :conditions => ['publish = ?', true], :order => "created_at", :offset => 1, :limit => 10)
+    @index_interviews = Interview.find(:all, :conditions => ['publish = ?', true], :order => "id desc", :limit => 3)
     @last_comments = Comment.find(:all, :order => "id desc", :limit => 5)
-
-    @teles = Tele.find(:all, :order => "id desc", :limit => 13)
-
+    @teles = Tele.find(:all, :conditions => ['publish = ?', true], :order => "id desc", :limit => 13)
     @tweets = Twitter.user_timeline("varlamov", :count =>5)
   end
 
