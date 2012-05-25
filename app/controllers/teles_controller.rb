@@ -46,12 +46,13 @@ class TelesController < ApplicationController
   end
 
   def edit
-    @tele = Tele.find_by_slug(params[:id])
+#    @tele = Tele.find_by_slug(params[:id])
+    @tele = Tele.find(params[:id])
   end
 
   def update
-    @tele = Tele.find_by_slug(params[:id])
-    
+#    @tele = Tele.find_by_slug(params[:id])
+    @tele = Tele.find(params[:id])
     if @tele.update_attributes(params[:tele])
       redirect_to @tele
     else
