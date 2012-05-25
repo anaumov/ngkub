@@ -4,23 +4,42 @@
   <title>The page you were looking for doesn't exist (404)</title>
   <style type="text/css">
     body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-    div.dialog {
-      width: 25em;
-      padding: 0 4em;
-      margin: 4em auto 0 auto;
-      border: 1px solid #ccc;
-      border-right-color: #999;
-      border-bottom-color: #999;
+    div.header {
+      text-align:left;
+      margin:50px auto;
+      width: 1024px;
     }
     h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
+    div.error404{
+      font-size: 10.0em;
+      float:left;
+    }
+    div.comment{
+      float: left;
+      left: 100px;
+      position: relative;
+      top: 31px;
+      width: 400px;
+      color:#000;
+    }
+    
   </style>
 </head>
 
 <body>
-  <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <h1>The page you were looking for doesn't exist.</h1>
-    <p>You may have mistyped the address or the page may have moved.</p>
+<div class="header">
+	<a class="logo" href="/"><img src="/assets/logo.png" /></a>
+
+  <div class="single_page">
+      <div class="error404">
+        404      
+      </div>
+      <div class="comment">
+        Странно, но такой странцы у нас нет. Проверьте правильность написания ссылки, 
+        а мы проверим правильность работы сервера. Перейти на <a href="/">главную страницу</a>.      
+      </div>    
   </div>
+</div>
+
 </body>
 </html>

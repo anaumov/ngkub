@@ -87,6 +87,10 @@ class PublicationsController < ApplicationController
   
   def show
     @publication  = Publication.find_by_slug(params[:id])
+    unless @publication  
+       render_404
+       return    
+    end 
     check_publish(@publication)
     if @publication.category
       @related_pubs = Publication.find(:all, :conditions => [ "category_id = ? AND id != ?",    @publication.category.id, @publication.id.to_i ],:limit => 5)    

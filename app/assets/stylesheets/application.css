@@ -148,7 +148,7 @@ p.news_head{
   }
 .main_menu li{
 	margin:0;
-	padding:9px 27px 5px 27px;
+	padding:9px 25px 5px 25px;
 	height:24px;
 	border-right:1px solid #8EB5D6;
 	color:#fff;
@@ -169,7 +169,13 @@ p.news_head{
 	color:#fff;
 	text-decoration:none;
 	font-size: 14px;
-	}	
+	}
+ul.rule{
+  margin:0;  
+  }
+.rule li{
+  margin-right:25px;  
+  }
 /* верхняя часть */
 div.right_top{
 	float:right;
