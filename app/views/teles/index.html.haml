@@ -4,11 +4,11 @@
     -if check_show(tele)
       %div.one_pub
         %h3= link_to tele.title, tele
-        %span.date= tele.created_at.strftime("%d %B %Y") 
+        %span.date= l tele.created_at, :format => :ngkub 
         = render :partial => "layouts/editcont", :locals => {:content => tele}        
         %p.news_img= image_tag tele.telepic.url(:medium) 
         %div.text_body
           = tele.intro
-          = link_to "смотрите скорее >>", tele
+          = link_to "Смотреть программу &rarr;".html_safe, tele
     = will_paginate @teles, :previous_label => "&larr;", :next_label => "&rarr;", :class => "page_nav"
 

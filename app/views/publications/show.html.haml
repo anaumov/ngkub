@@ -14,9 +14,10 @@
     = render :partial => "layouts/editcont", :locals => {:content => @publication}
     
     %p.news_img= image_tag @publication.newspic.url(:medium) 
-    %div.text_body= raw @publication.body
+    .text_body
+      = @publication.body.html_safe
     = render :partial => "layouts/social"
-    
+
   = render :partial => "comments/output", :locals => {:commentable => @publication}
 
 -if @related_pubs

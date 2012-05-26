@@ -2,6 +2,7 @@ class PublicationsController < ApplicationController
 
   before_filter :check_user, :only => [:new, :create, :edit, :update]
   require 'csv'
+  
 
   def create
     @publication = Publication.create(params[:publication])
@@ -24,55 +25,74 @@ class PublicationsController < ApplicationController
       csv = CSV.parse(csv_text, :col_sep => "----", :quote_char => "'")
             
       csv.each do |row|
-        @row = row
-
 #for pubs
                 if false
-                  title = row[3].force_encoding('utf-8')
-                  intro = row[4].force_encoding('utf-8')
-                  body  = row[5].force_encoding('utf-8')
-                  date  = row[7]
-                  slug  = "old_news_" + row[0]
+                  old_id = row[0]
+                  issue  = row[1]
+                  title  = row[3].force_encoding('utf-8')
+                  intro  = row[4].force_encoding('utf-8')
+                  body   = row[5].force_encoding('utf-8')
+                  date   = row[7]
+                  slug   = "old_" + row[0]
+                  
+                  
                   case row[2].to_i
                     when 23,24,27
-                      categoty_id = 1          
+                      category_id = 1          
                     when 1,4,5,10
-                      categoty_id = 2
+                      category_id = 2
                     when 6,7
-                      categoty_id = 3
+                      category_id = 3
                     when 14
-                      categoty_id = 4
+                      category_id = 4
                     when 28,8
-                      categoty_id = 6
+                      category_id = 6
                     when 13
-                      categoty_id = 7
+                      category_id = 7
                     when 11
-                      categoty_id = 8
+                      category_id = 8
                     else
-                      categoty_id = 5
+                      category_id = 5
                   end
-
-                      
+                  
+                 
                   Publication.create(
                     title: title,
                     slug: slug,
                     intro: intro,
                     body: body,
-                    created_at: date
+                    category_id: category_id,
+                    created_at: date,
+                    old_id: old_id,
+                    issue: issue    
                     )
                 end
 #for_comments
                 if false
-                  commentable_id = row[1]
-                  autor = row[2].force_encoding('utf-8')
-                  body  = row[3].force_encoding('utf-8')
+                  pub = Publication.where("old_id = ?", row[1].to_i).first
+                  if pub
+                    commentable_id = pub.id
+                    @row = row 
+                  end                  
+                  if row[2]
+                    autor = row[2].force_encoding('utf-8')
+                  else
+                    autor = "Anonumous"
+                  end 
+                  if row[3]
+                    body = row[3].force_encoding('utf-8')
+                  else
+                    body = "none"
+                  end 
                   date  = row[4]
-                      
-                  Publication.create(
-                    title: title,
-                    slug: slug,
-                    intro: intro,
+                  
+                  
+               
+                  Comment.create(
+                    autor: autor,
                     body: body,
+                    commentable_id: commentable_id,
+                    commentable_type: "Publication",
                     created_at: date
                     )
                 end

@@ -9,7 +9,8 @@
       %div.one_pub
         %h3= link_to publication.title, publication 
         %span.date= l publication.created_at, :format => :ngkub
-        %p.news_img= image_tag publication.newspic.url(:medium) 
+        -if publication.newspic.url != "/newspics/original/missing.png"
+          %p.news_img= image_tag publication.newspic.url(:medium) 
         %div.text_body
-          = publication.intro
+          = strip_tags publication.intro
           = link_to "Полная версия &rarr;".html_safe, news_path(publication)

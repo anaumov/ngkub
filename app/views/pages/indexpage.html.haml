@@ -22,7 +22,7 @@
             %h1= link_to @main_theme.title, @main_theme
             \ 
             %span.date= l @main_theme.created_at, :format => :ngkub
-          %p= @main_theme.intro
+          %p= strip_tags @main_theme.intro
         .last_news
           - @index_publications.each do |pub|
             %p

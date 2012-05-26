@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :prepare_menu, :except => [ :create, :update, :destroy]
-  
 
   def render_403
      respond_to do |format|
