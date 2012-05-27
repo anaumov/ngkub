@@ -26,7 +26,7 @@ class PublicationsController < ApplicationController
             
       csv.each do |row|
 #for pubs
-              if false
+              if true
                   old_id = row[0]
                   issue  = row[1]
                   title  = row[3].force_encoding('utf-8')
@@ -135,7 +135,7 @@ class PublicationsController < ApplicationController
   end
 
   def index
-    @publications = Publication.paginate(:page => params[:page], :order => "created_at")
+    @publications = Publication.paginate(:page => params[:page], :order => "created_at DESC")
 
     unless @publications
       flash[:notice] = "No publications found"

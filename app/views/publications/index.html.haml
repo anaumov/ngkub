@@ -11,5 +11,5 @@
         %div.text_body
           = strip_tags publication.intro
           = link_to "Полная версия &rarr;".html_safe, news_path(publication)
-  = will_paginate @publications, :previous_label => "&larr;", :next_label => "&rarr;", :class => "page_nav"
+  = will_paginate @publications, :class => "page_nav"
   

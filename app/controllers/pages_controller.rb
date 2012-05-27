@@ -4,9 +4,9 @@ class PagesController < ApplicationController
   def indexpage
     @day_hero = Hero.last
 
-    @main_theme = Publication.where(:publish => true).last
+    @main_theme = Publication.find(:all, :conditions => ['publish = ?', true], :order => "created_at desc", :limit => 1).last
     @slider_pubs = Publication.where(:onmain => true, :publish => true)
-    @index_publications = Publication.find(:all, :conditions => ['publish = ?', true], :order => "created_at", :offset => 1, :limit => 10)
+    @index_publications = Publication.find(:all, :conditions => ['publish = ?', true], :order => "created_at DESC", :offset => 1, :limit => 10)
     @index_interviews = Interview.find(:all, :conditions => ['publish = ?', true], :order => "id desc", :limit => 3)
     @last_comments = Comment.find(:all, :order => "id desc", :limit => 5)
     @teles = Tele.find(:all, :conditions => ['publish = ?', true], :order => "id desc", :limit => 13)

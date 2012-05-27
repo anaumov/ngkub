@@ -25,7 +25,7 @@ class HerosController < ApplicationController
   end
 
   def index
-    @heroes = Hero.paginate(:page => params[:page], :order => "created_at")
+    @heroes = Hero.paginate(:page => params[:page], :order => "created_at DESC")
     unless @heroes
       flash[:notice] = "No heroes found"
     end 

@@ -28,7 +28,7 @@ class InterviewsController < ApplicationController
   end
 
   def index
-    @interviews = Interview.paginate(:page => params[:page], :order => "created_at")
+    @interviews = Interview.paginate(:page => params[:page], :order => "created_at DESC")
     
     unless @interviews
       flash[:notice] = "No interviews found"

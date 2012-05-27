@@ -10,8 +10,11 @@
         %br     
         =comment.body
         = button_to "удалить", comment, :method => :delete, :confirm => ""
-        %p.parent 
-          =link_to comment.commentable.title, comment.commentable
+        .clear
+        -if comment.commentable        
+          %p.parent 
+            =link_to comment.commentable.title, comment.commentable
+    =link_to "все комментарии", "/adminka/comments"
   
   .admin_quests      
     %h2 Последние вопросы

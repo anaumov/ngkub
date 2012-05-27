@@ -3,7 +3,10 @@ Ngkub::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   devise_for :users
-  
+  match '/adminka/comments' => 'adminka#comments'
+
+
+
   resources :publications, :path => "news"
   resources :pages, :path => "info"
 
@@ -12,8 +15,12 @@ Ngkub::Application.routes.draw do
             :banners
 
   root :to => "pages#indexpage"
+
   match '/search/' => 'search#index'
   match '/import' => 'publications#import'
+  
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

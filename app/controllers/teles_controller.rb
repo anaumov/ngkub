@@ -26,7 +26,7 @@ class TelesController < ApplicationController
   end
 
   def index
-    @teles = Tele.paginate(:page => params[:page], :order => "created_at")
+    @teles = Tele.paginate(:page => params[:page], :order => "created_at DESC")
     unless @teles
       flash[:notice] = "No programms found"
     end 

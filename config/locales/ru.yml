@@ -1,4 +1,8 @@
 ru:
+  will_paginate:
+    previous_label: "&larr;"
+    next_label: "&rarr;"
+    page_gap: "&hellip;"
   date:
     abbr_day_names:
     - Вс
