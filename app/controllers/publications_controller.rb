@@ -26,12 +26,22 @@ class PublicationsController < ApplicationController
             
       csv.each do |row|
 #for pubs
-                if false
+              if false
                   old_id = row[0]
                   issue  = row[1]
                   title  = row[3].force_encoding('utf-8')
-                  intro  = row[4].force_encoding('utf-8')
-                  body   = row[5].force_encoding('utf-8')
+                  if row[4]
+                   intro  = row[4].force_encoding('utf-8')
+                  else
+                   intro  = row[3].force_encoding('utf-8')
+                  end
+
+                  if row[5]
+                   body  = row[5].force_encoding('utf-8')
+                  else
+                   body  = row[4].force_encoding('utf-8')
+                  end
+                                            
                   date   = row[7]
                   slug   = "old_" + row[0]
                   
@@ -54,8 +64,8 @@ class PublicationsController < ApplicationController
                     else
                       category_id = 5
                   end
-                  
-                 
+                
+                 @row = row
                   Publication.create(
                     title: title,
                     slug: slug,
@@ -68,6 +78,7 @@ class PublicationsController < ApplicationController
                     )
                 end
 #for_comments
+             if false
                 unless row[1].to_i == 0 
                   pub = Publication.where("old_id = ?", row[1].to_i).first
                   if pub
@@ -84,9 +95,9 @@ class PublicationsController < ApplicationController
                     body = "none"
                   end 
                   date  = row[4]
-                  @row = row
                   
-               if false
+                   
+              
                   Comment.create(
                     autor: autor,
                     body: body,
