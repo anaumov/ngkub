@@ -68,11 +68,10 @@ class PublicationsController < ApplicationController
                     )
                 end
 #for_comments
-                if false
+                unless row[1].to_i == 0 
                   pub = Publication.where("old_id = ?", row[1].to_i).first
                   if pub
                     commentable_id = pub.id
-                    @row = row 
                   end                  
                   if row[2]
                     autor = row[2].force_encoding('utf-8')
@@ -85,9 +84,9 @@ class PublicationsController < ApplicationController
                     body = "none"
                   end 
                   date  = row[4]
+                  @row = row
                   
-                  
-               
+               if false
                   Comment.create(
                     autor: autor,
                     body: body,
@@ -95,6 +94,7 @@ class PublicationsController < ApplicationController
                     commentable_type: "Publication",
                     created_at: date
                     )
+                end
                 end
 
 

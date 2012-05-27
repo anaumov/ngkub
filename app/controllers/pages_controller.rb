@@ -59,11 +59,11 @@ class PagesController < ApplicationController
   end
 
   def edit
-    @page = Page.find(params[:id])
+    @page = Page.find_by_slug(params[:id])
   end
 
   def update
-    @page = Page.find(params[:id])
+    @page = Page.find_by_slug(params[:id])
     
     if @page.update_attributes(params[:page])
       redirect_to @page
