@@ -1,0 +1,16 @@
+.admin_page
+  %h2 Последние комментарии
+  - @comments.each do |comment|
+    .one_comment_edit
+      -if (comment.autor)
+        %b= comment.autor 
+      -else
+        %b Анонимов А.А.
+      %br     
+      =comment.body
+      = button_to "удалить", comment, :method => :delete, :confirm => ""
+      .clear
+      -if comment.commentable        
+        %p.parent 
+          =link_to comment.commentable.title, comment.commentable
+  = will_paginate @comments, :class => "page_nav"

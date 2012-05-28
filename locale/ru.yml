@@ -3,8 +3,6 @@ ru:
     previous_label: "&larr;"
     next_label: "&rarr;"
     page_gap: "&hellip;"
-  comment_created: "Комментарий добавлен"
-  capcha_denied: "Повторите ввод символов"
   date:
     abbr_day_names:
     - Вс
@@ -253,8 +251,6 @@ ru:
       default: ! '%a, %d %b %Y, %H:%M:%S %z'
       long: ! '%d %B %Y, %H:%M'
       short: ! '%d %b, %H:%M'
-      ngkub: ! '%d %B %Y'
-      ngkub_full: ! '%d %B %Y, %I:%H'
     pm: вечера
   # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
   activemodel:

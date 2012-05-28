@@ -10,7 +10,7 @@ class PagesController < ApplicationController
     @index_interviews = Interview.find(:all, :conditions => ['publish = ?', true], :order => "id desc", :limit => 3)
     @last_comments = Comment.find(:all, :order => "id desc", :limit => 5)
     @teles = Tele.find(:all, :conditions => ['publish = ?', true], :order => "id desc", :limit => 13)
-    @tweets = Twitter.user_timeline("varlamov", :count =>5)
+    @tweets = Twitter.user_timeline("novgaz_kuban", :count =>5)
   end
 
   def create

@@ -32,6 +32,7 @@ gem 'devise'
 gem "paperclip", "~> 3.0"
 gem "twitter"
 gem "ckeditor", "3.7.0.rc3"
+gem "galetahub-simple_captcha", :require => "simple_captcha"
 
 gem 'jquery-rails'
 gem "twitter-bootstrap-rails"

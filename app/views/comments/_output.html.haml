@@ -18,9 +18,10 @@
           -if (comment.autor)
             = comment.autor
           -else
-            Анонимов А.А.  
+            Анонимов А.А.
         %p.comment_date= comment.created_at.strftime("%d %B %Y в %I:%H")     
         %p.comment_body= comment.body
-
+        -if user_signed_in? and current_user.admin?
+          =button_to "удалить", comment, :method => :delete       
 
 

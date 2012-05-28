@@ -1,6 +1,6 @@
 class PublicationsController < ApplicationController
 
-  before_filter :check_user, :only => [:new, :create, :edit, :update]
+  before_filter :check_user, :only => [:new, :create, :edit, :update, :import]
   require 'csv'
   
 
@@ -126,8 +126,10 @@ class PublicationsController < ApplicationController
     if @publication.category
       @related_pubs = Publication.find(:all, :conditions => [ "category_id = ? AND id != ?",    @publication.category.id, @publication.id.to_i ],:limit => 5)    
     end
-    @comment      = Comment.new
-    
+    unless @comment
+      @comment      = Comment.new
+    end
+
     unless @publication  
        render_404
        return    

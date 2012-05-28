@@ -520,9 +520,19 @@ div.banner > p{
 .simple_form div{
   margin-bottom: 10px;  
   }
+.datetime select{
+  width:60px;
+  }
 label.boolean{
   display:inline;
   margin-left:10px;  
+  }
+.lone_comment form.button_to input{
+  background: none repeat scroll 0 0 transparent;
+  border: medium none;
+  box-shadow: none;
+  text-decoration: underline;
+  color:#0072BB;
   }
 #publication_intro,
 #interview_intro,
