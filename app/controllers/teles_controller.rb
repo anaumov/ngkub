@@ -33,7 +33,7 @@ class TelesController < ApplicationController
   end
 
   def destroy
-    tele = Tele.find_by_slug(params[:id])
+    tele = Tele.find(params[:id])
     if tele
       flash[:notice] = "Programm " + tele.title + " deleted"
       tele.destroy
