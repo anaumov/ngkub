@@ -344,7 +344,7 @@ p.tweet_time{
 #slides{
   position: relative;
   background: #cccccc;
-  height: 344px; 
+  height: 429px; 
   width: 587px;  
   }
 .slides_container {
@@ -355,7 +355,7 @@ div.slider{
 	padding-bottom: 35px;
   width:587px;
   float: left;
-  height: 345px;
+  height: 445px;
 	}
 div.imgs{
 	float:left;
