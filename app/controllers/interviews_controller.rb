@@ -40,7 +40,7 @@ class InterviewsController < ApplicationController
 
     if interview
       flash[:notice] = "Interview " + interview.title + " deleted"
-      cat.destroy
+      interview.destroy
       redirect_to interviews_path 
     else
       render_404

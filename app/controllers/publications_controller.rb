@@ -123,8 +123,9 @@ class PublicationsController < ApplicationController
        return    
     end 
     check_publish(@publication)
-    if @publication.category
-      @related_pubs = Publication.find(:all, :conditions => [ "category_id = ? AND id != ?",    @publication.category.id, @publication.id.to_i ],:limit => 5)    
+    if @publication
+      #@related_pubs = Publication.find(:all, :conditions => [ "category_id = ? AND id != ?",    @publication.category.id, @publication.id.to_i ],:limit => 5)
+      @related_pubs = Publication.find(:all, :conditions => ['publish = ? AND id != ?', true, @publication.id], :order => "created_at DESC", :limit => 5) 
     end
     unless @comment
       @comment      = Comment.new
