@@ -33,7 +33,7 @@ class TelesController < ApplicationController
   end
 
   def destroy
-    tele = Tele.find(params[:id])
+    tele = Tele.find_by_slug(params[:id])
     if tele
       flash[:notice] = "Programm " + tele.title + " deleted"
       tele.destroy
@@ -46,11 +46,11 @@ class TelesController < ApplicationController
   end
 
   def edit
-    @tele = Tele.find(params[:id])
+    @tele = Tele.find_by_slug(params[:id])
   end
 
   def update
-    @tele = Tele.find(params[:id])
+    @tele = Tele.find_by_slug(params[:id])
     if @tele.update_attributes(params[:tele])
       redirect_to @tele
     else
