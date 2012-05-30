@@ -4,7 +4,8 @@
   = f.input :commentable_id, :input_html => {:value => commentable.id}, :as => :hidden  
   = f.input :commentable_type, :input_html => {:value => commentable.class}, :as => :hidden 
   = f.input :autor, :label => 'Ваше имя' 
-  = f.input :body, :as => :text, :label => 'Комментарий' 
+  = f.input :body, :as => :text, :label => 'Комментарий'
+  = show_simple_captcha :label => "Введите символы с картинки"
   %br/
   = f.submit :class => 'go_button', :value => "Оставить комментарий"
 
