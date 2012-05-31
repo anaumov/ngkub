@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120528145051) do
+ActiveRecord::Schema.define(:version => 20120531111045) do
 
   create_table "answers", :force => true do |t|
     t.text     "body"
@@ -105,17 +105,17 @@ ActiveRecord::Schema.define(:version => 20120528145051) do
   create_table "publications", :force => true do |t|
     t.string   "title"
     t.string   "slug"
-    t.text     "body"
+    t.text     "body",                 :limit => 2147483647
     t.text     "intro"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                                                   :null => false
+    t.datetime "updated_at",                                                   :null => false
     t.integer  "category_id"
     t.string   "newspic_file_name"
     t.string   "newspic_content_type"
     t.integer  "newspic_file_size"
     t.datetime "newspic_updated_at"
     t.boolean  "onmain"
-    t.boolean  "publish",              :default => true
+    t.boolean  "publish",                                    :default => true
     t.integer  "old_id"
     t.integer  "issue"
   end
