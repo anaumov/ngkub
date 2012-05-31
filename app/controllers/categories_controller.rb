@@ -18,7 +18,7 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find_by_slug(params[:id])
     if @category.publications
-      @publications = @category.publications.paginate(:page => params[:page])
+      @publications = @category.publications.paginate(:page => params[:page], :order => "created_at DESC")
     end
 
     unless @category  
