@@ -254,7 +254,7 @@ ru:
       long: ! '%d %B %Y, %H:%M'
       short: ! '%d %b, %H:%M'
       ngkub: ! '%d %B %Y'
-      ngkub_full: ! '%d %B %Y, %I:%H'
+      ngkub_full: ! '%d %B %Y, %H:%M'
     pm: вечера
   # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
   activemodel:
