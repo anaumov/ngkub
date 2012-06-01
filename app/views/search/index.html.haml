@@ -1,10 +1,15 @@
 %div.single_page
   %div.page_head
-    %h1 Нашлось по запросу
+    %h1 
+      Нашлось по запросу 
+      "      
+      =@query
+      "
   -@results.each do |publication|
     %div.one_pub
       %h3= link_to publication.title, publication 
-      %span.date= publication.created_at.strftime("%d %B %Y") 
+      %span.date=l publication.created_at, :format => :ngkub
       %div.text_body
         = raw publication.intro
+  =will_paginate @results, :class => "page_nav"
       

@@ -1,7 +1,9 @@
 class SearchController < ApplicationController
 
   def index
-    @results = Publication.search params[:query]
+    @query = params[:query]
+    @results = Publication.search params[:query], :page => params[:page], :per_page => 20
+  
   end
 
 end
