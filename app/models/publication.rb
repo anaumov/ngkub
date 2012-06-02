@@ -3,7 +3,8 @@ class Publication < ActiveRecord::Base
   attr_accessible :title, :body, :slug, :intro, :category, :category_id, :newspic, :onmain, :created_at, 
                   :publish, :old_id, :issue
 
-  has_attached_file :newspic, :styles => { :medium => "537x358#", :thumb => "185x125"}
+  has_attached_file :newspic, :styles => { :medium => "537x358#", :thumb => "185x125"}, :default_url => "/assets/missing.png"
+
   
   validates :title, :body, :presence => true
   validates :slug, :presence => true, :uniqueness => { :case_sensitive => false }
