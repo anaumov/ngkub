@@ -27,7 +27,7 @@
           - @index_publications.each do |pub|
             %p
               = link_to pub.title, pub
-              %span.time= pub.created_at.strftime("%I:%H")
+              %span.time= pub.created_at.strftime("%H:%M")
           %p
             = link_to "Все новости →".html_safe, publications_path
         / end of "last_news"
