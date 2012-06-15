@@ -447,7 +447,13 @@ span.category > span{
 	clear: both;
 	padding-bottom: 15px;
 	border-bottom: 1px dotted #B2B2B2;
+  font-size: 15px;
 	}
+a.back_lnk{
+  display: block;
+  font-size: 15px;
+  margin:14px 0 10px 0;
+  }
 .last_news p{
 	margin-bottom: 10px;
 	}
