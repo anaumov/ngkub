@@ -1,0 +1,16 @@
+- title "#{@post.title}"
+- meta_description "#{truncate(@post.body, :length => 350)}"
+
+.single_page
+  .post_area  
+    %div.page_head
+      %h1= @post.title 
+      %span.date= l @post.created_at, :format => :ngkub
+      
+    .text_body
+      = @post.body.html_safe
+    = render :partial => "layouts/social"
+    =link_to "Назад на главную &rarr;".html_safe, "/", :class => "back_lnk"
+
+  = render :partial => "comments/output", :locals => {:commentable => @post}
+

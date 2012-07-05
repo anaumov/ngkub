@@ -1,0 +1,12 @@
+-title "Все новости читателей"
+
+%div.single_page
+  -@posts.each do |post|
+    %div.one_pub
+      %h3= link_to post.title, post
+      %span.date= l post.created_at, :format => :ngkub
+      %div.text_body
+        = truncate(post.body, :length => 350)
+        = link_to "Полная версия &rarr;".html_safe, post
+  = will_paginate @posts, :class => "page_nav"
+  

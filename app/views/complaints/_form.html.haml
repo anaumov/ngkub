@@ -1,0 +1,9 @@
+-if @complaint.title
+  =button_to "удалить", @complaint, :method => :delete, :class => "del", :confirm => "Точно?"
+=simple_form_for (@complaint) do |f|
+  = f.input :user_name, :label => 'Представьтесь. Ваше имя и фамилия.'
+  = f.input :user_contacts, :label => 'Ваши контактные данне: телефон, адрес электронной почты и т.д. Нам важно знать как связаться с вами (контактные данные не публикуются).'
+  = f.input :title, :label => 'Заголовок. Например "Жалоба на домкома".'
+  = f.input :body, :label => 'Полный текст жалобы (не более 500 символов). Изложите суть, подробности расскажите нам по почте или телефону.'
+  = f.submit :class => 'btn btn-primary', :value => "Пожаловаться"
+

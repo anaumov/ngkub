@@ -6,6 +6,8 @@ class PagesController < ApplicationController
 
     @main_theme = Publication.find(:all, :conditions => ['publish = ?', true], :order => "created_at desc", :limit => 1).last
     @slider_pubs = Publication.where(:onmain => true, :publish => true)
+    @last_complaints = Complaint.find(:all, :order => "id desc", :limit => 5)
+        
     @index_publications = Publication.find(:all, :conditions => ['publish = ?', true], :order => "created_at DESC", :offset => 1, :limit => 10)
     @index_interviews = Interview.find(:all, :conditions => ['publish = ?', true], :order => "id desc", :limit => 3)
     @last_comments = Comment.find(:all, :order => "id desc", :limit => 5)

@@ -588,9 +588,19 @@ input.go_button{
   background:#356AA0;
   }
 #comment_body,
-#question_body{
+#question_body,
+#complaint_replay
+{
   width: 600px;
   height: 200px;  
+  }
+#complaint_user_contacts{
+  height: 100px;
+  width: 565px;  
+  }
+#complaint_body{
+  height: 250px;
+  width: 565px;  
   }
 #answer_body{
   width: 450px;
@@ -703,4 +713,14 @@ a.ans_link{
 .page_nav em{
   margin-left: 7px;  
   }	
+
+/*жалобы*/
+h2.replay{
+  font-size: 20px;
+  margin-top: 20px;  
+  }
+p.short_complaint{
+	font-size: 13px;
+	margin-bottom: 15px;
+	}
 	

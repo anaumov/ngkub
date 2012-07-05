@@ -1,0 +1,33 @@
+- title "Жалоба: #{@complaint.title}"
+
+.single_page
+  .post_area  
+    %h1= @complaint.title
+    %p
+      прислал
+      @complaint.user_name
+
+    -if user_signed_in? and current_user.admin?
+      %p.edit
+        =link_to 'Редактировать', :action => :edit, :id => @complaint.id
+      %p
+        %strong= "Контакты пользователя:"
+        %i= @complaint.user_contacts       
+
+    %p= @complaint.body
+
+    -unless (@complaint.replay.nil?)
+      %p
+        %h2.replay= "Ответ редакции:"
+        %p= @complaint.replay
+    -else
+      -if user_signed_in? and current_user.admin?
+        %p
+          =simple_form_for (@complaint) do |f|
+            = f.input :replay, :label => 'Ответ редакции.'
+            = f.submit :class => 'btn btn-primary', :value => "Ответить"
+
+    = render :partial => "layouts/social"
+    =link_to "Назад на главную &rarr;".html_safe, "/", :class => "back_lnk"
+
+  =render :partial => "comments/output", :locals => {:commentable => @complaint}  

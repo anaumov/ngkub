@@ -12,7 +12,7 @@ Ngkub::Application.routes.draw do
 
   resources :users, :categories, :adminka, :teles, :heros, 
             :interviews, :comments, :answers, :questions, 
-            :banners
+            :banners, :complaints, :posts
 
   root :to => "pages#indexpage"
 
