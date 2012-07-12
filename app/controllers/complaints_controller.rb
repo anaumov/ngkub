@@ -26,8 +26,8 @@ class ComplaintsController < ApplicationController
   end
 
   def index
-#    @complaints = Complaint.paginate(:page => params[:page], :order => "created_at DESC")
-    @complaints = Complaint.find(:all)
+    @complaints = Complaint.paginate(:page => params[:page], :order => "created_at DESC")
+#    @complaints = Complaint.find(:all)
 
     unless @complaints
       flash[:notice] = "No complaints found"

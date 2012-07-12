@@ -11,6 +11,8 @@ gem 'thinking-sphinx', '2.0.10'
 gem 'rails-i18n'
 gem 'will_paginate', '~> 3.0'
 
+
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -33,6 +35,8 @@ gem "paperclip", "~> 3.0"
 gem "twitter"
 gem "ckeditor", "3.7.0.rc3"
 gem "galetahub-simple_captcha", :require => "simple_captcha"
+
+gem "omniauth-facebook"
 
 gem 'jquery-rails'
 gem "twitter-bootstrap-rails"

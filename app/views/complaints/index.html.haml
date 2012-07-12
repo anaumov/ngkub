@@ -1,9 +1,15 @@
 - title "Жалобы"
 %div.single_page
-  -@complaints.each do |complaint|
+  -if @complaints.length > 0
+    -@complaints.each do |complaint|
+      %div.one_pub
+        %h3= link_to complaint.title, complaint 
+        %div.text_body
+          = truncate(complaint.body, :length => 250)
+          = link_to "читать полностью &rarr;".html_safe, complaint
+    = will_paginate @complaints, :class => "page_nav"
+  -else 
     %div.one_pub
-      %h3= link_to complaint.title, complaint 
-      %div.text_body
-        = truncate(complaint.body, :length => 250)
-        = link_to "читать полностью &rarr;".html_safe, complaint
+      %h3= "Жалоб пока не поступало"
+  
 

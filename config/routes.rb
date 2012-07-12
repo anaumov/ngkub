@@ -2,11 +2,9 @@ Ngkub::Application.routes.draw do
   
   mount Ckeditor::Engine => '/ckeditor'
 
-  devise_for :users
+   
   match '/adminka/comments' => 'adminka#comments'
-
-
-
+  devise_for :users
   resources :publications, :path => "news"
   resources :pages, :path => "info"
 
