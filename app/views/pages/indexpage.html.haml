@@ -58,25 +58,7 @@
           |
           \#{link_to "статья", comment.commentable}
   / end of "page_block"
-  .page_block
-    .block_hd
-      Наш
-      %img{:src => "/assets/twitter.png"}/
-    .block_content.tweet_block
-      - if @tweets
-        - @tweets.each do |tweet|
-          .single_tweet
-            %strong>
-              %a{:href => tweet.user.url}
-                @#{tweet.user.name}
-            \:
-            \#{tweet.text}
-            %p.tweet_time
-              = distance_of_time_in_words_to_now(tweet.created_at)
-              назад
-      %a{:href => "http://twitter.com/#!/novgaz_kuban"}
-        %img{:src => "/assets/follow_us.png"}/
-  / end of "page_block"
+  = render :partial => "tweets"
   = render :partial => "banners/outbanner", :locals => {:place => "right"}
 #extra
   -if @day_hero

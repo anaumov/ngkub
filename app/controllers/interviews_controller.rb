@@ -1,6 +1,7 @@
 class InterviewsController < ApplicationController
   before_filter :check_user, :only => [:new, :create, :edit, :update]
   def create
+    expire_action :controller => :pages, :action => :indexpage
     @interview = Interview.create(params[:interview])
 
     if @interview.errors.empty?
@@ -36,6 +37,7 @@ class InterviewsController < ApplicationController
   end
 
   def destroy
+    expire_action :controller => :pages, :action => :indexpage
     interview = Interview.find_by_slug(params[:id])
 
     if interview
@@ -57,6 +59,7 @@ class InterviewsController < ApplicationController
   end
 
   def update
+    expire_action :controller => :pages, :action => :indexpage
     @interview = Interview.find_by_slug(params[:id])
     
     if @interview.update_attributes(params[:interview] )

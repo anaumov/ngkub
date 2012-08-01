@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_filter :check_user, :only => [:new, :create, :edit, :update]
+  caches_action :indexpage, :show
 
   def indexpage
     @day_hero = Hero.last
@@ -12,7 +13,6 @@ class PagesController < ApplicationController
     @index_interviews = Interview.find(:all, :conditions => ['publish = ?', true], :order => "id desc", :limit => 3)
     @last_comments = Comment.find(:all, :order => "id desc", :limit => 5)
     @teles = Tele.find(:all, :conditions => ['publish = ?', true], :order => "id desc", :limit => 13)
-    @tweets = Twitter.user_timeline("novgaz_kuban", :count =>5)
   end
 
   def create
@@ -65,6 +65,7 @@ class PagesController < ApplicationController
   end
 
   def update
+    expire_action :action => :show
     @page = Page.find_by_slug(params[:id])
     
     if @page.update_attributes(params[:page])

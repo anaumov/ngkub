@@ -1,6 +1,7 @@
 class BannersController < ApplicationController
   before_filter :check_user, :only => [:new, :create, :edit, :update, :index,:show]
   def create
+    expire_action :controller => :pages, :action => :indexpage
     @banner = Banner.create(params[:banner])
 
     if @banner
@@ -51,6 +52,7 @@ class BannersController < ApplicationController
   end
 
   def update
+    expire_action :controller => :pages, :action => :indexpage
     @banner = Banner.find(params[:id])
     
     if @banner.update_attributes(params[:banner])

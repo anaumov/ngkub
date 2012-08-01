@@ -2,9 +2,10 @@ class PublicationsController < ApplicationController
 
   before_filter :check_user, :only => [:new, :create, :edit, :update, :import]
   require 'csv'
-  
+  caches_action :show
 
   def create
+    expire_action :controller => :pages, :action => :indexpage
     @publication = Publication.create(params[:publication])
 
     if @publication.errors.empty?
@@ -122,11 +123,12 @@ class PublicationsController < ApplicationController
        render_404
        return    
     end 
+
     check_publish(@publication)
     if @publication
-      #@related_pubs = Publication.find(:all, :conditions => [ "category_id = ? AND id != ?",    @publication.category.id, @publication.id.to_i ],:limit => 5)
       @related_pubs = Publication.find(:all, :conditions => ['publish = ? AND id != ?', true, @publication.id], :order => "created_at DESC", :limit => 5) 
     end
+
     unless @comment
       @comment      = Comment.new
     end
@@ -146,6 +148,7 @@ class PublicationsController < ApplicationController
   end
 
   def destroy
+    expire_action :action => :show
     @publication = Publication.find_by_slug(params[:id])
 
     if @publication 
@@ -166,6 +169,9 @@ class PublicationsController < ApplicationController
   end
 
   def update
+    expire_action :action => :show
+    expire_action :controller => :pages, :action => :indexpage
+
     @publication = Publication.find_by_slug(params[:id])
     
     if @publication.update_attributes(params[:publication])

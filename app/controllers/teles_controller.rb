@@ -1,6 +1,7 @@
 class TelesController < ApplicationController
   before_filter :check_user, :only => [:new, :create, :edit, :update]
   def create
+    expire_action :controller => :pages, :action => :indexpage
     @tele = Tele.create(params[:tele])
 
     if @tele.errors.empty?
@@ -33,6 +34,7 @@ class TelesController < ApplicationController
   end
 
   def destroy
+    expire_action :controller => :pages, :action => :indexpage
     tele = Tele.find_by_slug(params[:id])
     if tele
       flash[:notice] = "Programm " + tele.title + " deleted"
@@ -50,6 +52,7 @@ class TelesController < ApplicationController
   end
 
   def update
+    expire_action :controller => :pages, :action => :indexpage
     @tele = Tele.find_by_slug(params[:id])
     if @tele.update_attributes(params[:tele])
       redirect_to @tele

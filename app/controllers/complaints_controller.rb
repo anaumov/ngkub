@@ -2,6 +2,7 @@ class ComplaintsController < ApplicationController
  #before_filter :check_user, :only => [:new, :create, :edit, :update]
   
   def create
+    expire_action :controller => :pages, :action => :indexpage
     @complaint = Complaint.create(params[:complaint])
 
     if @complaint.errors.empty?
