@@ -5,7 +5,7 @@
     %h1= @complaint.title
     %p
       прислал
-      @complaint.user_name
+      =@complaint.user_name
 
     -if user_signed_in? and current_user.admin?
       %p.edit
