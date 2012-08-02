@@ -50,7 +50,9 @@
 					<li><a href="/info/feedback">Контакты</a></li>
           <li><a href="/info/editors">Редакция</a></li>
 				</ul>
-				<%= render :partial => "banners/outbanner", :locals => {:place => "top"} %>
+        <% cache ('top_banner') do %>
+				  <%= render :partial => "banners/outbanner", :locals => {:place => "top"} %>
+        <% end %>      
       </div>
 		</div>
 

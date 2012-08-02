@@ -6,5 +6,9 @@ class Comment < ActiveRecord::Base
   validates :body, :autor, :presence => true
   
   belongs_to :commentable, :polymorphic => true
+
+  def self.get_lastest
+    Comment.find(:all, :order => "id desc", :limit => 5)  
+  end
   
 end

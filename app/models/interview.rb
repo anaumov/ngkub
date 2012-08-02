@@ -15,5 +15,10 @@ class Interview < ActiveRecord::Base
    slug
   end
   
+  def self.index
+   Interview.find(:all, :conditions => ['publish = ?', true], :order => "id desc", :limit => 3)
+  end
+
+
 
 end

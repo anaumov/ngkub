@@ -1,7 +1,9 @@
 class HerosController < ApplicationController
- before_filter :check_user, :only => [:new, :create, :edit, :update]
- def create
-    expire_action :controller => :pages, :action => :indexpage
+  before_filter :check_user, :only => [:new, :create, :edit, :update]
+  cache_sweeper :hero_sweeper 
+  caches_action :show  
+
+  def create
     @hero = Hero.create(params[:hero])
     if @hero.errors.empty?
       redirect_to heros_path
@@ -33,7 +35,6 @@ class HerosController < ApplicationController
   end
 
   def destroy
-    expire_action :controller => :pages, :action => :indexpage
     hero = Hero.find_by_slug(params[:id])
     if hero
       flash[:notice] = "hero " + hero.title + " deleted"
@@ -53,7 +54,6 @@ class HerosController < ApplicationController
   end
 
   def update
-    expire_action :controller => :pages, :action => :indexpage
     @hero = Hero.find_by_slug(params[:id])
     
     if @hero.update_attributes(params[:hero] )

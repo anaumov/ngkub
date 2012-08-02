@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
   include SimpleCaptcha::ControllerHelpers
+  cache_sweeper :comment_sweeper 
+
   def create
     if simple_captcha_valid?
       @comment = Comment.create(params[:comment])

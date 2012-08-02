@@ -1,6 +1,7 @@
+<% cache ('tele_index') do %>
 <table class="teledom">
   <tr>
-    <% @teles.each_with_index do |tele,i| %>
+    <% Tele.index.each_with_index do |tele,i| %>
       <% case i %>
         <% when 0 %>
           <td class="one">
@@ -25,3 +26,4 @@
      <% end %>
   </tr>
 </table>
+<% end %>

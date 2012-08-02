@@ -1,5 +1,7 @@
 class TelesController < ApplicationController
   before_filter :check_user, :only => [:new, :create, :edit, :update]
+  cache_sweeper :tele_sweeper 
+
   def create
     expire_action :controller => :pages, :action => :indexpage
     @tele = Tele.create(params[:tele])
@@ -17,7 +19,7 @@ class TelesController < ApplicationController
   
 
   def show
-    @tele    = Tele.find_by_slug(params[:id])
+    @tele = Tele.find_by_slug(params[:id])
     check_publish(@tele)
     @comment = Comment.new
     unless @tele  

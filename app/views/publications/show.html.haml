@@ -21,18 +21,20 @@
 
   = render :partial => "comments/output", :locals => {:commentable => @publication}
 
--if @related_pubs
-  .right_side
-    %div.page_block
-      %div.block_hd Рекомендуем:
-      %div.block_content.recomend
-        -@related_pubs.each do |pub|
-          %div.one_post
-            -if pub.newspic.url == '/newspics/original/missing.png'
-              = image_tag '/assets/missing.png', :width => "150"
-            -else            
-              = image_tag pub.newspic.url(:thumb), :width => "150" 
-            %br
-            %h4= link_to pub.title, pub
-            %span.date_grey=l pub.created_at, :format => :ngkub_full
+-cache('pub_related') do
+  -@related_pubs = Publication.get_related(@publication)
+  -if @related_pubs
+    .right_side
+      %div.page_block
+        %div.block_hd Рекомендуем:
+        %div.block_content.recomend
+          -@related_pubs.each do |pub|
+            %div.one_post
+              -if pub.newspic.url == '/newspics/original/missing.png'
+                = image_tag '/assets/missing.png', :width => "150"
+              -else            
+                = image_tag pub.newspic.url(:thumb), :width => "150" 
+              %br
+              %h4= link_to pub.title, pub
+              %span.date_grey=l pub.created_at, :format => :ngkub_full
 

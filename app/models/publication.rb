@@ -25,5 +25,24 @@ attr_accessible :title, :body, :slug, :intro, :category, :category_id, :newspic,
   def to_param
    slug
   end
+
+  def self.get_related(publication)
+    Publication.find(:all, :conditions => ['publish = ? AND id != ?', true, publication.id], :order => "created_at DESC", :limit => 5)
+  end
+  
+  def self.onmain
+    Publication.find(:all, :conditions => ['publish = ?', true], :order => "created_at desc", :limit => 1).last
+  end
+  
+  def self.indexpubs
+    Publication.find(:all, :conditions => ['publish = ?', true], :order => "created_at DESC", :offset => 1, :limit => 10)
+  end
+
+  def self.slider_pubs
+    Publication.where(:onmain => true, :publish => true)
+  end
+
+
+
  
 end

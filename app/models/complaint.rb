@@ -7,4 +7,9 @@ class Complaint < ActiveRecord::Base
 
   has_many :comments, :as => :commentable
 
+  def self.last_complains
+    Complaint.find(:all, :order => "id desc", :limit => 5) 
+  end
+
+
 end

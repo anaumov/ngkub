@@ -1,5 +1,7 @@
 class InterviewsController < ApplicationController
   before_filter :check_user, :only => [:new, :create, :edit, :update]
+  cache_sweeper :interview_sweeper
+
   def create
     expire_action :controller => :pages, :action => :indexpage
     @interview = Interview.create(params[:interview])

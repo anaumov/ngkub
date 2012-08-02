@@ -11,4 +11,10 @@ class Tele < ActiveRecord::Base
   def to_param
    slug
   end
+
+  def self.index
+   Tele.find(:all, :conditions => ['publish = ?', true], :order => "id desc", :limit => 13)
+  end
+
 end
+

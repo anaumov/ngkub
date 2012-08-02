@@ -1,5 +1,7 @@
 class BannersController < ApplicationController
   before_filter :check_user, :only => [:new, :create, :edit, :update, :index,:show]
+  cache_sweeper :banner_sweeper
+
   def create
     expire_action :controller => :pages, :action => :indexpage
     @banner = Banner.create(params[:banner])

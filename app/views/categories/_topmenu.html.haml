@@ -1,6 +1,7 @@
--categories = Category.all
--categories.each do |category|
-  -if params[:id].to_s == category.id.to_s and params[:controller].to_s == "categories"
-    %li.current= link_to category.title, category
-  -else
-    %li= link_to category.title, category
+-cache 'top_menu' do
+  -categories = Category.all
+  -categories.each do |category|
+    -if params[:id].to_s == category.id.to_s and params[:controller].to_s == "categories"
+      %li.current= link_to category.title, category
+    -else
+      %li= link_to category.title, category

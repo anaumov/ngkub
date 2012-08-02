@@ -1,6 +1,7 @@
 class ComplaintsController < ApplicationController
  #before_filter :check_user, :only => [:new, :create, :edit, :update]
-  
+  cache_sweeper :complaint_sweeper 
+
   def create
     expire_action :controller => :pages, :action => :indexpage
     @complaint = Complaint.create(params[:complaint])
