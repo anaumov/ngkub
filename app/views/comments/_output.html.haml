@@ -10,9 +10,9 @@
     %br/
     = f.submit :class => 'go_button', :value => "Оставить комментарий"
 
--unless commentable.comments.empty?
-  %h2 Комментарии читателей:
-  .comment
+.comment
+  -unless commentable.comments.empty?
+    %h2 Комментарии читателей:
     -commentable.comments.each do |comment|
       = render partial: "comments/lone_comment", :locals => {:comment => comment}
 

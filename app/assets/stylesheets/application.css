@@ -598,10 +598,10 @@ span.cke_skin_kama{
 
 /* каменты */
 div.comment{
-  margin:20px 0;  
+  margin-bottom:20px;  
   }
 div.comment h2{
-  margin-bottom:20px;  
+  margin-bottom:30px;  
   }
 div.lone_comment > p{
   margin-bottom:0px;  
