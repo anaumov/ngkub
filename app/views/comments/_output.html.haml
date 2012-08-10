@@ -1,28 +1,18 @@
-%h2 Оставьте комментарий:
-
-= simple_form_for(@comment) do |f|
-  = f.input :commentable_id, :input_html => {:value => commentable.id}, :as => :hidden  
-  = f.input :commentable_type, :input_html => {:value => commentable.class}, :as => :hidden 
-  = f.input :autor, :label => 'Ваше имя' 
-  = f.input :body, :as => :text, :label => 'Комментарий'
-  = show_simple_captcha :label => "Введите символы с картинки"
-  %br/
-  = f.submit :class => 'go_button', :value => "Оставить комментарий"
+%span.add_comment Добавить комментарий
+.new_comment
+  %h2 Оставьте комментарий:
+  = simple_form_for(@comment, remote: true) do |f|
+    = f.input :commentable_id, :input_html => {:value => commentable.id}, :as => :hidden  
+    = f.input :commentable_type, :input_html => {:value => commentable.class}, :as => :hidden 
+    = f.input :autor, :label => 'Ваше имя' 
+    = f.input :body, :as => :text, :label => 'Комментарий'
+    = render partial: "comments/capcha"
+    %br/
+    = f.submit :class => 'go_button', :value => "Оставить комментарий"
 
 -unless commentable.comments.empty?
   %h2 Комментарии читателей:
   .comment
     -commentable.comments.each do |comment|
-      %div.lone_comment
-        =image_tag "/assets/userpic.jpg", :class => "user_pic"        
-        %p.comment_autor
-          -if (comment.autor)
-            = comment.autor
-          -else
-            Анонимов А.А.
-        %p.comment_date=l comment.created_at, :format => :ngkub_full
-        %p.comment_body= comment.body
-        -if user_signed_in? and current_user.admin?
-          =button_to "удалить", comment, :method => :delete       
-
+      = render partial: "comments/lone_comment", :locals => {:comment => comment}
 

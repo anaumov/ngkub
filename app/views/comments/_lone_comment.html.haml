@@ -1,0 +1,11 @@
+%div.lone_comment{:id => ['comment', comment.id]}
+  =image_tag "/assets/userpic.jpg", :class => "user_pic"        
+  %p.comment_autor
+    -if (comment.autor)
+      = comment.autor
+    -else
+      Анонимов А.А.
+  %p.comment_date=l comment.created_at, :format => :ngkub_full
+  %p.comment_body= comment.body
+  -if user_signed_in? and current_user.admin?
+    =button_to "удалить", comment, :method => :delete

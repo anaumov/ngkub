@@ -1,0 +1,20 @@
+<% if @comment %>
+  $('div.comment').append("<%= escape_javascript(render partial: 'comments/lone_comment', :locals => {:comment => @comment}) %>")
+  $('div.comment').append('<%= escape_javascript(raw "<span class=\'ok\'>#{@message}</span>") %>')
+  var current = $('<%= "#comment_#{@comment.id}" %>').offset().top;
+
+  $('html').animate({
+      scrollTop: '+=' + current + 'px'
+    }, 1000, function() {
+      $('div.new_comment, span.add_comment, span.add_comment_bottom').remove();
+      $('span.ok').fadeOut('slow');
+    });
+<% else %>
+  $('div.simple_captcha_field').remove();
+  $('div.simple_captcha').remove();
+  $('div.input:last').after("<%= escape_javascript( render partial: 'comments/capcha') %>");
+  $('div.simple_captcha_field').append('<%= escape_javascript(raw "<span class=\'error\'>#{@message}</span>") %>');
+
+<% end %>
+
+

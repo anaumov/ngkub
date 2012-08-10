@@ -3,7 +3,7 @@
 
 =simple_form_for (@publication) do |f|
   =f.input :title, :label => 'Заголовок' 
-  = f.input :publish, :label => 'Опубликовать?'
+  =f.input :publish, :label => 'Опубликовать?'
   =f.input :onmain, :label => 'Разместить на главной?'
   %label Рубрика
   =f.select(:category_id, @categories.collect {|p| [ p.title, p.id ] })
