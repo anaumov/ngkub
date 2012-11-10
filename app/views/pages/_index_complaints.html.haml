@@ -1,0 +1,14 @@
+.page_block
+  .block_hd "Книга жалоб"
+  .block_content.complaint_block
+    -cache ('last_complaints') do
+      -@last_complaints = Complaint.last_complains
+      -if @last_complaints.length > 0      
+        -@last_complaints.each do |complaint|
+          %p.short_complaint
+            =link_to complaint.title, complaint
+        %p.short_complaint= link_to "Все жалобы &rarr;".html_safe, "/complaints/"
+        %br
+    "Власть не отвечает вам? пишите в редакцию!"        
+    %a{:href => "/complaints/new", :style => "display: block; margin-top: 10px;"}
+      %img{:src => "/assets/write_2.png"}/

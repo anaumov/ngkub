@@ -1,29 +1,35 @@
-<% cache ('tele_index') do %>
-<table class="teledom">
-  <tr>
-    <% Tele.index.each_with_index do |tele,i| %>
-      <% case i %>
-        <% when 0 %>
-          <td class="one">
-        <% when 1 %>
-          <td class="two">
-        <% when 5 %>
-          <td class="three">
-        <% end %>
-            <div>
+<div class="page_block tele_block">
+  <div class="block_hd"> Телевидение «Справедливая Кубань»</div>
+    <div class="block_content">
+      <% cache ('tele_index') do %>
+        <table class="teledom">
+          <tr>
+            <% Tele.index.each_with_index do |tele,i| %>
               <% case i %>
                 <% when 0 %>
-                  <%= link_to (image_tag tele.telepic.url(:one), :title => tele.title), tele %>
-                <% when 1..4 %>
-                  <%= link_to (image_tag tele.telepic.url(:two), :title => tele.title), tele %>
-                <% when 5..12 %>
-                  <%= link_to (image_tag tele.telepic.url(:three), :title => tele.title), tele %>
+                  <td class="one">
+                <% when 1 %>
+                  <td class="two">
+                <% when 5 %>
+                  <td class="three">
                 <% end %>
-            </div>
-            <% if (i==0)||(i==4)||(i==12) %>
-              </td>
-            <% end %>
-     <% end %>
-  </tr>
-</table>
-<% end %>
+                    <div>
+                      <% case i %>
+                        <% when 0 %>
+                          <%= link_to (image_tag tele.telepic.url(:one), :title => tele.title), tele %>
+                        <% when 1..4 %>
+                          <%= link_to (image_tag tele.telepic.url(:two), :title => tele.title), tele %>
+                        <% when 5..12 %>
+                          <%= link_to (image_tag tele.telepic.url(:three), :title => tele.title), tele %>
+                        <% end %>
+                    </div>
+                    <% if (i==0)||(i==4)||(i==12) %>
+                      </td>
+                    <% end %>
+             <% end %>
+          </tr>
+        </table>
+      <% end %>
+    </div>
+</div>
+<div class="clear"></div>

@@ -1,125 +1,20 @@
 - title "Самое главное"
 #wrapper
   #content
-    #slides
-      .slider
-        -cache ('slider') do
-          - Publication.slider_pubs.each do |pub|
-            .imgs
-              %a{:href => publication_path(pub)}
-                = image_tag pub.newspic.url(:medium)
-              .head_actual
-                %h1= link_to pub.title, pub
-                \ 
-                %span.date= l pub.created_at, :format => :ngkub
-    / end of "slider"
-    .clear
-    .page_block
-      -cache ('main_theme') do
-        .block_hd Свежий номер
-        .block_content
-          -@main_theme = Publication.onmain
-          .hot_news
-            = image_tag @main_theme.newspic.url(:thumb)
-            %div
-              %h1= link_to @main_theme.title, @main_theme
-              \ 
-              %span.date= l @main_theme.created_at, :format => :ngkub
-            %p= strip_tags @main_theme.intro
-
-          -cache ('last_news') do
-            .last_news
-              - Publication.indexpubs.each do |pub|
-                %p
-                  = link_to pub.title, pub
-                  %span.time= pub.created_at.strftime("%H:%M")
-              %p
-                = link_to "Все новости →".html_safe, publications_path
-            / end of "last_news"
-    / end of "page_block"
-
-
-    .page_block.tele_block
-      .block_hd Телевидение «Справедливая Кубань»
-      .block_content
-        = render :partial => "teles/onmain"
-        .clear
-    / end of "page_block"
-
+    = render :partial => "index_slider"
+    = render :partial => "index_news"
+    = render :partial => "teles/onmain"
 
 #navigation
-  .page_block
-    -cache ('lastest_comments') do
-      .block_hd Свежие комментарии
-      .block_content.comment_block
-        - Comment.get_lastest.each do |comment|
-          %p.short_comment
-            = truncate(comment.body, :length => 120)
-            %br/
-            %a.u_pic{:href => "#"}
-              - if (comment.autor)
-                = comment.autor
-              - else
-                Анонимов А.А.
-            |
-            \#{link_to "статья", comment.commentable}
-  / end of "page_block"
+  = render :partial => "index_comments"
   = render :partial => "tweets"
   -cache ('right_banner') do
     = render :partial => "banners/outbanner", :locals => {:place => "right"}
 
 #extra
-  .page_block
-    .block_hd Книга жалоб
-    .block_content.complaint_block
-      -cache ('last_complaints') do
-        -@last_complaints = Complaint.last_complains
-        -if @last_complaints.length > 0      
-          -@last_complaints.each do |complaint|
-            %p.short_complaint
-              =link_to complaint.title, complaint
-          %p.short_complaint= link_to "Все жалобы &rarr;".html_safe, "/complaints/"
-          %br
-        Власть не отвечает вам? пишите в редакцию!        
-        %a{:href => "/complaints/new", :style => "display: block; margin-top: 10px;"}
-          %img{:src => "/assets/write_2.png"}/
-    / end of "page_block"
-  / end of "extra"
-  -cache ('interview_index') do
-  -@index_interviews = Interview.index
-    -if @index_interviews.length > 0
-      .page_block
-        .block_hd Online интервью
-        .block_content.conf
-          %ul
-            - @index_interviews.each do |interview|
-              %li
-                %h2= link_to interview.title, interview_path(interview)
-                = interview.intro
-                %br/
-                %span.grey= l interview.created_at, :format => :ngkub
-                - if (interview.openquest)
-                  %a.ask{:href => interview_path(interview)}
-                    %img{:src => "/assets/ask.png"}/
-            %li{:style => "margin-bottom: 0px;"}
-              = link_to "Все интервью →".html_safe, interviews_path
-  -cache ('index_hero') do
-    -@day_hero = Hero.last
-    -if false && @day_hero
-      .page_block
-        .block_hd Герой дня
-        .block_content.hero
-          = image_tag @day_hero.heropic.url(:thumb)
-          %div
-            %h2
-              = link_to @day_hero.title, hero_path(@day_hero)
-            %span.grey= @day_hero.profession
-            %p
-              = @day_hero.intro
-              = link_to raw("Узнать про героя →"), hero_path(@day_hero)
-
-  
-  
+  = render :partial => "index_complaints"    
+  = render :partial => "index_interviews"
+  = render :partial => "day_hero"
 
   -cache ('left_banner') do
     = render :partial => "banners/outbanner", :locals => {:place => "left"}

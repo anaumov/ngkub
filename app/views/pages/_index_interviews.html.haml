@@ -1,0 +1,19 @@
+-cache ('interview_index') do
+  -@index_interviews = Interview.index
+  -if @index_interviews.length > 0
+    .page_block
+      .block_hd Online интервью
+      .block_content.conf
+        %ul
+          -@index_interviews.each do |interview|
+            %li
+              =image_tag interview.personpic.url(:thumb)
+              %h2= link_to interview.title, interview_path(interview)
+              = interview.intro
+              %br/
+              %span.grey= l interview.created_at, :format => :ngkub
+              - if (interview.openquest)
+                %a.ask{:href => interview_path(interview)}
+                  %img{:src => "/assets/ask.png"}/
+          %li{:style => "margin-bottom: 0px;"}
+            = link_to "Все интервью →".html_safe, interviews_path

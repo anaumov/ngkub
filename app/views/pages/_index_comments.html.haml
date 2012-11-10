@@ -1,0 +1,15 @@
+.page_block
+  -cache ('lastest_comments') do
+    .block_hd Свежие комментарии
+    .block_content.comment_block
+      - Comment.get_lastest.each do |comment|
+        %p.short_comment
+          = truncate(comment.body, :length => 120)
+          %br/
+          %a.u_pic{:href => "#"}
+            - if (comment.autor)
+              = comment.autor
+            - else
+              Анонимов А.А.
+          |
+          = link_to "статья", comment.commentable

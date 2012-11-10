@@ -124,7 +124,7 @@ ActiveRecord::Schema.define(:version => 20120705150638) do
   create_table "publications", :force => true do |t|
     t.string   "title"
     t.string   "slug"
-    t.text     "body",                 :limit => 2147483647
+    t.text     "body",                 :limit => 4294967295
     t.text     "intro"
     t.datetime "created_at",                                                   :null => false
     t.datetime "updated_at",                                                   :null => false

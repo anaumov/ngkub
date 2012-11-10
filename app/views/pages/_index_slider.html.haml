@@ -1,0 +1,12 @@
+#slides
+  .slider
+    -cache ('slider') do
+      - Publication.slider_pubs.each do |pub|
+        .imgs
+          %a{:href => publication_path(pub)}
+            = image_tag pub.newspic.url(:medium)
+          .head_actual
+            %h1= link_to pub.title, pub
+            \ 
+            %span.date= l pub.created_at, :format => :ngkub
+.clear

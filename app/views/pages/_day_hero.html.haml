@@ -1,0 +1,15 @@
+-cache ('index_hero') do
+  -@day_hero = Hero.last
+  - # герой дня временно отключен
+  -if false && @day_hero
+    .page_block
+      .block_hd Герой дня
+      .block_content.hero
+        = image_tag @day_hero.heropic.url(:thumb)
+        %div
+          %h2
+            = link_to @day_hero.title, hero_path(@day_hero)
+          %span.grey= @day_hero.profession
+          %p
+            = @day_hero.intro
+            = link_to raw("Узнать про героя →"), hero_path(@day_hero)

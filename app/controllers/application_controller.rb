@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :prepare_menu, :except => [ :create, :update, :destroy]
 
   def render_403
      respond_to do |format|
@@ -33,14 +32,4 @@ class ApplicationController < ActionController::Base
       return
     end
    end
-
-private
-  def prepare_menu
-    mmmenu do |top|
-      top.add :reklama, "/reklama"
-      top.add :contact_us, "/email_us"
-    end 
-  end
-    
-
 end
