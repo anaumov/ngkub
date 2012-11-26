@@ -1,21 +1,19 @@
 .page_block
-  -cache ('main_theme') do
-    .block_hd Свежий номер
-    .block_content
-      -@main_theme = Publication.onmain
-      .hot_news
-        = image_tag @main_theme.newspic.url(:thumb)
-        %div
-          %h1= link_to @main_theme.title, @main_theme
-          \ 
-          %span.date= l @main_theme.created_at, :format => :ngkub
-        %p= strip_tags @main_theme.intro
+  .block_hd Свежий номер
+  .block_content
+    -@main_theme = Publication.onmain
+    .hot_news
+      = image_tag @main_theme.newspic.url(:thumb)
+      %div
+        %h1= link_to @main_theme.title, @main_theme
+        \ 
+        %span.date= l @main_theme.created_at, :format => :ngkub
+      %p= strip_tags @main_theme.intro
 
-      -cache ('last_news') do
-        .last_news
-          - Publication.indexpubs.each do |pub|
-            %p
-              = link_to pub.title, pub
-              %span.time= pub.created_at.strftime("%H:%M")
-            %p
-              = link_to "Все новости →".html_safe, publications_path
+    
+    .last_news
+      - Publication.indexpubs.each do |pub|
+        %p
+          = link_to pub.title, pub
+          %span.time= pub.created_at.strftime("%H:%M")
+      = link_to "Все новости →".html_safe, publications_path
