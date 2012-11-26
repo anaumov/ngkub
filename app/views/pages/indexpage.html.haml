@@ -1,4 +1,4 @@
-- title "Самое главное"
+- title "новости, статьи, интервью Краснодара"
 #wrapper
   #content
     = render :partial => "index_slider"
@@ -6,14 +6,19 @@
     = render :partial => "teles/onmain"
 
 #navigation
-  = render :partial => "index_comments"
+  -cache ('lastest_comments') do
+    = render_cell :index_page, :comments
+
   = render :partial => "tweets"
   -cache ('right_banner') do
     = render :partial => "banners/outbanner", :locals => {:place => "right"}
 
 #extra
-  = render :partial => "index_complaints"    
-  = render :partial => "index_interviews"
+  = render :partial => "index_complaints"
+
+  -cache ('interview_index') do    
+    = render_cell :index_page, :interviews
+
   = render :partial => "day_hero"
 
   -cache ('left_banner') do

@@ -26,6 +26,7 @@ attr_accessible :title, :body, :slug, :intro, :category, :category_id, :newspic,
    slug
   end
 
+  #TODO вынести в scope
   def self.get_related(publication)
     Publication.find(:all, :conditions => ['publish = ? AND id != ?', true, publication.id], :order => "created_at DESC", :limit => 5)
   end

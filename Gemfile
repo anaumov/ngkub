@@ -36,6 +36,8 @@ gem 'devise'
 gem "paperclip", "~> 3.0"
 gem "twitter"
 
+gem "cells"
+
 
 gem "omniauth-facebook"
 

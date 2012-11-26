@@ -31,6 +31,9 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
+    cells (3.8.0)
+      actionpack (~> 3.0)
+      railties (~> 3.0)
     ckeditor (3.7.0.rc3)
       mime-types (~> 1.17.2)
       orm_adapter (~> 0.0.6)
@@ -191,6 +194,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  cells
   ckeditor (= 3.7.0.rc3)
   coffee-rails (~> 3.2.1)
   devise
