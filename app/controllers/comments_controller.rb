@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
   cache_sweeper :comment_sweeper 
 
   def create
+    raise 'Spambot welcomes!' if params[:email] != ""     
     if simple_captcha_valid?
       @comment = Comment.create(params[:comment])
       if @comment.errors.empty?

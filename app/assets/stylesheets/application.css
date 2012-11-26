@@ -543,6 +543,9 @@ label.boolean{
 div.new_comment{
   display: none;
   }
+div.new_comment #email{
+  display: none;
+  }
 span.add_comment,
 span.add_comment_bottom{
   color: #0072BB;

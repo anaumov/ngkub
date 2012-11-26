@@ -5,6 +5,7 @@
     = f.input :commentable_id, :input_html => {:value => commentable.id}, :as => :hidden  
     = f.input :commentable_type, :input_html => {:value => commentable.class}, :as => :hidden 
     = f.input :autor, :label => 'Ваше имя' 
+    = text_field_tag 'email'
     = f.input :body, :as => :text, :label => 'Комментарий'
     = render partial: "comments/capcha"
     %br/
