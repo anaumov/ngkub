@@ -18,10 +18,11 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'therubyracer'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'uglifier', '>= 1.0.3' #TODO разобраться зачем он нужен
   gem 'jquery-rails'
   gem "twitter-bootstrap-rails"
   gem 'execjs' #TODO разобраться зачем он нужен
+  gem "ckeditor", "3.7.3"
 end
 
 
@@ -29,7 +30,6 @@ gem 'less-rails-bootstrap'
 gem 'haml'
 
 gem "simple_form", "~> 2.0.1"
-gem "ckeditor", "3.7.0.rc3"
 gem "galetahub-simple_captcha", :require => "simple_captcha"
 
 gem 'devise'
