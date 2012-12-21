@@ -21,7 +21,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3' #TODO разобраться зачем он нужен
   gem 'jquery-rails'
   gem "twitter-bootstrap-rails"
-  gem 'execjs' #TODO разобраться зачем он нужен
+  gem 'execjs'
   gem "ckeditor", "3.7.3"
 end
 

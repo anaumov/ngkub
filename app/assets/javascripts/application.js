@@ -12,9 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require ckeditor/init
 //= require_tree .
 //= require_self
 //= require twitter/bootstrap
+
+  
 $(document).ready(function(){
   $('#slides').slides({
 			preload: true,
