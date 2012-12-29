@@ -9,11 +9,24 @@ gem 'mysql2'
 gem 'thinking-sphinx', '2.0.10'
 gem 'rails-i18n'
 gem 'will_paginate', '~> 3.0'
+gem 'less-rails-bootstrap'
+gem 'haml'
+gem "simple_form", "~> 2.0.1"
+gem "galetahub-simple_captcha", :require => "simple_captcha", :git => 'git://github.com/galetahub/simple-captcha.git'
+gem 'devise'
+gem "paperclip", "~> 3.0"
+gem "twitter"
+gem "cells"
+gem "omniauth-facebook"
+gem "activeadmin"
 
 
+# Use unicorn as the app server
+# gem 'unicorn'
 
-# Gems used only for assets and not required
-# in production environments by default.
+# Deploy with Capistrano
+# gem 'capistrano'
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -24,32 +37,6 @@ group :assets do
   gem 'execjs'
   gem "ckeditor", "3.7.3"
 end
-
-
-gem 'less-rails-bootstrap'
-gem 'haml'
-
-gem "simple_form", "~> 2.0.1"
-gem "galetahub-simple_captcha", :require => "simple_captcha"
-
-gem 'devise'
-gem "paperclip", "~> 3.0"
-gem "twitter"
-
-gem "cells"
-
-
-gem "omniauth-facebook"
-
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test, :development do
   gem 'sqlite3'
