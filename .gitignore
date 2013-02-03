@@ -18,5 +18,6 @@
 /public/images/**/*
 /public/system/**/*
 /public/ckeditor_assets/**/*
-
+/public/system/*
+/public/assets/*
 /config/database.yml
