@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
    end
     
    def check_user
-     unless current_user and current_user.admin?
+     unless current_user
       render_404
       return
     end

@@ -9,7 +9,8 @@
   = f.input :questpub, :label => 'Опубликовать ответы?' 
   = f.input :intro, :label => 'Превью'
   %label Полный текст  
-  = f.cktext_area :body, :toolbar => 'Full', :width => 900, :height => 500 
+  -#f.cktext_area :body, :toolbar => 'Ngkub'
+  =f.input :body
   %label Фото
   = f.file_field :personpic
   = f.submit :class => 'btn btn-primary', :value => "Опубликовать"

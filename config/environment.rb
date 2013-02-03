@@ -6,6 +6,6 @@ Encoding.default_external = Encoding::UTF_8
 Ngkub::Application.initialize!
 
 
-Ngkub::Application.config.gem(
-  'thinking-sphinx', :version => '1.4.10'
-)
+#Ngkub::Application.config.gem(
+#  'thinking-sphinx', :version => '1.4.10'
+#)

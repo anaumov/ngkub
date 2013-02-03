@@ -62,7 +62,7 @@
 		<div class="menu_wrap">
 			<ul class="main_menu menu">
 				<%= render :partial => "categories/topmenu" %>
-				<li class="search">
+				<li class="search" style="display:none;">
           <%= form_tag("/search", :method => "get") do %>
             <%= text_field_tag(:query) %>
           <% end %>

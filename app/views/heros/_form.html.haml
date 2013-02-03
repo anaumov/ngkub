@@ -7,7 +7,8 @@
   = f.input :slug, :label => 'Ссылка' 
   = f.input :intro, :as => :text, :label => 'Превью' 
   %label Полный текст  
-  =f.cktext_area :body, :toolbar => 'Full', :width => 900, :height => 500
+  -#f.cktext_area :body, :toolbar => 'Ngkub'
+  =f.input :body
   %label Фото героя    
   = f.file_field :heropic
   = f.submit :class => 'btn btn-primary', :value => "Опубликовать"

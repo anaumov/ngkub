@@ -4,7 +4,7 @@ Ngkub::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  mount Ckeditor::Engine => '/ckeditor'
+  #mount Ckeditor::Engine => '/ckeditor'
 
   match '/adminka/comments' => 'adminka#comments'
   devise_for :users

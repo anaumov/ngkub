@@ -13,14 +13,14 @@ attr_accessible :title, :body, :slug, :intro, :category, :category_id, :newspic,
   has_many :comments, :as => :commentable
   belongs_to :category
 
-  define_index do
+  #define_index do
     # fields
-    indexes title
-    indexes body
+  #  indexes title
+  #  indexes body
     
     # attributes
-    has created_at
-  end
+  #  has created_at
+  #end
 
   def to_param
    slug

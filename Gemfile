@@ -6,10 +6,9 @@ gem 'rails', '3.2.3'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-gem 'thinking-sphinx', '2.0.10'
+#gem 'thinking-sphinx', '2.0.10'
 gem 'rails-i18n'
 gem 'will_paginate', '~> 3.0'
-gem 'less-rails-bootstrap'
 gem 'haml'
 gem "simple_form", "~> 2.0.1"
 gem "galetahub-simple_captcha", :require => "simple_captcha", :git => 'git://github.com/galetahub/simple-captcha.git'
@@ -19,23 +18,20 @@ gem "twitter"
 gem "cells"
 gem "omniauth-facebook"
 gem "activeadmin"
+gem 'unicorn'
+gem 'capistrano'
 
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
+gem 'less-rails-bootstrap'
+gem 'therubyracer'
+gem 'jquery-rails'
+gem "twitter-bootstrap-rails"
+gem 'execjs'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'therubyracer'
   gem 'uglifier', '>= 1.0.3' #TODO разобраться зачем он нужен
-  gem 'jquery-rails'
-  gem "twitter-bootstrap-rails"
-  gem 'execjs'
-  gem "ckeditor", "3.7.3"
+ # gem "ckeditor"
 end
 
 group :test, :development do
