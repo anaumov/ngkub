@@ -19,13 +19,8 @@ gem "twitter"
 gem "cells"
 gem "omniauth-facebook"
 gem "activeadmin"
-
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
+gem 'unicorn'
+gem 'capistrano'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
