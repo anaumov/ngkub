@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/galetahub/ckeditor.git
+  revision: d317bd7aa06bc96ebdb3ee7eb9eaff1d51f1682c
+  specs:
+    ckeditor (4.0.2)
+      mime-types
+      orm_adapter
+
+GIT
   remote: git://github.com/galetahub/simple-captcha.git
   revision: a0c997c109c350b6000a082f6c715bf9c659e4ec
   specs:
@@ -248,6 +256,7 @@ DEPENDENCIES
   activeadmin
   capistrano
   cells
+  ckeditor!
   coffee-rails (~> 3.2.1)
   devise
   execjs

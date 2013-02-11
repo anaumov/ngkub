@@ -26,12 +26,12 @@ gem 'therubyracer'
 gem 'jquery-rails'
 gem "twitter-bootstrap-rails"
 gem 'execjs'
+gem "ckeditor", :git => 'git://github.com/galetahub/ckeditor.git'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3' #TODO разобраться зачем он нужен
- # gem "ckeditor"
 end
 
 group :test, :development do
