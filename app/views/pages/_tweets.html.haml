@@ -13,8 +13,7 @@
           \:
           \#{tweet.text}
           %p.tweet_time
-            = distance_of_time_in_words_to_now(tweet.created_at)
-            назад
+            -# distance_of_time_in_words_to_now(tweet.created_at) назад
     %a{:href => "http://twitter.com/#!/novgaz_kuban"}
       %img{:src => "/assets/follow_us.png"}/
 / end of "page_block"

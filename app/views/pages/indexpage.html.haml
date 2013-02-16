@@ -9,7 +9,7 @@
   -cache ('lastest_comments') do
     = render_cell :index_page, :comments
 
-  -# render :partial => "tweets"
+  =render :partial => "tweets"
   -cache ('right_banner') do
     = render :partial => "banners/outbanner", :locals => {:place => "right"}
 

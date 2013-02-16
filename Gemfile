@@ -8,6 +8,7 @@ gem 'rails', '3.2.3'
 gem 'mysql2'
 #gem 'thinking-sphinx', '2.0.10'
 gem 'rails-i18n'
+gem 'russian', '~> 0.6.0'
 gem 'will_paginate', '~> 3.0'
 gem 'haml'
 gem "simple_form", "~> 2.0.1"
