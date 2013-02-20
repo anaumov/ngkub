@@ -1,0 +1,11 @@
+.right_side
+  %div.page_block
+    %div.block_hd В этом  месяце:
+    %div.block_content#calendar
+      -#%h3= l @date, :format => :month
+      = calendar @date do |date|
+        - if @news_by_date[date]
+          = link_to date.day, publications_path(date: date, category_id: @category.id)  
+        - else        
+          = date.day
+

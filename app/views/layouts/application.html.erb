@@ -20,16 +20,16 @@
 <body>
 
 <% if user_signed_in? %>
-<div class="top_nav">
-  <ul class="menu rule">
-    <li><%= link_to('Добавить новость', new_publication_path) %></li>      
-    <li><%= link_to('Добавить героя', new_hero_path) %></li>      
-    <li><%= link_to('Добавить интервью', new_interview_path) %></li>      
-    <li><%= link_to('Добавить телепрограмму', new_tele_path) %></li>   
-    <li><%= link_to('Выйти', destroy_user_session_path(current_user)) %></li>      
-  </ul>
-  <div class="clear"></div>
-</div>
+  <div class="top_nav">
+    <ul class="menu rule">
+      <li><%= link_to('Добавить новость', new_publication_path) %></li>      
+      <li><%= link_to('Добавить героя', new_hero_path) %></li>      
+      <li><%= link_to('Добавить интервью', new_interview_path) %></li>      
+      <li><%= link_to('Добавить телепрограмму', new_tele_path) %></li>   
+      <li><%= link_to('Выйти', destroy_user_session_path(current_user)) %></li>      
+    </ul>
+    <div class="clear"></div>
+  </div>
 <% end %>
 
 <div id="container">

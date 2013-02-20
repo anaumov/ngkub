@@ -21,6 +21,7 @@
 
   = render :partial => "comments/output", :locals => {:commentable => @publication}
 
+-#TODO вынести в cell
 -cache('pub_related') do
   -@related_pubs = Publication.get_related(@publication)
   -if @related_pubs

@@ -40,6 +40,8 @@ ru:
       default: ! '%d.%m.%Y'
       long: ! '%d %B %Y'
       short: ! '%d %b'
+      ngkub: ! '%B %Y'
+      month: ! '%B'
     month_names:
     - 
     - января

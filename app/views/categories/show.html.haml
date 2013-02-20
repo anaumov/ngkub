@@ -14,3 +14,4 @@
         %div.text_body
           = strip_tags publication.intro
           = link_to "Полная версия &rarr;".html_safe, publication
+= render_cell :calendar, :category, @category

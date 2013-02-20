@@ -107,12 +107,7 @@ class PublicationsController < ApplicationController
                     created_at: date
                     )
                 end
-                end
-
-
-
-
-
+              end
       end
     end
   end
@@ -137,7 +132,11 @@ class PublicationsController < ApplicationController
   end
 
   def index
-    @publications = Publication.paginate(:page => params[:page], :order => "created_at DESC")
+    if params[:date]
+      @publications = Publication.where(published_on: params[:date], category_id: params[:category_id]).paginate(:page => params[:page], :order => "created_at DESC")    
+    else
+      @publications = Publication.paginate(:page => params[:page], :order => "created_at DESC")
+    end
 
     unless @publications
       flash[:notice] = "No publications found"
@@ -178,6 +177,15 @@ class PublicationsController < ApplicationController
     @publication = Publication.find(:all, :order => "id DESC", :limit => 20)
     render :layout => false
     response.headers["Content-Type"] = "application/xml; charset=utf-8"
+  end
+
+  def archive
+    if params[:date]
+      @date = Date.parse(params[:date])
+    else
+      @date = Date.today
+    end
+    @news_by_date = Publication.month(@date).all.group_by(&:published_on)
   end
 
 end

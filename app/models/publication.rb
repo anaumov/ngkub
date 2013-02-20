@@ -1,6 +1,6 @@
 class Publication < ActiveRecord::Base
 attr_accessible :title, :body, :slug, :intro, :category, :category_id, :newspic, :onmain, :created_at, 
-                  :publish, :old_id, :issue
+                  :publish, :old_id, :issue, :published_on
 
   has_attached_file :newspic, :styles => { :medium => "537x358#", :thumb => "185x125"}, :default_url => "/assets/missing.png" 
 
@@ -12,15 +12,10 @@ attr_accessible :title, :body, :slug, :intro, :category, :category_id, :newspic,
 
   has_many :comments, :as => :commentable
   belongs_to :category
+  after_create :set_published
 
-  #define_index do
-    # fields
-  #  indexes title
-  #  indexes body
-    
-    # attributes
-  #  has created_at
-  #end
+  scope :this_month, where(published_on: [Date.today.at_beginning_of_month..Date.today.at_end_of_month])
+  scope :month, lambda{|day| where(published_on: [day.at_beginning_of_month..day.at_end_of_month])}
 
   def to_param
    slug
@@ -43,7 +38,10 @@ attr_accessible :title, :body, :slug, :intro, :category, :category_id, :newspic,
     Publication.where(:onmain => true, :publish => true)
   end
 
-
+private
+  def set_published
+    self.update_attribute(:published_on, created_at.to_date)
+  end
 
  
 end

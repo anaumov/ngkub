@@ -39,4 +39,5 @@ group :test, :development do
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'factory_girl'
+  gem 'debugger'
 end
