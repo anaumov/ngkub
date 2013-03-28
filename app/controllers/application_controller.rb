@@ -3,33 +3,21 @@ class ApplicationController < ActionController::Base
 
   def render_403
      respond_to do |format|
-       format.html { render :file => "#{Rails.root}/public/403.html",
-:status => 403, :layout => false }
-       format.json { render :json => { :type => "error", :message =>
-"Error 403, you don't have permissions for this operation." } }
+       format.html { render "#{Rails.root}/public/403.html", status: 403, layout: false }
      end
    end
 
    def render_404
      respond_to do |format|
-       format.html { render :file => "#{Rails.root}/public/404.html",
-:status => 404, :layout => false }
-       format.json { render :json => { :type => "error", :message =>
-"Error 404, resource was not found." } }
+       format.html { render "#{Rails.root}/public/404.html", status: 404, layout: false }
      end
    end
     
    def check_user
-     unless current_user
-      render_404
-      return
-    end
+     return render_404 unless current_user
    end
 
    def check_publish(pub)
-    unless pub.publish? || !check_user  
-      render_404
-      return
-    end
+     return render_404 unless pub.publish? || !check_user
    end
 end
