@@ -10,7 +10,7 @@
     %p= @interview.body.html_safe
     -if (@interview.questpub)
       = render :partial => "layouts/social"
-    -if (!@interview.questpub)
+    -if false && (!@interview.questpub)
       %p
         Ориентировочная дата публикации 
         = @interview.pubdate
